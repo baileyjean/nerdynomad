@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm install && npx sequelize-cli db:migrate && cd client && rm -rf build && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "mapbox-gl": "^2.3.1",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.12",
     "pg": "^8.6.0",
     "sequelize": "^6.6.5",
     "sequelize-cli": "^6.2.0"

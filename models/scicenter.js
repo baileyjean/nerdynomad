@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   class SciCenter extends Model {
     static associate(models) {
       SciCenter.belongsTo(models.User, {
-        foreignKey: 'owner_id',
+        foreignKey: 'user_id',
 
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
