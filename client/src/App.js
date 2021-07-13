@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import SignUpOrIn from './pages/SignUpOrIn'
 import Profile from './pages/Profile'
 import BrowseResults from './pages/BrowseResults'
+import SciCenter from './pages/SciCenter'
 
 
 
@@ -63,6 +64,16 @@ function App() {
           path="/user/:user_id"
           component={(props) => (
             <Profile {...props} loggedIn={loggedIn} userID={userID} />
+          )}
+        />
+        <Route 
+          path="/science-center/:scicenter_id"
+          component={(props) => (
+            <SciCenter 
+              {...props}
+              history={history}
+              setUserID={userID}
+            />
           )}
         />
       </Switch>

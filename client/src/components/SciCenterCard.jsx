@@ -10,7 +10,7 @@ const SciCenterCard = (props) => {
       <p>Website: {props.website}</p>
       <p>Description: {props.description}</p>
       <button onClick={() => {
-        props.history.push(`/scicenter/${props.id}`)
+        props.props.history.push(`/science-center/${props.id}`)
       }}><span>Check It Out</span></button>
     </div>
   )
