@@ -39,10 +39,11 @@ const GetSciCenterByUserId = async (req, res) => {
 
 const GetSciCenterByState = async (req, res) => {
   try {
-    let sciCenterState = req.params.query
+    let sciCenterState = req.params.state
     let sciCentersByState = await SciCenter.findAll({
-      where: { state: sciCenterState },
-      returning: true
+      where: { state: {
+        [Op.eq]: sciCenterState
+      }}
     })
     res.send(sciCentersByState)
   } catch (error) {
