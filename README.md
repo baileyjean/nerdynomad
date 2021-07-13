@@ -47,24 +47,24 @@
 - [] React Rainbow
 
 ## Backend Requirements
-- [] User Authentication
-- [] POST - 'Create' user profile
-- [] POST - 'Create' science center
-- [] POST - 'Create' comment
-- [] POST - 'Create' rating
-- [] GET - 'Read' all science centers
-- [] GET - 'Read' searched science centers
-- [] GET - 'Read' science centers by state
-- [] GET - 'Read' science centers by user id
-- [] GET - 'Read' comments on a science center page
-- [] PUT - 'Update' science center
-- [] PUT - 'Update' user profile
-- [] PUT - 'Update' comment
-- [] PUT - 'Update' rating
-- [] DELETE - 'Delete' science center
-- [] DELETE - 'Delete' user profile
-- [] DELETE - 'Delete' comment
-- [] DELETE - 'Delete' rating
+- [X] User Authentication
+- [X] POST - 'Create' user profile
+- [X] POST - 'Create' science center
+- [X] POST - 'Create' comment
+- [X] POST - 'Create' rating
+- [X] GET - 'Read' all science centers
+- [X] GET - 'Read' searched science centers
+- [X] GET - 'Read' science centers by state
+- [X] GET - 'Read' science centers by user id
+- [X] GET - 'Read' comments on a science center page
+- [X] PUT - 'Update' science center
+- [X] PUT - 'Update' user profile
+- [X] PUT - 'Update' comment
+- [X] PUT - 'Update' rating
+- [X] DELETE - 'Delete' science center
+- [X] DELETE - 'Delete' user profile
+- [X] DELETE - 'Delete' comment
+- [X] DELETE - 'Delete' rating
 
 ***
 
