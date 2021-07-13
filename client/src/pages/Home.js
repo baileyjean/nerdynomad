@@ -4,7 +4,12 @@ import React, { useEffect, useState } from 'react'
 
 const Home = (props) => {
   // const { userID, sciCenters, sciCenterRatings, keyword } = props
-  const { userID } = props
+  // STATE
+  const { userID, loggedIn, sciCenters } = props
+
+  // FUNCTIONS & AXIOS CALLS
+  
+
 
   // FOR LATER: grab user's location and show science centers near them!
   // const getUserLocation = async () => {
@@ -18,7 +23,7 @@ const Home = (props) => {
   //   getUserLocation()
   // }, [])
 
-  return userID ? (
+  return loggedIn ? (
     <div className="home-user">
       Welcome Home!
     </div>

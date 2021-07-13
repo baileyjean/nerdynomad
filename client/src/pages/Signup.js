@@ -9,6 +9,7 @@ import {
 } from 'react-rainbow-components'
 
 const SignupPage = (props) => {
+  const { history, setLogIn, setUserID } = props
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -79,7 +80,7 @@ const SignupPage = (props) => {
     } catch (error) {
       console.log(error)
     }
-    props.history.push(`/`)
+    history.push(`/`)
   }
 
   return (

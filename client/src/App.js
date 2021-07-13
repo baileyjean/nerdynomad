@@ -18,7 +18,7 @@ function App() {
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
   // const [keyword, setKeyword] = useState('')
-  // const [sciCenters, setSciCenters] = useState([])
+  const [sciCenters, setSciCenters] = useState([])
   // const [sciCenterRatings, setSciCenterRatings] = useState([])
   const history = useHistory()
 
@@ -44,13 +44,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Nerdy Nomad</h1>
       <Nav 
         loggedIn={loggedIn}
         userID={userID}
         setUserID={setUserID}
         logOut={logOut}
       />
+      <h1>Nerdy Nomad</h1>
       <Switch>
         <Route
           exact path="/"
@@ -58,6 +58,8 @@ function App() {
             <Home
               {...props}
               userID={userID}
+              loggedIn={loggedIn}
+              sciCenters={sciCenters}
             />
           )}
         />
@@ -74,7 +76,12 @@ function App() {
         />
         <Route
           path="/signup"
-          component={(props) => <Signup {...props} />}
+          component={(props) => (
+            <Signup 
+              {...props}
+              history={history}
+              setUserID={setUserID}
+            />)}
         />
         <Route
           path="/user/:user_id"

@@ -9,7 +9,7 @@ const LoginPage = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  // FUNCTIONS
+  // FUNCTIONS & AXIOS CALLS
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
@@ -25,6 +25,7 @@ const LoginPage = (props) => {
       })
       setUserID(res.data.user.id)
       localStorage.setItem('token', res.data.token)
+      history.push('/')
       setLogIn(true)
     } catch (error) {
       alert(error.message)
@@ -42,7 +43,7 @@ const LoginPage = (props) => {
     }
   }
 
-    // ON LOAD
+  // ON LOAD
   useEffect(() => {
     getToken()
   }, [])
