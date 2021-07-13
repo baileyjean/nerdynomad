@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom'
 
 const NavBar = (props) => {
   const { loggedIn, logOut, userID } = props
-  console.log(props)
 
   return loggedIn ? (
     <header>

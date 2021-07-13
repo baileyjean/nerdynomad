@@ -3,7 +3,7 @@ import { BASE_URL } from '../globals.js'
 import React, { useState, useEffect } from 'react'
 import { Input, Button, StrongPasswordInput, Textarea } from 'react-rainbow-components'
 
-const LoginPage = (props) => {
+const SignUpOrIn = (props) => {
   // STATE
   const { history, setLogIn, setUserID } = props
   const [email, setEmail] = useState('')
@@ -202,4 +202,4 @@ const LoginPage = (props) => {
     </div>
   )
 }
-export default LoginPage
+export default SignUpOrIn
