@@ -62,9 +62,6 @@ const SignUpOrIn = (props) => {
 
   const passwordState = getStrength()
 
-  // const handleSignUp = () => {
-  //   history.push('/signup')
-  // }
   const handleSignUp = async (e) => {
     e.preventDefault()
     try {

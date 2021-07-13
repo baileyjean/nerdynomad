@@ -4,6 +4,7 @@ import { BASE_URL } from '../globals'
 
 const SciCenter = (props) => {
   const [sciCenter, setSciCenter] = useState({})
+
   const getSciCenterInfo = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters/scicenter/${props.match.params.id}`)
     setSciCenter(res.data)
@@ -17,6 +18,8 @@ const SciCenter = (props) => {
   useEffect(() => {
     getSciCenterInfo()
   }, [])
+
+  console.log(sciCenter)
 
   return (
     <div className="sciCenter-page">

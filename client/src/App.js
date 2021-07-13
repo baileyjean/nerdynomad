@@ -50,7 +50,7 @@ function App() {
           )}
         />
         <Route  
-          path="/login"
+          path="/oneofus"
           component={(props) => (
             <SignUpOrIn
               {...props}

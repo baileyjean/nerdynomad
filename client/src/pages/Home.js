@@ -10,6 +10,8 @@ const Home = (props) => {
   const [keyword, setKeyword] = useState('')
   const [sciCenters, setSciCenters] = useState([])
   const [sciCenterRatings, setSciCenterRatings] = useState([])
+  
+  console.log(sciCenters)
 
   // FUNCTIONS & AXIOS CALLS
   const populateSciCenters = async () => {
@@ -58,6 +60,9 @@ const Home = (props) => {
       <div className="sciCenters">
       {sciCenters.map((sciCenter) => (
             <SciCenterCard
+              {...props}
+              history={history}
+              id={sciCenter.id}
               name={sciCenter.name}
               image={sciCenter.image}
               street={sciCenter.street}
@@ -69,9 +74,6 @@ const Home = (props) => {
               description={sciCenter.description}
             />
         ))}
-      </div>
-      <div>
-
       </div>
     </div>
   ) : (
