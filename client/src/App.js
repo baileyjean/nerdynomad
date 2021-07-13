@@ -11,34 +11,37 @@ import Profile from './pages/Profile'
 import Signup from './pages/Signup'
 import BrowseResults from './pages/BrowseResults'
 
-// STATE
-const [loggedIn, setLogIn] = useState(false)
-const [userID, setUserID] = useState('')
-// const [keyword, setKeyword] = useState('')
-// const [sciCenters, setSciCenters] = useState([])
-// const [sciCenterRatings, setSciCenterRatings] = useState([])
-const history = useHistory()
 
-// AUTHENTICATION
-const logOut = () => {
-    setLogIn(false)
-    localStorage.clear()
-    history.push('/')
-  }
 
-// FUNCTIONS
-// const handleSearch = async () => {
-//   const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
-//   setPetPosts(res.data)
-//   history.push(`/results/${keyword}`)
-//   setKeyword('')
-// }
-
-//   const handleChangeSearch = (e) => {
-//     let content = e.target.value
-//     setKeyword(`${content}`)
-//   }
 function App() {
+  // STATE
+  const [loggedIn, setLogIn] = useState(false)
+  const [userID, setUserID] = useState('')
+  // const [keyword, setKeyword] = useState('')
+  // const [sciCenters, setSciCenters] = useState([])
+  // const [sciCenterRatings, setSciCenterRatings] = useState([])
+  const history = useHistory()
+
+  // AUTHENTICATION
+  const logOut = () => {
+      setLogIn(false)
+      localStorage.clear()
+      history.push('/')
+    }
+
+  // FUNCTIONS
+  // const handleSearch = async () => {
+  //   const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
+  //   setPetPosts(res.data)
+  //   history.push(`/results/${keyword}`)
+  //   setKeyword('')
+  // }
+
+  //   const handleChangeSearch = (e) => {
+  //     let content = e.target.value
+  //     setKeyword(`${content}`)
+  //   }
+
   return (
     <div className="App">
       <h1>Nerdy Nomad</h1>

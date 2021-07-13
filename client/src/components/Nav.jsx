@@ -22,7 +22,7 @@ const NavBar = (props) => {
       <NavLink to={"/"}>Home</NavLink>
       {/* Add Smol Logo */}
       <nav>
-        <NavLink to="/browse">Browse Science Centers</NavLink>
+        {/* <NavLink to="/browse">Browse Science Centers</NavLink> */}
         <NavLink to="/login">Login/Signup</NavLink>
       </nav>
     </header>

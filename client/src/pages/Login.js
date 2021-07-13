@@ -34,8 +34,7 @@ const LoginPage = (props) => {
     history.push('/signup')
   }
 
-  const getToken = async() => {
-    let token = localStorage.getItem('token')
+  const getToken = async(token) => {
     if (token) {
       const res = await axios.get(`${BASE_URL}/auth/session`)
       setUserID(res.data.id)
@@ -43,7 +42,7 @@ const LoginPage = (props) => {
     }
   }
 
-  // ON LOAD
+    // ON LOAD
   useEffect(() => {
     getToken()
   }, [])
