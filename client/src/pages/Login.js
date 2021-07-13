@@ -1,12 +1,15 @@
-import React, { useState } from 'react'
-import { Input, Button } from 'react-rainbow-components'
 import axios from 'axios'
 import { BASE_URL } from '../globals.js'
+import React, { useState, useEffect } from 'react'
+import { Input, Button } from 'react-rainbow-components'
 
 const LoginPage = (props) => {
+  // STATE
   const { history, setLogIn, setUserID } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  // FUNCTIONS
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
@@ -23,16 +26,30 @@ const LoginPage = (props) => {
       setUserID(res.data.user.id)
       localStorage.setItem('token', res.data.token)
       setLogIn(true)
-      history.push(`/home/${res.data.user.id}`)
-    } catch (e) {
-      alert(e.message)
+    } catch (error) {
+      alert(error.message)
     }
   }
   const handleSignUp = () => {
-    history.push('/sign-up')
+    history.push('/signup')
   }
+
+  const getToken = async() => {
+    let token = localStorage.getItem('token')
+    if (token) {
+      const res = await axios.get(`${BASE_URL}/auth/session`)
+      setUserID(res.data.id)
+      return setLogIn(true)
+    }
+  }
+
+  // ON LOAD
+  useEffect(() => {
+    getToken()
+  }, [])
+
   return (
-    <div className="loginpage">
+    <div className="login">
       <form>
         <Input
           type="email"
@@ -47,7 +64,7 @@ const LoginPage = (props) => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
-        <div style={{marginTop:'20px'}}>
+        <div>
           <Button label="Sign Up" variant="border" onClick={handleSignUp} />
           <Button label="Log In" variant="border" onClick={handleLogin}/>
         </div>

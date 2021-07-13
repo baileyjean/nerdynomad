@@ -3,27 +3,27 @@ import { NavLink } from 'react-router-dom'
 // import logo from '../styles/images/<logohere>'
 
 const NavBar = (props) => {
-  const {
-    // loggedIn,
-    // logOut,
-    userID
-  } = props
-
+  const { loggedIn, logOut, userID } = props
   console.log(props)
-  return (
+
+  return loggedIn ? (
     <header>
-      <NavLink to={`/home/${userID}`}>
-        <img src={logo} alt="logo" height="80" />
-      </NavLink>
+      <NavLink to={"/"}>Home</NavLink>
+      {/* Add Smol Logo */}
       <nav>
         <NavLink to="/browse">Browse Science Centers</NavLink>
         <NavLink to={`/new-scicenter/${userID}`}>Add a Science Center</NavLink>
-        {/* ADD CONDITIONAL RENDERING FOR PROFILE BUTTON - {loggedIn ? <YourProfileButton> : <signinButton>} */}
-        {/* <NavLink to={`/user-profile/${userID}`}>Your Profile</NavLink> */}
-        {/* ADD CONDITIONAL RENDERING FOR LOGOUT BUTTON - {loggedIn ? <logoutButton> : <signupButton>} */}
-        {/* <button id="logout" onClick={logOut}>
-          Logout
-        </button> */}
+        <NavLink to={`/user/${userID}`}>Your Profile </NavLink>
+        <button id="logout" onClick={logOut}> Logout </button>
+      </nav>
+    </header>
+  ) : (
+    <header>
+      <NavLink to={"/"}>Home</NavLink>
+      {/* Add Smol Logo */}
+      <nav>
+        <NavLink to="/browse">Browse Science Centers</NavLink>
+        <NavLink to="/login">Login/Signup</NavLink>
       </nav>
     </header>
   )
