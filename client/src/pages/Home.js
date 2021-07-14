@@ -10,57 +10,57 @@ const Home = (props) => {
   const [sciCenters, setSciCenters] = useState([])
   const [sciCenterRatings, setSciCenterRatings] = useState([])
   const unitedStates = [
-    { display: "Alabama", value: "Alabama" },
-    { display: "Alaska", value: "Alaska" },
-    { display: "Arizona", value: "Arizona" },
-    { display: "Arkansas", value: "Arkansas" },
-    { display: "California", value: "California" },
-    { display: "Colorado", value: "Colorado" },
-    { display: "Connecticut", value: "Connecticut" },
-    { display: "Delaware", value: "Delaware" },
-    { display: "District of Columbia (DC)", value: "DC" },
-    { display: "Florida", value: "Florida" },
-    { display: "Georgia", value: "Georgia" },
-    { display: "Hawaii", value: "Hawaii" },
-    { display: "Idaho", value: "Idaho" },
-    { display: "Illinois", value: "Illinois" },
-    { display: "Indiana", value: "Indiana" },
-    { display: "Iowa", value: "Iowa" },
-    { display: "Kansas", value: "Kansas" },
-    { display: "Kentucky", value: "Kentucky" },
-    { display: "Louisiana", value: "Louisiana" },
-    { display: "Maine", value: "Maine" },
-    { display: "Maryland", value: "Maryland" },
-    { display: "Massachusetts", value: "Massachusetts" },
-    { display: "Michigan", value: "Michigan" },
-    { display: "Minnesota", value: "Minnesota" },
-    { display: "Mississippi", value: "Mississippi" },
-    { display: "Missouri", value: "Missouri" },
-    { display: "Montana", value: "Montana" },
-    { display: "Nebraska", value: "Nebraska" },
-    { display: "Nevada", value: "Nevada" },
-    { display: "New Hampshire", value: "NewHampshire" },
-    { display: "New Jersey", value: "NewJersey" },
-    { display: "New Mexico", value: "NewMexico" },
-    { display: "New York", value: "NewYork" },
-    { display: "North Carolina", value: "NorthCarolina" },
-    { display: "North Dakota", value: "NorthDakota" },
-    { display: "Ohio", value: "Ohio" },
-    { display: "Oklahoma", value: "Oklahoma" },
-    { display: "Oregon", value: "Oregon" },
-    { display: "Pennsylvania", value: "Pennsylvania" },
-    { display: "Rhode Island", value: "RhodeIsland" },
-    { display: "South Carolina", value: "SouthCarolina" },
-    { display: "South Dakota", value: "SouthDakota" },
-    { display: "Tennessee", value: "Tennessee" },
-    { display: "Texas", value: "Texas" },
-    { display: "Utah", value: "Utah" },
-    { display: "Vermont", value: "Vermont" },
-    { display: "Virginia", value: "Virginia" },
-    { display: "Washington", value: "Washington" },
-    { display: "West Virginia", value: "WestVirginia" },
-    { display: "Wisconsin", value: "Wisconsin" },
-    { display: "Wyoming", value: "Wyoming" }
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "DC",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming"
   ]
   
   console.log(sciCenters)
@@ -102,10 +102,10 @@ const Home = (props) => {
       <br />
       <div className="browse-results">
         {unitedStates.map((unitedstate) => (
-          <div className="unitedStates" id={unitedstate.value} onClick={() =>
-            history.push(`/browse-result/${unitedstate.value}`)
+          <div className="unitedStates" id={unitedstate} onClick={() =>
+            history.push(`/browse-result/${unitedstate}`)
           }>
-            <h3>{unitedstate.display}</h3>
+            <h3>{unitedstate}</h3>
           </div>
         ))}
       </div>
@@ -125,10 +125,10 @@ const Home = (props) => {
       <br />
       <div className="browse-results">
         {unitedStates.map((unitedstate) => (
-          <div className="unitedStates" id={unitedstate.value} onClick={() =>
-            history.push(`/browse-result/${unitedstate.value}`)
+          <div className="unitedStates" id={unitedstate} onClick={() =>
+            history.push(`/browse-result/${unitedstate}`)
           }>
-            <h3>{unitedstate.display}</h3>
+            <h3>{unitedstate}</h3>
           </div>
         ))}
       </div>

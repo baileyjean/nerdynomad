@@ -40,3 +40,5 @@ const BrowseResults = (props) => {
     </div>
   )
 }
+
+export default BrowseResults;

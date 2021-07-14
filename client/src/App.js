@@ -76,6 +76,16 @@ function App() {
             />
           )}
         />
+        <Route 
+          path="/browse-all"
+          component={(props) => (
+            <BrowseResults 
+              {...props}
+              history={history}
+              setUserID={userID}
+            />
+          )}
+        />
       </Switch>
     </div>
   );
