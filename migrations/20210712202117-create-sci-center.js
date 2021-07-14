@@ -22,60 +22,7 @@ module.exports = {
         allowNull: false
       },
       state: {
-        type: Sequelize.ENUM,
-        values: [
-          'Alabama',
-          'Alaska',
-          'Arizona',
-          'Arkansas',
-          'California',
-          'Colorado',
-          'Connecticut',
-          'Delaware',
-          'District of Columbia (DC)',
-          'Florida',
-          'Georgia',
-          'Hawaii',
-          'Idaho',
-          'Illinois',
-          'Indiana',
-          'Iowa',
-          'Kansas',
-          'Kentucky',
-          'Louisiana',
-          'Maine',
-          'Maryland',
-          'Massachusettes',
-          'Michigan',
-          'Minnesota',
-          'Mississippi',
-          'Missouri',
-          'Montana',
-          'Nebraska',
-          'Nevada',
-          'New Hampshire',
-          'New Jersey',
-          'New Mexico',
-          'New York',
-          'North Carolina',
-          'North Dakota',
-          'Ohio',
-          'Oklahoma',
-          'Oregon',
-          'Pennsylvania',
-          'Rhode Island',
-          'South Carolina',
-          'South Dakota',
-          'Tennessee',
-          'Texas',
-          'Utah',
-          'Vermont',
-          'Virginia',
-          'Washington',
-          'West Virginia',
-          'Wisconsin',
-          'Wyoming'
-        ],
+        type: Sequelize.STRING,
         allowNull: false
       },
       street: {
@@ -87,7 +34,7 @@ module.exports = {
         allowNull: false
       },
       zip: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
       },
       website: {
@@ -111,7 +58,7 @@ module.exports = {
         allowNull: false
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1000),
         allowNull: true
       },
       image: {

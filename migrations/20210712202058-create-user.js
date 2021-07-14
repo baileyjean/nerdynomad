@@ -28,11 +28,11 @@ module.exports = {
         allowNull: false
       },
       location: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: true
       },
       bio: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1000),
         allowNull: true
       },
       image: {
