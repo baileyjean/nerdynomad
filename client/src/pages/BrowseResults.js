@@ -5,7 +5,7 @@ import SciCenterCard from '../components/SciCenterCard'
     
 const BrowseResults = (props) => {
   // STATE
-  const { userID, loggedIn, sciCenters, history } = props
+  const { sciCenters, history } = props
   const [sciCenterRatings, setSciCenterRatings] = useState([])
 
   // FUNCTIONS / AXIOS CALLS

@@ -11,7 +11,7 @@ const NavBar = (props) => {
       {/* Add Smol Logo */}
       <nav>
         <NavLink to="/browse-all">Browse Science Centers</NavLink>
-        <NavLink to={`/new-science-center/${userID}`}>Add a Science Center</NavLink>
+        <NavLink to={`/post-science-center/${userID}`}>Add a Science Center</NavLink>
         <NavLink to={`/user/${userID}`}>Your Profile </NavLink>
         <button id="logout" onClick={logOut}> Logout </button>
       </nav>

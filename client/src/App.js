@@ -10,6 +10,7 @@ import SignUpOrIn from './pages/SignUpOrIn'
 import Profile from './pages/Profile'
 import BrowseResults from './pages/BrowseResults'
 import SciCenter from './pages/SciCenter'
+import PostSciCenter from './pages/PostSciCenter'
 
 function App() {
   // STATE
@@ -17,6 +18,59 @@ function App() {
   const [userID, setUserID] = useState('')
   const [sciCenters, setSciCenters] = useState([])
   const history = useHistory()
+  const unitedStates = [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "DC",
+    "Florida",
+    "Georgia",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana",
+    "Maine",
+    "Maryland",
+    "Massachusetts",
+    "Michigan",
+    "Minnesota",
+    "Mississippi",
+    "Missouri",
+    "Montana",
+    "Nebraska",
+    "Nevada",
+    "New Hampshire",
+    "New Jersey",
+    "New Mexico",
+    "New York",
+    "North Carolina",
+    "North Dakota",
+    "Ohio",
+    "Oklahoma",
+    "Oregon",
+    "Pennsylvania",
+    "Rhode Island",
+    "South Carolina",
+    "South Dakota",
+    "Tennessee",
+    "Texas",
+    "Utah",
+    "Vermont",
+    "Virginia",
+    "Washington",
+    "West Virginia",
+    "Wisconsin",
+    "Wyoming"
+  ]
 
   // AUTHENTICATION
   const logOut = () => {
@@ -33,23 +87,21 @@ function App() {
     }
   }
   
+  // FUNCTIONS & AXIOS CALLS
   const populateSciCenters = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters`)
     setSciCenters(res.data)
   }
 
-  // ON LOAD
+  // ON-LOAD
   useEffect(() => {
     populateSciCenters();
     getToken();
   }, [])
 
-  // useEffect(() => {
-    
-  // }, [])
-
-                            // CONSOLE LOGS FOR TESTING - DELETE LATER
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   console.log(sciCenters)
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
 
   return (
     <div className="App">
@@ -70,6 +122,7 @@ function App() {
               userID={userID}
               loggedIn={loggedIn}
               sciCenters={sciCenters}
+              unitedStates={unitedStates}
             />
           )}
         />
@@ -113,6 +166,18 @@ function App() {
               history={history}
               setUserID={userID}
               sciCenters={sciCenters}
+            />
+          )}
+        />
+        <Route 
+          path="/post-science-center"
+          component={(props) => (
+            <PostSciCenter 
+              {...props}
+              history={history}
+              setUserID={userID}
+              sciCenters={sciCenters}
+              unitedStates={unitedStates}
             />
           )}
         />
