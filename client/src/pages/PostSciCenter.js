@@ -13,20 +13,28 @@ import {
 
 const PostSciCenter = (props) => {
   const { userID, history, unitedStates } = props
-  const [sciCenter, setSciCenter] = useState({})
   const [posted, setPosted] = useState(false)
-  const [newSciCenter, setNewSciCenter] = useState({
-    user_id: parseInt(userID),
-    name: '',
-    state: '',
-    street: '',
-    city: '',
-    zip: '',
-    website: '',
-    priceRange: '',
-    description: '',
-    image: ''
-  })
+  const [name, setName] = useState('')
+  const [sciCenterState, setSciCenterState] = useState('')
+  const [street, setStreet] = useState('')
+  const [city, setCity] = useState('')
+  const [zip, setZip] = useState('')
+  const [website, setWebsite] = useState('')
+  const [priceRange, setPriceRange] = useState('')
+  const [description, setDescription] = useState('')
+  const [image, setImage] = useState('')
+  // const [newSciCenter, setNewSciCenter] = useState({
+  //   user_id: props.userID,
+  //   name: '',
+  //   state: '',
+  //   street: '',
+  //   city: '',
+  //   zip: '',
+  //   website: '',
+  //   priceRange: '',
+  //   description: '',
+  //   image: ''
+  // })
   const priceRangeOptions = [
     {value:'free/donation', label: 'free/donation'},
     {value:'$2 - $5', label: '$2 - $5'},
@@ -43,52 +51,60 @@ const PostSciCenter = (props) => {
   unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
 
   ////////////////////// CONSOLE LOGS FOR TESTING //////////////////////
-  console.log(props.userID)
+  // console.log(props.userID)
   ////////////////////// CONSOLE LOGS FOR TESTING //////////////////////
 
 
   const submitNewSciCenter = async () => {
-    await axios.put(`${BASE_URL}/scicenters`, {
-      ...newSciCenter
+    await axios.post(`${BASE_URL}/scicenters`, {
+      user_id: userID,
+      name: name,
+      state: sciCenterState,
+      street: street,
+      city: city,
+      zip: zip.toString(),
+      website: website,
+      priceRange: priceRange,
+      description: description,
+      image: image
     })
-    setNewSciCenter({ ...newSciCenter })
     setPosted(true)
   }
 
   const handleNameChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, name: e.target.value })
+    setName(e.target.value)
   }
 
-  const handleStateChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, state: e.target.value })
+  const handleSciCenterStateChange = (e) => {
+    setSciCenterState(e.target.value)
   }
 
   const handleStreetChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, street: e.target.value })
+    setStreet(e.target.value)
   }
 
   const handleCityChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, city: e.target.value })
+    setCity(e.target.value)
   }
 
   const handleZipChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, zip: e.target.value })
+    setZip(e.target.value)
   }
 
   const handleWebsiteChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, website: e.target.value })
+    setWebsite(e.target.value)
   }
 
   const handlePriceRangeChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, priceRange: e.target.value })
+    setPriceRange(e.target.value)
   }
 
   const handleDescriptionChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, description: e.target.value })
+    setDescription(e.target.value)
   }
 
   const handleImageChange = (e) => {
-    setNewSciCenter({ ...newSciCenter, image: e.target.value })
+    setImage(e.target.value)
   }
 
   return (
@@ -98,7 +114,7 @@ const PostSciCenter = (props) => {
       label="Science Center Name?"
       rows={1}
       name={'name'}
-      value={newSciCenter.name}
+      value={name}
       onChange={handleNameChange}
       maxLength={255}
       placeholder="Science Center Name"
@@ -108,7 +124,7 @@ const PostSciCenter = (props) => {
       label="Street Address?"
       maxLength={155}
       name={'street'}
-      value={newSciCenter.street}
+      value={street}
       onChange={handleStreetChange}
       placeholder="Street Address"
     />
@@ -116,20 +132,20 @@ const PostSciCenter = (props) => {
       label="City?"
       maxLength={155}
       name={'city'}
-      value={newSciCenter.city}
+      value={city}
       onChange={handleCityChange}
       placeholder="City"
     />
     <Select
       label="State?"
       options={stateOptions}
-      onChange={handleStateChange}
+      onChange={handleSciCenterStateChange}
     />
     <Input
       label="Zip Code?"
       maxLength={5}
       name={'zip'}
-      value={newSciCenter.zip}
+      value={zip}
       onChange={handleZipChange}
       placeholder="Zip Code"
     />
@@ -140,7 +156,7 @@ const PostSciCenter = (props) => {
       label="Photo?"
       rows={1}
       name={'image'}
-      value={newSciCenter.image}
+      value={image}
       onChange={handleImageChange}
       maxLength={255}
       placeholder="Link to an Image of this science center"
@@ -155,7 +171,7 @@ const PostSciCenter = (props) => {
       label="Website?"
       rows={1}
       name={'website'}
-      value={newSciCenter.website}
+      value={website}
       onChange={handleWebsiteChange}
       maxLength={255}
       placeholder="Link to this science center's website"
@@ -164,7 +180,7 @@ const PostSciCenter = (props) => {
       label="Description?"
       rows={4}
       name={'description'}
-      value={newSciCenter.description}
+      value={description}
       onChange={handleDescriptionChange}
       maxLength={1000}
       placeholder="Give us the highlights of this science center!"
