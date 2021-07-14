@@ -42,7 +42,7 @@ const GetSciCenterByState = async (req, res) => {
     let sciCenterState = req.params.state
     let sciCentersByState = await SciCenter.findAll({
       where: { state: {
-        [Op.eq]: sciCenterState
+        [Op.iLike]: `%${sciCenterState}%`
       }}
     })
     res.send(sciCentersByState)
