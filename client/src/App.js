@@ -15,6 +15,7 @@ function App() {
   // STATE
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
+  const [sciCenters, setSciCenters] = useState([])
   const history = useHistory()
 
   // AUTHENTICATION
@@ -32,10 +33,23 @@ function App() {
     }
   }
   
+  const populateSciCenters = async () => {
+    const res = await axios.get(`${BASE_URL}/scicenters`)
+    setSciCenters(res.data)
+  }
+
   // ON LOAD
   useEffect(() => {
-    getToken()
+    populateSciCenters();
+    getToken();
   }, [])
+
+  // useEffect(() => {
+    
+  // }, [])
+
+                            // CONSOLE LOGS FOR TESTING - DELETE LATER
+  console.log(sciCenters)
 
   return (
     <div className="App">
@@ -55,6 +69,7 @@ function App() {
               history={history}
               userID={userID}
               loggedIn={loggedIn}
+              sciCenters={sciCenters}
             />
           )}
         />
@@ -86,6 +101,7 @@ function App() {
               {...props}
               history={history}
               setUserID={userID}
+              sciCenters={sciCenters}
             />
           )}
         />
@@ -96,6 +112,7 @@ function App() {
               {...props}
               history={history}
               setUserID={userID}
+              sciCenters={sciCenters}
             />
           )}
         />

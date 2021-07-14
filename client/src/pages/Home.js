@@ -3,7 +3,6 @@ import { BASE_URL } from '../globals'
 import React, { useEffect, useState } from 'react'
 
 const Home = (props) => {
-  // const { userID, sciCenters, sciCenterRatings, keyword } = props
   // STATE
   const { userID, loggedIn, history } = props
   const [keyword, setKeyword] = useState('')
@@ -64,21 +63,6 @@ const Home = (props) => {
   ]
   
   console.log(sciCenters)
-
-  // FUNCTIONS & AXIOS CALLS
-  const handleSearch = async () => {
-    const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
-    setSciCenters(res.data)
-    history.push(`/results/${keyword}`)
-    setKeyword('')
-  }
-
-    const handleChange = (e) => {
-      let content = e.target.value
-      console.log(content)
-      setKeyword(`${content}`)
-    }
-
   // FOR LATER: grab user's location and show science centers near them!
   // const getUserLocation = async () => {
   //   const res = await axios.get(
@@ -86,6 +70,20 @@ const Home = (props) => {
   //   )
   //   setUserLocation(res.data.location)
   // }
+
+  // FUNCTIONS & AXIOS CALLS
+  
+  const handleSearch = async () => {
+    const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
+    setSciCenters(res.data)
+    history.push(`/results/${keyword}`)
+    setKeyword('')
+  }
+
+  const handleChange = (e) => {
+    let content = e.target.value
+    setKeyword(`${content}`)
+  }
 
   return loggedIn ? (
     <div className="home-user">

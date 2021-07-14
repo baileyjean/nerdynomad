@@ -100,19 +100,6 @@ const SignUpOrIn = (props) => {
     }
   }
 
-  // const getToken = async(token) => {
-  //   if (token) {
-  //     const res = await axios.get(`${BASE_URL}/auth/session`)
-  //     setUserID(res.data.id)
-  //     return setLogIn(true)
-  //   }
-  // }
-
-  // // ON LOAD
-  // useEffect(() => {
-  //   getToken()
-  // }, [])
-
   return !signingUp ? (
     <div className="login">
       <form>
