@@ -11,15 +11,11 @@ import Profile from './pages/Profile'
 import BrowseResults from './pages/BrowseResults'
 import SciCenter from './pages/SciCenter'
 
-
-
 function App() {
   // STATE
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
   const history = useHistory()
-  const [sciCenters, setSciCenters] = useState([])
-  const [sciCenterRatings, setSciCenterRatings] = useState([])
 
   // AUTHENTICATION
   const logOut = () => {
@@ -27,6 +23,19 @@ function App() {
       localStorage.clear()
       history.push('/')
     }
+  
+  const getToken = async(token) => {
+    if (token) {
+      const res = await axios.get(`${BASE_URL}/auth/session`)
+      setUserID(res.data.id)
+      return setLogIn(true)
+    }
+  }
+  
+  // ON LOAD
+  useEffect(() => {
+    getToken()
+  }, [])
 
   return (
     <div className="App">
@@ -63,7 +72,11 @@ function App() {
         <Route
           path="/user/:user_id"
           component={(props) => (
-            <Profile {...props} loggedIn={loggedIn} userID={userID} />
+            <Profile 
+              {...props} 
+              loggedIn={loggedIn} 
+              userID={userID} 
+            />
           )}
         />
         <Route 

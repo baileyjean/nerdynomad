@@ -140,7 +140,7 @@ const ProfilePage = (props) => {
       <div>
         <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
       </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div>
         <p>Name: {user.name}</p>
         <p>Location: {user.location}</p>
       </div>
