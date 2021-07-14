@@ -14,6 +14,7 @@ import {
 const PostSciCenter = (props) => {
   const { userID, history, unitedStates } = props
   const [sciCenter, setSciCenter] = useState({})
+  const [posted, setPosted] = useState(false)
   const [newSciCenter, setNewSciCenter] = useState({
     user_id: parseInt(userID),
     name: '',
@@ -38,12 +39,20 @@ const PostSciCenter = (props) => {
     {value:'$36 - $40', label: '$36 - $40'},
     {value:'$42+ per person', label: '$42+ per person'}
   ]
+  const stateOptions = []
+  unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
+
+  ////////////////////// CONSOLE LOGS FOR TESTING //////////////////////
+  console.log(props.userID)
+  ////////////////////// CONSOLE LOGS FOR TESTING //////////////////////
+
 
   const submitNewSciCenter = async () => {
     await axios.put(`${BASE_URL}/scicenters`, {
       ...newSciCenter
     })
     setNewSciCenter({ ...newSciCenter })
+    setPosted(true)
   }
 
   const handleNameChange = (e) => {
@@ -84,52 +93,97 @@ const PostSciCenter = (props) => {
 
   return (
     <div>
+    <h3>ADD A NEW SCIENCE CENTER</h3>
     <Input
-      type="url"
-      label="Science Center Photo"
-      rows={1}
-      name={'image'}
-      value={newSciCenter.image}
-      onChange={handleImageChange}
-      maxLength={255}
-      placeholder="Image Link"
-      style={{ marginBottom: '40px', width: '25vw' }}
-    />
-    <p>Name:</p>
-    <Input
-      label="Science Center Name"
+      label="Science Center Name?"
       rows={1}
       name={'name'}
       value={newSciCenter.name}
       onChange={handleNameChange}
       maxLength={255}
-      placeholder="Name"
+      placeholder="Science Center Name"
+    />
+    <h3>NAVIGATION DETAILS</h3>
+    <Input
+      label="Street Address?"
+      maxLength={155}
+      name={'street'}
+      value={newSciCenter.street}
+      onChange={handleStreetChange}
+      placeholder="Street Address"
+    />
+    <Input
+      label="City?"
+      maxLength={155}
+      name={'city'}
+      value={newSciCenter.city}
+      onChange={handleCityChange}
+      placeholder="City"
     />
     <Select
-      label="Price Range for this Science Center?"
-      options={priceRangeOptions}
-      onChange={handlePriceRangeChange}
+      label="State?"
+      options={stateOptions}
+      onChange={handleStateChange}
     />
-    <p>Description:</p>
-    <Textarea
-      label="Description"
-      rows={4}
-      name={'Description'}
-      value={newSciCenter.description}
-      onChange={handleDescriptionChange}
-      maxLength={1000}
-      placeholder="Tell us about this science center!"
-    />
-    <p>Zip Code:</p>
     <Input
-      label="Zip Code"
+      label="Zip Code?"
       maxLength={5}
-      name={'location'}
+      name={'zip'}
       value={newSciCenter.zip}
       onChange={handleZipChange}
       placeholder="Zip Code"
     />
+    
+    <h3>NERDY DETAILS</h3>
+    <Input
+      type="url"
+      label="Photo?"
+      rows={1}
+      name={'image'}
+      value={newSciCenter.image}
+      onChange={handleImageChange}
+      maxLength={255}
+      placeholder="Link to an Image of this science center"
+    />
+    <Select
+      label="Price Range?"
+      options={priceRangeOptions}
+      onChange={handlePriceRangeChange}
+    />
+    <Input
+      type="url"
+      label="Website?"
+      rows={1}
+      name={'website'}
+      value={newSciCenter.website}
+      onChange={handleWebsiteChange}
+      maxLength={255}
+      placeholder="Link to this science center's website"
+    />
+    <Textarea
+      label="Description?"
+      rows={4}
+      name={'description'}
+      value={newSciCenter.description}
+      onChange={handleDescriptionChange}
+      maxLength={1000}
+      placeholder="Give us the highlights of this science center!"
+    />
     <Button label="Submit" variant="border" onClick={submitNewSciCenter} />
+
+    <RenderIf isTrue={posted}>
+      <div>
+        <Notification
+          title="Success!! Thank you for adding another science center to our database!"
+          description="Close this notification to return to the home screen."
+          // hideCloseButton={true}
+          onRequestClose={() => {
+            history.push(`/`)
+          }}
+          icon="success"
+        />
+      </div>
+    </RenderIf>
   </div>
   )
 }

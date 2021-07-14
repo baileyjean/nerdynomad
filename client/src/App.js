@@ -100,7 +100,7 @@ function App() {
   }, [])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(sciCenters)
+  console.log(userID)
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
 
   return (
@@ -153,7 +153,7 @@ function App() {
             <SciCenter 
               {...props}
               history={history}
-              setUserID={userID}
+              userID={userID}
               sciCenters={sciCenters}
             />
           )}
@@ -164,7 +164,7 @@ function App() {
             <BrowseResults 
               {...props}
               history={history}
-              setUserID={userID}
+              userID={userID}
               sciCenters={sciCenters}
             />
           )}
@@ -175,7 +175,7 @@ function App() {
             <PostSciCenter 
               {...props}
               history={history}
-              setUserID={userID}
+              userID={userID}
               sciCenters={sciCenters}
               unitedStates={unitedStates}
             />
