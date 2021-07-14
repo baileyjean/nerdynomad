@@ -9,7 +9,7 @@ const BrowseResults = (props) => {
   const [sciCenters, setSciCenters] = useState([])
   const [sciCenterRatings, setSciCenterRatings] = useState([])
 
-  // FUNCTIONS / AXIOS
+  // FUNCTIONS / AXIOS CALLS
   const populateSciCenters = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters`)
     setSciCenters(res.data)

@@ -5,19 +5,10 @@ import { BASE_URL } from '../globals'
 const SciCenter = (props) => {
   const [sciCenter, setSciCenter] = useState({})
 
-  const getSciCenterInfo = async () => {
-    const res = await axios.get(`${BASE_URL}/scicenters/scicenter/${props.match.params.id}`)
-    setSciCenter(res.data)
-  }
-
   const deleteSciCenter = async () => {
     await axios.delete(`${BASE_URL}/scicenters/${props.match.params.id}`)
     props.history.push('/')
   }
-
-  useEffect(() => {
-    getSciCenterInfo()
-  }, [])
 
   console.log(sciCenter)
 
