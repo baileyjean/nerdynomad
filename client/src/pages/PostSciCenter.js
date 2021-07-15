@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import {
@@ -7,12 +7,11 @@ import {
   Textarea,
   Select,
   Notification,
-  RenderIf,
-  CounterInput
+  RenderIf
 } from 'react-rainbow-components'
 
 const PostSciCenter = (props) => {
-  const { userID, history, unitedStates, sciCenters, setSciCenters, addASciCenter } = props
+  const { userID, unitedStates } = props
   const [posted, setPosted] = useState(false)
   const [newSciCenter, setNewSciCenter] = useState({
     user_id: parseInt(userID),
@@ -41,16 +40,11 @@ const PostSciCenter = (props) => {
   const stateOptions = []
   unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
 
-  ////////////////////// CONSOLE LOGS FOR TESTING //////////////////////
-  // console.log(props.userID)
-  ////////////////////// CONSOLE LOGS FOR TESTING //////////////////////
-
   const submitNewSciCenter = async () => {
     await axios.post(`${BASE_URL}/scicenters`, {
       ...newSciCenter
     })
     setPosted(true)
-    console.log(sciCenters)
   }
 
   const handleNameChange = (e) => {
@@ -89,7 +83,6 @@ const PostSciCenter = (props) => {
     setNewSciCenter({ ...newSciCenter, image: e.target.value })
   }
 
-  // useReducer
   return (
     <div>
     <h3>ADD A NEW SCIENCE CENTER</h3>

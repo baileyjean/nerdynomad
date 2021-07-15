@@ -2,15 +2,35 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 
-const SciCenter = (props) => {
-  const [sciCenter, setSciCenter] = useState({})
+////////////////////////////// TO DO LIST ////////////////////////////////
+// 1) Add RATINGS and COMMENTS
+////////////////////////////// TO DO LIST ////////////////////////////////
 
-  const deleteSciCenter = async () => {
-    await axios.delete(`${BASE_URL}/scicenters/${props.match.params.id}`)
-    props.history.push('/')
+const SciCenter = (props) => {
+  // STATE
+  const { sciCenters, history, userID } = props
+  const [sciCenter, setSciCenter] = useState({})
+  const id = parseInt(props.match.params.scicenter_id)
+
+  // FUNCTIONS & AXIOS CALLS
+  const getSciCenterById = async () => {
+    const res = await axios.get(`${BASE_URL}/scicenters/scicenter/${id}`)
+    setSciCenter(res.data)
   }
 
-  console.log(sciCenter)
+  const deleteSciCenter = async () => {
+    await axios.delete(`${BASE_URL}/scicenters/${id}`)
+    history.push('/')
+  }
+
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+
+  // ON LOAD
+  useEffect(() => {
+    getSciCenterById()
+  }, [])
 
   return (
     <div className="sciCenter-page">
@@ -28,7 +48,7 @@ const SciCenter = (props) => {
       </div>
       <div
         className="scicenter-buttons"
-        onClick={() => props.history.push(`/scicenters/scicenter_op/${sciCenter.user_id}`)}
+        onClick={() => history.push(`/scicenters/scicenter_op/${sciCenter.user_id}`)}
       >
         This nerd is active! Check out their other posts!
       </div>
