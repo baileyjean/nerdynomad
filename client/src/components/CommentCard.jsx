@@ -55,11 +55,8 @@ const CommentCard = (props) => {
         className="comment"
         style={containerStyles}
       />
-      {/* conditional rendering (if comment user id = user id)*/}
       <div
-        style={{
-          display: `${props.user_id === props.userID ? 'flex' : 'none'}`
-        }}
+        style={{ display: `${props.user_id === props.userID ? 'flex' : 'none'}` }}
       >
         <button onClick={editComment}>Edit</button>
         <button onClick={() => props.handleDelete(props.id)}>delete</button>

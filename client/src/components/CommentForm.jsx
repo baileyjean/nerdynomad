@@ -17,10 +17,14 @@ const CommentForm = (props) => {
     })
     sciCenterComments()
   }
+
   const handleChange = (e) => {
     setComment(e.target.value)
   }
 
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  console.log(id, userID, comment)
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div>
       <form>

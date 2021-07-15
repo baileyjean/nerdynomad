@@ -65,83 +65,48 @@ const SciCenter = (props) => {
     getSciCenterById();
     sciCenterComments();
   }, [])
-
-
   
-  
-  if(parseInt(userID) === parseInt(sciCenter.user_id)) {
-    return (
-      <div className="sciCenter-page">
-        <img src={sciCenter.image} />
-        <h2>{sciCenter.name}</h2>
-        <div className="details">
-          <div>
-            <p>Price Range: {sciCenter.priceRange}</p>
-            <p>{sciCenter.description}</p>
-            <p>{sciCenter.website}</p>
-            <p>{sciCenter.street}, {sciCenter.city}, {sciCenter.state}, {sciCenter.zip}</p>
-          </div>
-        </div>
-        {/* <div>
-          <h4>COMMENTS</h4>
-          {comments.map((comment) => (
-            <div className="comment-box" id={comment.id}>
-              <p>{comment.post}</p>
-            </div>
-          ))}
-        </div> */}
+  return (
+    <div className="sciCenter-page">
+      <img src={sciCenter.image} />
+      <h2>{sciCenter.name}</h2>
+      <div className="details">
         <div>
-          <p><button onClick={editSciCenter} style={{ backgroundColor: 'green', margin: "1em", color: "white" }}>Edit Posting</button></p>
-          <p>Did this Science Center close? Please update our database... <button onClick={() => deleteSciCenter} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete This Science Center</button></p>
+          <p>Price Range: {sciCenter.priceRange}</p>
+          <p>{sciCenter.description}</p>
+          <p>{sciCenter.website}</p>
+          <p>{sciCenter.street}, {sciCenter.city}, {sciCenter.state}, {sciCenter.zip}</p>
         </div>
       </div>
-    )
-  } else {
-    return (
-      <div className="sciCenter-page">
-        <img src={sciCenter.image} />
-        <h2>{sciCenter.name}</h2>
-        <div className="details">
-          <div>
-            <p>Price Range: {sciCenter.priceRange}</p>
-            <p>{sciCenter.description}</p>
-            <p>{sciCenter.website}</p>
-            <p>{sciCenter.street}, {sciCenter.city}, {sciCenter.state}, {sciCenter.zip}</p>
-          </div>
-          <div className="comments">
-            {comments.map((comment, index) => (
-              <div className="comments">
-                <CommentCard
-                  key={`${comment.user_id} ${index}`}
-                  index={index}
-                  text={comment.post}
-                  user_id={comment.user_id}
-                  scicenter_id={comment.scicenter_id}
-                  userID={userID}
-                  id={comment.id}
-                  handleDelete={handleDelete}
-                  handleChange={handleChange}
-                />
-              </div>
-            ))}
-            <CommentForm
-              userID={userID}
-              sciCenterID={id}
-              sciCenterComments={sciCenterComments}
-            />
-          </div>
-          {/* <div>
-            <h4>COMMENTS</h4>
-            {comments.map((comment) => (
-              <div className="comment-box" id={comment.id}>
-                <p>{comment.post}</p>
-              </div>
-            ))}
-          </div> */}
+      <div className="comments">
+        {comments.map((comment, index) => (
+        <div className="comments">
+          <CommentCard
+            key={`${comment.user_id} ${index}`}
+            index={index}
+            text={comment.post}
+            user_id={comment.user_id}
+            scicenter_id={comment.scicenter_id}
+            userID={userID}
+            id={comment.id}
+            handleDelete={handleDelete}
+            handleChange={handleChange}
+          />
         </div>
+        ))}
+        <CommentForm
+          userID={userID}
+          id={id}
+          sciCenterComments={sciCenterComments}
+        />
       </div>
-    )
-  }
+      <div
+        style={{ display: `${parseInt(userID) === parseInt(sciCenter.user_id) ? 'flex' : 'none'}` }}
+      >
+        <p><button onClick={editSciCenter} style={{ backgroundColor: 'green', margin: "1em", color: "white" }}>Edit Posting</button> Did this Science Center close? Please update our database... <button onClick={() => deleteSciCenter} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete This Science Center</button></p>
+      </div>
+    </div>
+  )
 }
 
 export default SciCenter
