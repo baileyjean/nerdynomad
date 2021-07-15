@@ -30,7 +30,11 @@ const GetSciCenterById = async (req, res) => {
 
 const GetSciCenterByUserId = async (req, res) => {
   try {
-    const sciCenter = await SciCenter.findByPk(req.params.user_id)
+    const sciCenter = await SciCenter.findAll({
+      where: {
+        user_id: req.params.user_id
+      }
+    })
     res.send(sciCenter)
   } catch (error) {
     throw error

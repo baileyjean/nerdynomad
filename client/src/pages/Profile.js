@@ -150,7 +150,6 @@ const ProfilePage = (props) => {
         <button onClick={() => handleDelete(user.id)} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete Profile</button>
       </div>
     </div>
-
   )
 }
 

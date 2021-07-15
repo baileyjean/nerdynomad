@@ -4,12 +4,16 @@ import { BASE_URL } from '../globals'
 
 ////////////////////////////// TO DO LIST ////////////////////////////////
 // 1) Add RATINGS and COMMENTS
+// 2) CONDITIONAL RENDERING: check userID against sciCenter's user_id
+                          // if they match, then show the editing stuff
+                          // if they do not match, show the OP profile link
 ////////////////////////////// TO DO LIST ////////////////////////////////
 
 const SciCenter = (props) => {
   // STATE
   const { sciCenters, history, userID } = props
   const [sciCenter, setSciCenter] = useState({})
+  const [editing, setEditing] = useState(false)
   const id = parseInt(props.match.params.scicenter_id)
 
   // FUNCTIONS & AXIOS CALLS
@@ -23,6 +27,14 @@ const SciCenter = (props) => {
     history.push('/')
   }
 
+  const editSciCenter = () => {
+    if (editing) {
+      setEditing(false)
+    } else {
+      setEditing(true)
+    }
+  }
+
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
@@ -32,32 +44,28 @@ const SciCenter = (props) => {
     getSciCenterById()
   }, [])
 
+
+  // <div
+  //       className="scicenter-buttons"
+  //       onClick={() => history.push(`/scicenters/scicenter_op/${sciCenter.user_id}`)}
+  //     >
+  //       This nerd is active! Check out their other posts!
+  //     </div>
   return (
     <div className="sciCenter-page">
       <img src={sciCenter.image} />
-      <h1>{sciCenter.name}</h1>
+      <h2>{sciCenter.name}</h2>
       <div className="details">
         <div>
-          {sciCenter.street}
-          {sciCenter.city}
-          {sciCenter.state}, {sciCenter.zip}
-          {sciCenter.website}
-          {sciCenter.priceRange}
-          {sciCenter.description}
+          <p>Price Range: {sciCenter.priceRange}</p>
+          <p>{sciCenter.description}</p>
+          <p>{sciCenter.website}</p>
+          <p>{sciCenter.street}, {sciCenter.city}, {sciCenter.state}, {sciCenter.zip}</p>
         </div>
       </div>
-      <div
-        className="scicenter-buttons"
-        onClick={() => history.push(`/scicenters/scicenter_op/${sciCenter.user_id}`)}
-      >
-        This nerd is active! Check out their other posts!
-      </div>
-      <div
-        style={{ marginBottom: '10vh' }}
-        className="scicenter-buttons"
-        onClick={deleteSciCenter}
-      >
-        Did this Science Center close? Please update by deleting.
+      <div>
+        <p><button onClick={editSciCenter} style={{ backgroundColor: 'green', margin: "1em", color: "white" }}>Edit Posting</button></p>
+        <p>Did this Science Center close? Please update our database... <button onClick={() => deleteSciCenter} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete This Science Center</button></p>
       </div>
     </div>
   )
