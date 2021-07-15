@@ -6,62 +6,8 @@ const Home = (props) => {
   // STATE
   const { loggedIn, history, unitedStates } = props
   const [keyword, setKeyword] = useState('')
-  const [sciCenters, setSciCenters] = useState([])
-  // const unitedStates = [
-  //   "Alabama",
-  //   "Alaska",
-  //   "Arizona",
-  //   "Arkansas",
-  //   "California",
-  //   "Colorado",
-  //   "Connecticut",
-  //   "Delaware",
-  //   "DC",
-  //   "Florida",
-  //   "Georgia",
-  //   "Hawaii",
-  //   "Idaho",
-  //   "Illinois",
-  //   "Indiana",
-  //   "Iowa",
-  //   "Kansas",
-  //   "Kentucky",
-  //   "Louisiana",
-  //   "Maine",
-  //   "Maryland",
-  //   "Massachusetts",
-  //   "Michigan",
-  //   "Minnesota",
-  //   "Mississippi",
-  //   "Missouri",
-  //   "Montana",
-  //   "Nebraska",
-  //   "Nevada",
-  //   "New Hampshire",
-  //   "New Jersey",
-  //   "New Mexico",
-  //   "New York",
-  //   "North Carolina",
-  //   "North Dakota",
-  //   "Ohio",
-  //   "Oklahoma",
-  //   "Oregon",
-  //   "Pennsylvania",
-  //   "Rhode Island",
-  //   "South Carolina",
-  //   "South Dakota",
-  //   "Tennessee",
-  //   "Texas",
-  //   "Utah",
-  //   "Vermont",
-  //   "Virginia",
-  //   "Washington",
-  //   "West Virginia",
-  //   "Wisconsin",
-  //   "Wyoming"
-  // ]
+  const [queriedSciCenters, setQueriedSciCenters] = useState([])
   
-  console.log(sciCenters)
   // FOR LATER: grab user's location and show science centers near them!
   // const getUserLocation = async () => {
   //   const res = await axios.get(
@@ -73,7 +19,7 @@ const Home = (props) => {
   // FUNCTIONS & AXIOS CALLS
   const handleSearch = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
-    setSciCenters(res.data)
+    setQueriedSciCenters(res.data)
     history.push(`/results/${keyword}`)
     setKeyword('')
   }

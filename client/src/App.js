@@ -79,7 +79,8 @@ function App() {
       history.push('/')
     }
   
-  const getToken = async(token) => {
+  const getToken = async() => {
+    let token = localStorage.getItem('token')
     if (token) {
       const res = await axios.get(`${BASE_URL}/auth/session`)
       setUserID(res.data.id)
@@ -91,6 +92,10 @@ function App() {
   const populateSciCenters = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters`)
     setSciCenters(res.data)
+  }
+
+  const addASciCenter = async (newSciCenter) => {
+    setSciCenters(...sciCenters, newSciCenter)
   }
 
   // ON-LOAD
@@ -176,8 +181,10 @@ function App() {
               {...props}
               history={history}
               userID={userID}
-              sciCenters={sciCenters}
               unitedStates={unitedStates}
+              sciCenters={sciCenters}
+              setSciCenters={setSciCenters}
+              addASciCenter={addASciCenter}
             />
           )}
         />

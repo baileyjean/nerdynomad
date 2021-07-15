@@ -10,7 +10,7 @@ const BrowseResults = (props) => {
 
   // FUNCTIONS / AXIOS CALLS
   
-
+  console.log(sciCenters)
   return(
     <div className="sciCenters">
       {sciCenters.map((sciCenter) => (
