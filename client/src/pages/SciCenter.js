@@ -27,6 +27,14 @@ const SciCenter = (props) => {
     history.push('/')
   }
 
+  const checkOPId = async () => {
+    if(parseInt(userID) === parseInt(sciCenter.user_id)){
+      return true
+    } else {
+      return false
+    }
+  }
+
   const editSciCenter = () => {
     if (editing) {
       setEditing(false)
@@ -41,10 +49,11 @@ const SciCenter = (props) => {
 
   // ON LOAD
   useEffect(() => {
-    getSciCenterById()
+    getSciCenterById();
   }, [])
 
-
+  // CALLING checkOPId() JUST BEFORE RETURNING THE PAGE SO ITS VALUE CAN BE USED TO CONDITIONALLY RENDER THE PAGE
+  checkOPId();
   // <div
   //       className="scicenter-buttons"
   //       onClick={() => history.push(`/scicenters/scicenter_op/${sciCenter.user_id}`)}
