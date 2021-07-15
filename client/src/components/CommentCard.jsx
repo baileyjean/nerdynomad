@@ -2,9 +2,7 @@ import { React, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Textarea } from 'react-rainbow-components'
-const containerStyles = {
-  width: 500
-}
+
 const CommentCard = (props) => {
   const [editing, setEditing] = useState(false)
 
@@ -36,7 +34,6 @@ const CommentCard = (props) => {
               value={props.text}
               onChange={(e) => props.handleChange(e, props.index)}
               rows={3}
-              style={containerStyles}
               className="no-margin"
             />
             <button>Submit</button>
@@ -53,7 +50,6 @@ const CommentCard = (props) => {
         rows={3}
         readOnly={true}
         className="comment"
-        style={containerStyles}
       />
       <div
         style={{ display: `${props.user_id === props.userID ? 'flex' : 'none'}` }}

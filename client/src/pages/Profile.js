@@ -64,10 +64,10 @@ const ProfilePage = (props) => {
     setEditedUser({ ...editedUser, location: parseInt(e.target.value) })
   }
 
-  const handleDelete = async (e) => {
+  const handleDelete = async () => {
     try {
-      props.history.push(`/`)
       await axios.delete(`${BASE_URL}/users/${userID}`)
+      window.location.assign(`/`)
     } catch (error) {
       throw error
     }

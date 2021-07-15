@@ -2,9 +2,7 @@ import { React, useState } from 'react'
 import { Textarea, Button } from 'react-rainbow-components'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-const containerStyles = {
-  width: 500
-}
+
 const CommentForm = (props) => {
   const { id, userID, sciCenterComments } = props
   const [comment, setComment] = useState('')
@@ -22,9 +20,6 @@ const CommentForm = (props) => {
     setComment(e.target.value)
   }
 
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(id, userID, comment)
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div>
       <form>
@@ -34,7 +29,6 @@ const CommentForm = (props) => {
           onChange={handleChange}
           maxLength={255}
           placeholder="Comment"
-          style={containerStyles}
         />
         <Button label="Submit" variant="border" onClick={handleSubmit} />
       </form>

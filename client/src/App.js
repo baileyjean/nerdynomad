@@ -160,6 +160,7 @@ function App() {
               history={history}
               userID={userID}
               sciCenters={sciCenters}
+              unitedStates={unitedStates}
             />
           )}
         />
