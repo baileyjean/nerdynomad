@@ -4,9 +4,11 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 
 const CommentForm = (props) => {
+  //////////////////////// STATE ////////////////////////
   const { id, userID, sciCenterComments } = props
   const [comment, setComment] = useState('')
 
+  //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const handleSubmit = async () => {
     await axios.post(`${BASE_URL}/comments`, {
       user_id: userID,

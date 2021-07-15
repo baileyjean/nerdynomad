@@ -4,6 +4,7 @@ import { BASE_URL } from '../globals'
 import { Input, Button, Textarea } from 'react-rainbow-components'
 
 const ProfilePage = (props) => {
+  //////////////////////// STATE ////////////////////////
   const { userID } = props
   const [user, setUser] = useState({})
   const [editing, setEditing] = useState(false)
@@ -14,6 +15,7 @@ const ProfilePage = (props) => {
     image: ''
   })
 
+  //////////////////////// AXIOS CALLS ////////////////////////
   const getUser = async () => {
     const res = await axios.get(`${BASE_URL}/users/id/${userID}`)
     setUser(res.data)
@@ -28,18 +30,6 @@ const ProfilePage = (props) => {
     })
   }
 
-  useEffect(() => {
-    getUser()
-  }, [])
-
-  const editProfile = () => {
-    if (editing) {
-      setEditing(false)
-    } else {
-      setEditing(true)
-    }
-  }
-
   const submitEditUser = async () => {
     await axios.put(`${BASE_URL}/users/${userID}`, {
       ...editedUser
@@ -47,23 +37,7 @@ const ProfilePage = (props) => {
     setUser({ ...editedUser })
     editProfile()
   }
-
-  const handleNameChange = (e) => {
-    setEditedUser({ ...editedUser, name: e.target.value })
-  }
-
-  const handleBioChange = (e) => {
-    setEditedUser({ ...editedUser, bio: e.target.value })
-  }
-
-  const handleImageChange = (e) => {
-    setEditedUser({ ...editedUser, image: e.target.value })
-  }
-
-  const handleLocationChange = (e) => {
-    setEditedUser({ ...editedUser, location: parseInt(e.target.value) })
-  }
-
+  
   const handleDelete = async () => {
     try {
       await axios.delete(`${BASE_URL}/users/${userID}`)
@@ -72,7 +46,36 @@ const ProfilePage = (props) => {
       throw error
     }
   }
+  //////////////////////// FUNCTIONS ////////////////////////
+  const editProfile = () => {
+    if (editing) {
+      setEditing(false)
+    } else {
+      setEditing(true)
+    }
+  }
+  
+  const handleNameChange = (e) => {
+    setEditedUser({ ...editedUser, name: e.target.value })
+  }
+  
+  const handleBioChange = (e) => {
+    setEditedUser({ ...editedUser, bio: e.target.value })
+  }
+  
+  const handleImageChange = (e) => {
+    setEditedUser({ ...editedUser, image: e.target.value })
+  }
+  
+  const handleLocationChange = (e) => {
+    setEditedUser({ ...editedUser, location: parseInt(e.target.value) })
+  }
 
+  //////////////////////// ON-LOAD ////////////////////////
+  useEffect(() => {
+    getUser()
+  }, [])
+  
   if (editing) {
     return (
       <div style={{

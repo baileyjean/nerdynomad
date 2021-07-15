@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Input, Button, StrongPasswordInput, Textarea } from 'react-rainbow-components'
 
 const SignUpOrIn = (props) => {
-  // STATE
+  //////////////////////// STATE ////////////////////////
   const { history, setLogIn, setUserID } = props
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
@@ -15,7 +15,7 @@ const SignUpOrIn = (props) => {
   const [img, setImg] = useState('')
   const [signingUp, setSigningUp] = useState(false)
 
-  // FUNCTIONS & AXIOS CALLS
+  //////////////////////// FUNCTIONS ////////////////////////
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
@@ -62,6 +62,7 @@ const SignUpOrIn = (props) => {
 
   const passwordState = getStrength()
 
+  //////////////////////// AXIOS CALLS ////////////////////////
   const handleSignUp = async (e) => {
     e.preventDefault()
     try {
@@ -186,4 +187,5 @@ const SignUpOrIn = (props) => {
     </div>
   )
 }
+
 export default SignUpOrIn

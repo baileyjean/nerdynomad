@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 // import logo from '../styles/images/<logohere>'
 
 const NavBar = (props) => {
+  //////////////////////// STATE ////////////////////////
   const { loggedIn, logOut, userID } = props
 
   return loggedIn ? (

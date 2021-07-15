@@ -13,7 +13,7 @@ import SciCenter from './pages/SciCenter'
 import PostSciCenter from './pages/PostSciCenter'
 
 function App() {
-  // STATE
+  //////////////////////// STATE ////////////////////////
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
   const [sciCenters, setSciCenters] = useState([])
@@ -72,7 +72,7 @@ function App() {
     "Wyoming"
   ]
 
-  // AUTHENTICATION
+  //////////////////////// AUTHENTICATION ////////////////////////
   const logOut = () => {
       setLogIn(false)
       localStorage.clear()
@@ -88,7 +88,7 @@ function App() {
     }
   }
   
-  // FUNCTIONS & AXIOS CALLS
+  //////////////////////// FUNCTIONS & AXIOS CALLS ////////////////////////
   const populateSciCenters = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters`)
     setSciCenters(res.data)
@@ -98,15 +98,11 @@ function App() {
     setSciCenters(...sciCenters, newSciCenter)
   }
 
-  // ON-LOAD
+  //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     populateSciCenters();
     getToken();
   }, [])
-
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(userID)
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
 
   return (
     <div className="App">
@@ -194,4 +190,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

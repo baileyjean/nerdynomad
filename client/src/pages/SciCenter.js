@@ -7,13 +7,11 @@ import {
   Input,
   Button,
   Textarea,
-  Select,
-  Notification,
-  RenderIf
+  Select
 } from 'react-rainbow-components'
 
 const SciCenter = (props) => {
-  // STATE
+  //////////////////////// STATE ////////////////////////
   const { history, userID, unitedStates } = props
   const id = parseInt(props.match.params.scicenter_id)
   const [sciCenter, setSciCenter] = useState({})
@@ -43,10 +41,9 @@ const SciCenter = (props) => {
   ]
   const stateOptions = []
   unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
-
   const [comments, setComments] = useState([])
 
-  //////////////////////// SCICENTERS: FUNCTIONS & AXIOS CALLS ////////////////////////
+  //////////////////////// SCICENTERS: AXIOS CALLS ////////////////////////
   const getSciCenterById = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters/scicenter/${id}`)
     setSciCenter(res.data)
@@ -62,15 +59,7 @@ const SciCenter = (props) => {
       image: res.data.image
     })
   }
-
-  const editSciCenter = () => {
-    if (editing) {
-      setEditing(false)
-    } else {
-      setEditing(true)
-    }
-  }
-
+  
   const submitEditSciCenter = async () => {
     await axios.put(`${BASE_URL}/scicenters/${id}`, {
       ...editedSciCenter
@@ -78,13 +67,22 @@ const SciCenter = (props) => {
     setSciCenter({...editedSciCenter})
     editSciCenter()
   }
-
+  
   const deleteSciCenter = async () => {
     try {
       window.location.assign(`/`)
       await axios.delete(`${BASE_URL}/scicenters/${id}`)
     } catch (error) {
       throw(error)
+    }
+  }
+
+  //////////////////////// SCICENTERS: FUNCTIONS ////////////////////////
+  const editSciCenter = () => {
+    if (editing) {
+      setEditing(false)
+    } else {
+      setEditing(true)
     }
   }
 
@@ -125,7 +123,6 @@ const SciCenter = (props) => {
   }
 
   //////////////////////// COMMENTS: FUNCTIONS & AXIOS CALLS ////////////////////////
-
   const sciCenterComments = async () => {
     const res = await axios.get(`${BASE_URL}/comments/scicenter/${id}`)
     setComments(res.data)
@@ -144,17 +141,30 @@ const SciCenter = (props) => {
     setComments(currentComments)
   }
 
+  //////////////////////// RATINGS: FUNCTIONS & AXIOS CALLS ////////////////////////
+  // const sciCenterComments = async () => {
+  //   const res = await axios.get(`${BASE_URL}/comments/scicenter/${id}`)
+  //   setComments(res.data)
+  // }
 
-  
-  // ON LOAD
+  // const handleDelete = async (comment_id) => {
+  //   await axios.delete(`${BASE_URL}/comments/${comment_id}`)
+  //   let currentComments = [...comments].filter((comment) => comment.id !== comment_id)
+  //   setComments(currentComments)
+  // }
+
+  // const handleChange = (e, index) => {
+  //   let currentComments = [...comments]
+  //   let target = currentComments[index]
+  //   target.post = e.target.value
+  //   setComments(currentComments)
+  // }
+
+  //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     getSciCenterById();
     sciCenterComments();
   }, [])
-  
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   
   if (editing) {
     return (

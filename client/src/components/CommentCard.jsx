@@ -4,16 +4,10 @@ import { BASE_URL } from '../globals'
 import { Textarea } from 'react-rainbow-components'
 
 const CommentCard = (props) => {
+  //////////////////////// STATE ////////////////////////
   const [editing, setEditing] = useState(false)
 
-  const editComment = () => {
-    if (editing) {
-      setEditing(false)
-    } else {
-      setEditing(true)
-    }
-  }
-
+  //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.put(`${BASE_URL}/comments/${props.id}`, {
@@ -22,6 +16,13 @@ const CommentCard = (props) => {
       post: props.text
     })
     editComment()
+  }
+  const editComment = () => {
+    if (editing) {
+      setEditing(false)
+    } else {
+      setEditing(true)
+    }
   }
 
   if (editing) {

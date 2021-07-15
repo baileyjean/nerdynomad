@@ -11,6 +11,7 @@ import {
 } from 'react-rainbow-components'
 
 const PostSciCenter = (props) => {
+  //////////////////////// STATE ////////////////////////
   const { userID, unitedStates } = props
   const [posted, setPosted] = useState(false)
   const [newSciCenter, setNewSciCenter] = useState({
@@ -40,6 +41,7 @@ const PostSciCenter = (props) => {
   const stateOptions = []
   unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
 
+  //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const submitNewSciCenter = async () => {
     await axios.post(`${BASE_URL}/scicenters`, {
       ...newSciCenter

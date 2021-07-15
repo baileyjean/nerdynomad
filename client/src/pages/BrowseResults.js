@@ -4,11 +4,11 @@ import { BASE_URL } from '../globals'
 import SciCenterCard from '../components/SciCenterCard'
     
 const BrowseResults = (props) => {
-  // STATE
+  //////////////////////// STATE ////////////////////////
   const { sciCenters, history } = props
   const [sciCenterRatings, setSciCenterRatings] = useState([])
 
-  // FUNCTIONS / AXIOS CALLS
+  //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   
   return(
     <div className="sciCenters">

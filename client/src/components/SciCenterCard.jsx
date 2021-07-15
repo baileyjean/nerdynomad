@@ -3,14 +3,15 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 
 const SciCenterCard = (props) => {
-  // STATE
+  //////////////////////// STATE ////////////////////////
   const { targetSciCenter, setTargetSciCenter } = useState([])
 
-  // FUNCTIONS / AXIOS CALLS
+  //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const getSciCenterInfo = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters/scicenter/${props.match.params.id}`)
     setTargetSciCenter(res.data)
   }
+
   return (
     <div className="scicenter-card">
       <img src={props.image} style={{ width: '60%' }} />

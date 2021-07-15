@@ -3,7 +3,7 @@ import { BASE_URL } from '../globals'
 import React, { useEffect, useState } from 'react'
 
 const Home = (props) => {
-  // STATE
+  //////////////////////// STATE ////////////////////////
   const { loggedIn, history, unitedStates } = props
   const [keyword, setKeyword] = useState('')
   const [queriedSciCenters, setQueriedSciCenters] = useState([])
@@ -16,7 +16,7 @@ const Home = (props) => {
   //   setUserLocation(res.data.location)
   // }
 
-  // FUNCTIONS & AXIOS CALLS
+  //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const handleSearch = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
     setQueriedSciCenters(res.data)
