@@ -17,6 +17,8 @@ const SciCenter = (props) => {
   const id = parseInt(props.match.params.scicenter_id)
   const [sciCenter, setSciCenter] = useState({})
   const [editing, setEditing] = useState(false)
+  const [comments, setComments] = useState([])
+  const [ratings, setRatings] = useState([])
   const [editedSciCenter, setEditedSciCenter] = useState({
     name: '',
     state: '',
@@ -42,8 +44,6 @@ const SciCenter = (props) => {
   ]
   const stateOptions = []
   unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
-  const [comments, setComments] = useState([])
-  const [ratings, setRatings] = useState([])
 
   //////////////////////// SCICENTERS: AXIOS CALLS ////////////////////////
   const getSciCenterById = async () => {
@@ -144,10 +144,10 @@ const SciCenter = (props) => {
   }
 
   //////////////////////// RATINGS: FUNCTIONS & AXIOS CALLS ////////////////////////
-  // const sciCenterComments = async () => {
-  //   const res = await axios.get(`${BASE_URL}/comments/scicenter/${id}`)
-  //   setComments(res.data)
-  // }
+  const sciCenterRatings = async () => {
+    const res = await axios.get(`${BASE_URL}/ratings/scicenter/${id}`)
+    setRatings(res.data)
+  }
 
   // const handleDelete = async (comment_id) => {
   //   await axios.delete(`${BASE_URL}/comments/${comment_id}`)
@@ -166,8 +166,12 @@ const SciCenter = (props) => {
   useEffect(() => {
     getSciCenterById();
     sciCenterComments();
+    sciCenterRatings();
   }, [])
-  
+
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  console.log(ratings)
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   if (editing) {
     return (
       <div>
@@ -255,7 +259,7 @@ const SciCenter = (props) => {
       <img src={sciCenter.image} />
       <h2>{sciCenter.name}</h2>
       <div className="rating">
-        Rate This Science Center: <RatingCard userID={userID} id={id}/>
+        <RatingCard userID={userID} id={id} ratings={ratings}/>
       </div>
       <div className="details">
         <div>
