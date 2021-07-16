@@ -1,58 +1,70 @@
 import { React, useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import {
+  Notification,
+  RenderIf
+} from 'react-rainbow-components'
 
 const RatingCard = (props) => {
   //////////////////////// STATE ////////////////////////
   const { userID, id, ratings } = props
   const [editing, setEditing] = useState(false)
+  const [posted, setPosted] = useState(false)
   const [newRating, setNewRating] = useState(0)
-  const [totalRating, setTotalRating] = useState(0)
-  const [numRatings, setNumRatings] = useState(1)
+  const [totalRating, setTotalRating] = useState()
+  const [numRatings, setNumRatings] = useState()
   const [avgRating, setAvgRating] = useState()
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
-  const handleSubmit = async () => {
-    await axios.put(`${BASE_URL}/ratings/${props.id}`, {
-      user_id: userID,
-      scicenter_id: id,
-      stars: newRating
-    })
-  }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   console.log('handleSubmit clicked')
+  //   await axios.put(`${BASE_URL}/ratings/${props.id}`, {
+  //     user_id: userID,
+  //     scicenter_id: id,
+  //     stars: newRating
+  //   })
+  //   setPosted(true)
+  // }
+
+  // const handleDelete = async (comment_id) => {
+  //   await axios.delete(`${BASE_URL}/comments/${comment_id}`)
+  //   let currentComments = [...comments].filter((comment) => comment.id !== comment_id)
+  //   setComments(currentComments)
+  // }
+
+  // const handleChange = (e, index) => {
+  //   let currentComments = [...comments]
+  //   let target = currentComments[index]
+  //   target.post = e.target.value
+  //   setComments(currentComments)
+  // }
 
   const handleClick = async (int) => {
+    console.log('handleClick clicked')
     setNewRating(int)
+    console.log(newRating)
   }
 
   const ratingTotal = () => {
-    let ratingTotal = 0
-    ratings.forEach(function (rating) {
-      ratingTotal += parseInt(rating.stars)
-      console.log(ratingTotal)
-    })
-    if (ratingTotal > 0) {
-      setTotalRating(ratingTotal)
-    } else {
-      setTotalRating(parseInt(0))
-    }
+
   }
 
-  const possibleRating = () => {
+  const averageRating = () => {
+    let ratingTotal = 0
     let ratingCount = 0
     ratings.forEach(function (rating) {
+      ratingTotal += parseInt(rating.stars)
       ratingCount += 1
     })
     if (ratingCount > 0) {
       setNumRatings(ratingCount)
+      setTotalRating(ratingTotal)
+      setAvgRating(parseInt(totalRating) / parseInt(numRatings))
     } else {
-      setNumRatings(parseInt(1))
+      setAvgRating(parseInt(0))
     }
-  }
-
-  const averageRating = () => {
-    ratingTotal();
-    possibleRating();
-    setAvgRating(parseInt(totalRating) / parseInt(numRatings))
   }
 
   //////////////////////// ON-LOAD ////////////////////////
@@ -61,15 +73,16 @@ const RatingCard = (props) => {
   }, [])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  //console.log(`totalRating: ${totalRating}, numRatings: ${numRatings}, avgRating: ${avgRating}`)
+  console.log(`totalRating: ${totalRating}, numRatings: ${numRatings}, avgRating: ${avgRating}`)
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div>
-      <div style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }}>
+      <div style={{ display: `${avgRating !== 0 ? 'flex' : 'none'}` }}>
         <h4>RATING:</h4><p> &#128300; {avgRating}/5</p>
+        <br />
         <h5>Rate This Science Center:</h5>
       </div>
-      <div style={{ display: `${newRating == 0 ? 'flex' : 'none'}` }}>
+      <div style={{ display: `${avgRating === 0 ? 'flex' : 'none'}` }}>
         <h5>Be the first to rate this science center:</h5>
       </div>
       <span onClick={() => handleClick(1)}>&#128300;</span>
@@ -78,8 +91,19 @@ const RatingCard = (props) => {
       <span onClick={() => handleClick(4)}>&#128300;</span>
       <span onClick={() => handleClick(5)}>&#128300;</span>
       <br />
-      <button onClick={handleSubmit}>Submit Rating</button>
+      {/* <button onClick={handleSubmit}>Submit Rating</button> */}
       {/* <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Submit Rating</button> */}
+      <RenderIf isTrue={posted}>
+        <div>
+          <Notification
+            title="Success!! Thank you for rating!"
+            onRequestClose={() => {
+              window.location.reload()
+            }}
+            icon="success"
+          />
+        </div>
+      </RenderIf>
     </div>
   )
 }

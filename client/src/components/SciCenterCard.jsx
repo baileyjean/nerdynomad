@@ -12,6 +12,13 @@ const SciCenterCard = (props) => {
     setTargetSciCenter(res.data)
   }
 
+  // useEffect(() => {
+  //   getSciCenterInfo();
+  // }, [])
+
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  console.log(targetSciCenter)
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div className="scicenter-card">
       <img src={props.image} style={{ width: '60%' }} />

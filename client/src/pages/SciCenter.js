@@ -149,19 +149,6 @@ const SciCenter = (props) => {
     setRatings(res.data)
   }
 
-  // const handleDelete = async (comment_id) => {
-  //   await axios.delete(`${BASE_URL}/comments/${comment_id}`)
-  //   let currentComments = [...comments].filter((comment) => comment.id !== comment_id)
-  //   setComments(currentComments)
-  // }
-
-  // const handleChange = (e, index) => {
-  //   let currentComments = [...comments]
-  //   let target = currentComments[index]
-  //   target.post = e.target.value
-  //   setComments(currentComments)
-  // }
-
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     getSciCenterById();
