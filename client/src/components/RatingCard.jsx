@@ -12,8 +12,6 @@ const RatingCard = (props) => {
   const [editing, setEditing] = useState(false)
   const [posted, setPosted] = useState(false)
   const [newRating, setNewRating] = useState(0)
-  const [totalRating, setTotalRating] = useState()
-  const [numRatings, setNumRatings] = useState()
   const [avgRating, setAvgRating] = useState()
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
@@ -27,46 +25,25 @@ const RatingCard = (props) => {
     setPosted(true)
   }
 
-  // const handleDelete = async (comment_id) => {
-  //   await axios.delete(`${BASE_URL}/comments/${comment_id}`)
-  //   let currentComments = [...comments].filter((comment) => comment.id !== comment_id)
-  //   setComments(currentComments)
-  // }
-
-  // const handleChange = (e, index) => {
-  //   let currentComments = [...comments]
-  //   let target = currentComments[index]
-  //   target.post = e.target.value
-  //   setComments(currentComments)
-  // }
-
-  const handleClick = async (int) => {
-    console.log('handleClick clicked')
+  const handleClick = (int) => {
     setNewRating(int)
-    console.log(newRating)
-  }
-
-  const averageRating = () => {
-    let ratingTotal = 0
-    let ratingCount = 0
-    ratings.forEach(function (rating) {
-      ratingTotal += parseInt(rating.stars)
-      ratingCount += 1
-    })
-    if (ratingCount > 0) {
-      setNumRatings(ratingCount)
-      setTotalRating(ratingTotal)
-      setAvgRating(parseInt(totalRating) / parseInt(numRatings))
-    } else {
-      setAvgRating(parseInt(0))
-    }
   }
 
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
+    const averageRating = () => {
+      let ratingTotal = 0
+      ratings.forEach(function (rating) {
+        ratingTotal += parseInt(rating.stars)
+      })
+      if (ratings.length) {
+        setAvgRating(ratingTotal / ratings.length)
+      } else {
+        setAvgRating(parseInt(0))
+      }
+    }
     averageRating();
-    // handleSubmit();
-  }, [])
+  }, [ratings])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
 
