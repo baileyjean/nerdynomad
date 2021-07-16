@@ -19,7 +19,7 @@ const RatingCard = (props) => {
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const handleSubmit = async () => {
     console.log('handleSubmit clicked')
-    await axios.put(`${BASE_URL}/ratings/${props.id}`, {
+    await axios.post(`${BASE_URL}/ratings`, {
       user_id: userID,
       scicenter_id: id,
       stars: newRating
