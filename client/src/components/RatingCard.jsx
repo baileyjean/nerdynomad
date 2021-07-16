@@ -7,8 +7,8 @@ const RatingCard = (props) => {
   const { userID, id, ratings } = props
   const [editing, setEditing] = useState(false)
   const [newRating, setNewRating] = useState(0)
-  const [totalRating, setTotalRating] = useState()
-  const [numRatings, setNumRatings] = useState()
+  const [totalRating, setTotalRating] = useState(0)
+  const [numRatings, setNumRatings] = useState(1)
   const [avgRating, setAvgRating] = useState()
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
@@ -28,8 +28,13 @@ const RatingCard = (props) => {
     let ratingTotal = 0
     ratings.forEach(function (rating) {
       ratingTotal += parseInt(rating.stars)
+      console.log(ratingTotal)
     })
-    setTotalRating(ratingTotal)
+    if (ratingTotal > 0) {
+      setTotalRating(ratingTotal)
+    } else {
+      setTotalRating(parseInt(0))
+    }
   }
 
   const possibleRating = () => {
@@ -37,28 +42,32 @@ const RatingCard = (props) => {
     ratings.forEach(function (rating) {
       ratingCount += 1
     })
-    setNumRatings(ratingCount)
+    if (ratingCount > 0) {
+      setNumRatings(ratingCount)
+    } else {
+      setNumRatings(parseInt(1))
+    }
   }
 
-  const averageRating = async () => {
-    ratingTotal()
-    possibleRating()
-    setAvgRating(parseInt(totalRating / numRatings))
+  const averageRating = () => {
+    ratingTotal();
+    possibleRating();
+    setAvgRating(parseInt(totalRating) / parseInt(numRatings))
   }
 
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
-    // ratingTotal();
-    // possibleRating();
     averageRating();
   }, [])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-
+  console.log(`totalRating: ${totalRating}, numRatings: ${numRatings}, avgRating: ${avgRating}`)
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div>
-      <h4>RATING:</h4><p> &#128300; ({totalRating})</p>
+      <div>
+        <h4>RATING:</h4><p> &#128300; {avgRating}/5</p>
+      </div>
       <h5>Rate This Science Center:</h5>
       <span onClick={() => handleClick(1)}>&#128300;</span>
       <span onClick={() => handleClick(2)}>&#128300;</span>
@@ -68,13 +77,6 @@ const RatingCard = (props) => {
       <br />
 
       <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Submit Rating</button>
-      {/* <div
-        style={{ display: `${props.user_id === props.userID ? 'flex' : 'none'}` }}
-      >
-        <button>conditionally rendered</button>
-        <button onClick={editComment}>Edit</button>
-        <button onClick={() => props.handleDelete(props.id)}>delete</button>
-      </div> */}
     </div>
   )
 }
