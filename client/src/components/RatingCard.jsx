@@ -16,13 +16,24 @@ const RatingCard = (props) => {
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const handleSubmit = async () => {
-    console.log('handleSubmit clicked')
-    await axios.post(`${BASE_URL}/ratings`, {
-      user_id: userID,
-      scicenter_id: id,
-      stars: newRating
+    let alreadyRated = false
+    ratings.forEach(function (rating) {
+      let ratingOP = rating.user_id
+      if (parseInt(ratingOP) === parseInt(userID)) {
+        alreadyRated = true
+      }
     })
-    setPosted(true)
+
+    if (!alreadyRated) {
+      await axios.post(`${BASE_URL}/ratings`, {
+        user_id: userID,
+        scicenter_id: id,
+        stars: newRating
+      })
+      setPosted(true)
+    } else {
+      window.alert(`Sneaky sneaky! Looks like you've already rated this, dork! If you made a mistake you can always edit your rating.  8-) `)
+    }
   }
 
   const handleClick = (int) => {
@@ -51,7 +62,7 @@ const RatingCard = (props) => {
   return (
     <div>
       <div style={{ display: `${avgRating !== 0 ? 'flex' : 'none'}` }}>
-        <h4>RATING:</h4><p> &#128300; {avgRating}/5</p>
+        <h4>RATING:</h4><p> &#128300; {avgRating}/5 ({ratings.length} ratings)</p>
         <br />
         <h5>Rate This Science Center:</h5>
       </div>
@@ -65,7 +76,7 @@ const RatingCard = (props) => {
       <span onClick={() => handleClick(5)}>&#128300;</span>
       <br />
       <button onClick={handleSubmit}>Submit Rating</button>
-      {/* <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Submit Rating</button> */}
+      {/* <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Revise Your Rating</button> */}
       <RenderIf isTrue={posted}>
         <div>
           <Notification
