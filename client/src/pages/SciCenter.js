@@ -3,6 +3,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 import CommentCard from '../components/CommentCard'
 import CommentForm from '../components/CommentForm'
+import RatingCard from '../components/RatingCard'
 import {
   Input,
   Button,
@@ -42,6 +43,7 @@ const SciCenter = (props) => {
   const stateOptions = []
   unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
   const [comments, setComments] = useState([])
+  const [ratings, setRatings] = useState([])
 
   //////////////////////// SCICENTERS: AXIOS CALLS ////////////////////////
   const getSciCenterById = async () => {
@@ -252,6 +254,9 @@ const SciCenter = (props) => {
     <div className="sciCenter-page">
       <img src={sciCenter.image} />
       <h2>{sciCenter.name}</h2>
+      <div className="rating">
+        Rate This Science Center: <RatingCard userID={userID} id={id}/>
+      </div>
       <div className="details">
         <div>
           <p>Price Range: {sciCenter.priceRange}</p>
@@ -262,7 +267,7 @@ const SciCenter = (props) => {
       </div>
       <div className="comments">
         {comments.map((comment, index) => (
-        <div className="comments">
+        <div className="comment">
           <CommentCard
             key={`${comment.user_id} ${index}`}
             index={index}

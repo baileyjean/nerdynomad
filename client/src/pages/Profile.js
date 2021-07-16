@@ -41,6 +41,8 @@ const ProfilePage = (props) => {
   const handleDelete = async () => {
     try {
       await axios.delete(`${BASE_URL}/users/${userID}`)
+      localStorage.removeItem('token')
+      localStorage.clear()
       window.location.assign(`/`)
     } catch (error) {
       throw error

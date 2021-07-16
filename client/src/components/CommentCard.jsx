@@ -50,7 +50,6 @@ const CommentCard = (props) => {
         value={props.text}
         rows={3}
         readOnly={true}
-        className="comment"
       />
       <div
         style={{ display: `${props.user_id === props.userID ? 'flex' : 'none'}` }}
