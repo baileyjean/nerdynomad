@@ -61,22 +61,25 @@ const RatingCard = (props) => {
   }, [])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(`totalRating: ${totalRating}, numRatings: ${numRatings}, avgRating: ${avgRating}`)
+  //console.log(`totalRating: ${totalRating}, numRatings: ${numRatings}, avgRating: ${avgRating}`)
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div>
-      <div>
+      <div style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }}>
         <h4>RATING:</h4><p> &#128300; {avgRating}/5</p>
+        <h5>Rate This Science Center:</h5>
       </div>
-      <h5>Rate This Science Center:</h5>
+      <div style={{ display: `${newRating == 0 ? 'flex' : 'none'}` }}>
+        <h5>Be the first to rate this science center:</h5>
+      </div>
       <span onClick={() => handleClick(1)}>&#128300;</span>
       <span onClick={() => handleClick(2)}>&#128300;</span>
       <span onClick={() => handleClick(3)}>&#128300;</span>
       <span onClick={() => handleClick(4)}>&#128300;</span>
       <span onClick={() => handleClick(5)}>&#128300;</span>
       <br />
-
-      <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Submit Rating</button>
+      <button onClick={handleSubmit}>Submit Rating</button>
+      {/* <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Submit Rating</button> */}
     </div>
   )
 }

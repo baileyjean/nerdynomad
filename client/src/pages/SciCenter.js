@@ -170,7 +170,7 @@ const SciCenter = (props) => {
   }, [])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(ratings)
+  
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   if (editing) {
     return (
