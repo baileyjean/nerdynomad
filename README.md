@@ -36,15 +36,15 @@
 ***
 
 ## Frontend Requirements
-- [] Home/Landing page
-- [] Nav bar
-- [] Sign up form
-- [] Login form
-- [] User profile
-- [] Science center posts
-- [] Comments on science center components
+- [X] Home/Landing page
+- [X] Nav bar
+- [X] Sign up form
+- [X] Login form
+- [X] User profile
+- [X] Science center posts
+- [X] Comments on science center components
 - [] Ratings on science center components
-- [] React Rainbow
+- [X] React Rainbow
 
 ## Backend Requirements
 - [X] User Authentication

@@ -17,16 +17,15 @@ const RatingCard = (props) => {
   const [avgRating, setAvgRating] = useState()
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   console.log('handleSubmit clicked')
-  //   await axios.put(`${BASE_URL}/ratings/${props.id}`, {
-  //     user_id: userID,
-  //     scicenter_id: id,
-  //     stars: newRating
-  //   })
-  //   setPosted(true)
-  // }
+  const handleSubmit = async () => {
+    console.log('handleSubmit clicked')
+    await axios.put(`${BASE_URL}/ratings/${props.id}`, {
+      user_id: userID,
+      scicenter_id: id,
+      stars: newRating
+    })
+    setPosted(true)
+  }
 
   // const handleDelete = async (comment_id) => {
   //   await axios.delete(`${BASE_URL}/comments/${comment_id}`)
@@ -45,10 +44,6 @@ const RatingCard = (props) => {
     console.log('handleClick clicked')
     setNewRating(int)
     console.log(newRating)
-  }
-
-  const ratingTotal = () => {
-
   }
 
   const averageRating = () => {
@@ -70,10 +65,11 @@ const RatingCard = (props) => {
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     averageRating();
+    // handleSubmit();
   }, [])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(`totalRating: ${totalRating}, numRatings: ${numRatings}, avgRating: ${avgRating}`)
+
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div>
@@ -91,7 +87,7 @@ const RatingCard = (props) => {
       <span onClick={() => handleClick(4)}>&#128300;</span>
       <span onClick={() => handleClick(5)}>&#128300;</span>
       <br />
-      {/* <button onClick={handleSubmit}>Submit Rating</button> */}
+      <button onClick={handleSubmit}>Submit Rating</button>
       {/* <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Submit Rating</button> */}
       <RenderIf isTrue={posted}>
         <div>
