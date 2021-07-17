@@ -11,34 +11,25 @@ const RatingCard = (props) => {
   const { userID, id, ratings } = props
   const [editing, setEditing] = useState(false)
   const [posted, setPosted] = useState(false)
+  const [alreadyRated, setAlreadyRated] = useState(false)
   const [newRating, setNewRating] = useState(0)
   const [avgRating, setAvgRating] = useState()
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const handleSubmit = async () => {
-    let alreadyRated = false
-    ratings.forEach(function (rating) {
-      let ratingOP = rating.user_id
-      if (parseInt(ratingOP) === parseInt(userID)) {
-        alreadyRated = true
-      }
+    await axios.post(`${BASE_URL}/ratings`, {
+      user_id: userID,
+      scicenter_id: id,
+      stars: newRating
     })
-
-    if (!alreadyRated) {
-      await axios.post(`${BASE_URL}/ratings`, {
-        user_id: userID,
-        scicenter_id: id,
-        stars: newRating
-      })
-      setPosted(true)
-    } else {
-      window.alert(`Sneaky sneaky! Looks like you've already rated this, dork! If you made a mistake you can always edit your rating.  8-) `)
-    }
+    setPosted(true)
   }
 
   const handleClick = (int) => {
     setNewRating(int)
   }
+
+
 
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
@@ -46,6 +37,10 @@ const RatingCard = (props) => {
       let ratingTotal = 0
       ratings.forEach(function (rating) {
         ratingTotal += parseInt(rating.stars)
+        console.log(rating.user_id)
+        if (parseInt(rating.user_id) === parseInt(userID)) {
+          setAlreadyRated(true)
+        }
       })
       if (ratings.length) {
         setAvgRating(ratingTotal / ratings.length)
@@ -54,10 +49,10 @@ const RatingCard = (props) => {
       }
     }
     averageRating();
-  }, [ratings])
+  }, [ratings, userID])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-
+  console.log(userID)
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return (
     <div>
@@ -69,13 +64,17 @@ const RatingCard = (props) => {
       <div style={{ display: `${avgRating === 0 ? 'flex' : 'none'}` }}>
         <h5>Be the first to rate this science center:</h5>
       </div>
-      <span onClick={() => handleClick(1)}>&#128300;</span>
-      <span onClick={() => handleClick(2)}>&#128300;</span>
-      <span onClick={() => handleClick(3)}>&#128300;</span>
-      <span onClick={() => handleClick(4)}>&#128300;</span>
-      <span onClick={() => handleClick(5)}>&#128300;</span>
-      <br />
-      <button onClick={handleSubmit}>Submit Rating</button>
+      {!alreadyRated ?
+        <div>
+          <span onClick={() => handleClick(1)}>&#128300;</span>
+          <span onClick={() => handleClick(2)}>&#128300;</span>
+          <span onClick={() => handleClick(3)}>&#128300;</span>
+          <span onClick={() => handleClick(4)}>&#128300;</span>
+          <span onClick={() => handleClick(5)}>&#128300;</span>
+          <br />
+          <button onClick={handleSubmit}>Submit Rating</button>
+        </div>
+        : null}
       {/* <button style={{ display: `${newRating != 0 ? 'flex' : 'none'}` }} onClick={handleSubmit}>Revise Your Rating</button> */}
       <RenderIf isTrue={posted}>
         <div>

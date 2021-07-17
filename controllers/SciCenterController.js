@@ -1,4 +1,4 @@
-const { SciCenter } = require('../models')
+const { SciCenter, Comment, Rating } = require('../models')
 const { Op } = require('sequelize')
 
 const AddSciCenter = async (req, res) => {
@@ -25,6 +25,21 @@ const GetSciCenterById = async (req, res) => {
     res.send(sciCenter)
   } catch (error) {
     throw error
+  }
+}
+
+const GetSciCenterCommentsAndRatings = async (req, res) => {
+  try {
+    const completeSciCenter = await SciCenter.findOne({
+      where: { id: req.params.scicenter_id },
+      include: [
+        { model: Rating },
+        { model: Comment}
+      ] 
+    })
+    res.send(completeSciCenter)
+  } catch (error) {
+    throw(error)
   }
 }
 
@@ -99,6 +114,7 @@ module.exports = {
   AddSciCenter,
   GetAllSciCenters,
   GetSciCenterById,
+  GetSciCenterCommentsAndRatings,
   GetSciCenterByUserId,
   GetSciCenterByState,
   GetSciCentersByQuery,
