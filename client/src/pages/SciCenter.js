@@ -15,7 +15,7 @@ const SciCenter = (props) => {
   //////////////////////// STATE ////////////////////////
   const { history, userID, unitedStates } = props
   const id = parseInt(props.match.params.scicenter_id)
-  const [sciCenter, setSciCenter] = useState({})
+  const [sciCenterComplete, setSciCenterComplete] = useState({})
   const [editing, setEditing] = useState(false)
   const [comments, setComments] = useState([])
   const [ratings, setRatings] = useState([])
@@ -46,9 +46,11 @@ const SciCenter = (props) => {
   unitedStates.map((unitedState) => (stateOptions.push({value:`${unitedState}`, label:`${unitedState}`})))
 
   //////////////////////// SCICENTERS: AXIOS CALLS ////////////////////////
-  const getSciCenterById = async () => {
-    const res = await axios.get(`${BASE_URL}/scicenters/scicenter/${id}`)
-    setSciCenter(res.data)
+  const getSciCenterInfo = async () => {
+    const res = await axios.get(`${BASE_URL}/scicenters/info/${id}`)
+    setSciCenterComplete(res.data)
+    setRatings(res.data.Ratings)
+    setComments(res.data.Comments)
     setEditedSciCenter({
       name: res.data.name,
       state: res.data.state,
@@ -66,7 +68,7 @@ const SciCenter = (props) => {
     await axios.put(`${BASE_URL}/scicenters/${id}`, {
       ...editedSciCenter
     })
-    setSciCenter({...editedSciCenter})
+    setSciCenterComplete({...editedSciCenter})
     editSciCenter()
   }
   
@@ -125,11 +127,6 @@ const SciCenter = (props) => {
   }
 
   //////////////////////// COMMENTS: FUNCTIONS & AXIOS CALLS ////////////////////////
-  const sciCenterComments = async () => {
-    const res = await axios.get(`${BASE_URL}/comments/scicenter/${id}`)
-    setComments(res.data)
-  }
-
   const handleDelete = async (comment_id) => {
     await axios.delete(`${BASE_URL}/comments/${comment_id}`)
     let currentComments = [...comments].filter((comment) => comment.id !== comment_id)
@@ -144,20 +141,14 @@ const SciCenter = (props) => {
   }
 
   //////////////////////// RATINGS: FUNCTIONS & AXIOS CALLS ////////////////////////
-  const sciCenterRatings = async () => {
-    const res = await axios.get(`${BASE_URL}/ratings/scicenter/${id}`)
-    setRatings(res.data)
-  }
 
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
-    getSciCenterById();
-    sciCenterComments();
-    sciCenterRatings();
+    getSciCenterInfo();
   }, [])
 
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  
+
   //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   if (editing) {
     return (
@@ -243,17 +234,17 @@ const SciCenter = (props) => {
   }
   return (
     <div className="sciCenter-page">
-      <img src={sciCenter.image} />
-      <h2>{sciCenter.name}</h2>
+      <img src={sciCenterComplete.image} />
+      <h2>{sciCenterComplete.name}</h2>
       <div className="rating">
         <RatingCard userID={userID} id={id} ratings={ratings}/>
       </div>
       <div className="details">
         <div>
-          <p>Price Range: {sciCenter.priceRange}</p>
-          <p>{sciCenter.description}</p>
-          <p>{sciCenter.website}</p>
-          <p>{sciCenter.street}, {sciCenter.city}, {sciCenter.state}, {sciCenter.zip}</p>
+          <p>Price Range: {sciCenterComplete.priceRange}</p>
+          <p>{sciCenterComplete.description}</p>
+          <p>{sciCenterComplete.website}</p>
+          <p>{sciCenterComplete.street}, {sciCenterComplete.city}, {sciCenterComplete.state}, {sciCenterComplete.zip}</p>
         </div>
       </div>
       <div className="comments">
@@ -275,11 +266,11 @@ const SciCenter = (props) => {
         <CommentForm
           userID={userID}
           id={id}
-          sciCenterComments={sciCenterComments}
+          comments={comments}
         />
       </div>
       <div
-        style={{ display: `${parseInt(userID) === parseInt(sciCenter.user_id) ? 'flex' : 'none'}` }}
+        style={{ display: `${parseInt(userID) === parseInt(sciCenterComplete.user_id) ? 'flex' : 'none'}` }}
       >
         <p><button onClick={editSciCenter} style={{ backgroundColor: 'green', margin: "1em", color: "white" }}>Edit Posting</button> Did this Science Center close? Please update our database... <button onClick={deleteSciCenter} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete This Science Center</button></p>
       </div>
