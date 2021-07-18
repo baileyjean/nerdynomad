@@ -5,7 +5,6 @@ import { Textarea } from 'react-rainbow-components'
 
 const CommentCard = (props) => {
   //////////////////////// STATE ////////////////////////
-  const { userID, id, handleChange, handleDelete } = props
   const [editing, setEditing] = useState(false)
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////

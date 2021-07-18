@@ -251,7 +251,11 @@ const SciCenter = (props) => {
       <img src={sciCenterComplete.image} />
       <h2>{sciCenterComplete.name}</h2>
       <div className="rating">
-        <RatingCard userID={userID} id={id} ratings={ratings}/>
+        <RatingCard 
+          id={id}
+          userID={userID} 
+          ratings={ratings}
+        />
       </div>
       <div className="details">
         <div>
