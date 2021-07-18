@@ -63,7 +63,7 @@ const Home = (props) => {
       <div className="search-by-state">
         {unitedStates.map((unitedstate) => (
           <div className="unitedStates" id={unitedstate} onClick={() =>
-            history.push(`/search-by-state/${unitedstate}`)
+            history.push(`/location/${unitedstate}`)
           }>
             <h3>{unitedstate}</h3>
           </div>
