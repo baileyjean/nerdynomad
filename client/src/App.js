@@ -11,6 +11,8 @@ import Profile from './pages/Profile'
 import BrowseResults from './pages/BrowseResults'
 import SciCenter from './pages/SciCenter'
 import PostSciCenter from './pages/PostSciCenter'
+import SearchByState from './pages/SearchByState'
+import SearchResults from './pages/SearchResults'
 
 function App() {
   //////////////////////// STATE ////////////////////////
@@ -152,6 +154,26 @@ function App() {
           path="/browse-all"
           component={(props) => (
             <BrowseResults 
+              {...props}
+              history={history}
+              userID={userID}
+            />
+          )}
+        />
+        <Route 
+          path="/results/:query"
+          component={(props) => (
+            <SearchResults 
+              {...props}
+              history={history}
+              userID={userID}
+            />
+          )}
+        />
+        <Route 
+          path="/location/:location"
+          component={(props) => (
+            <SearchByState
               {...props}
               history={history}
               userID={userID}

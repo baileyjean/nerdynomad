@@ -1,20 +1,15 @@
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import React, { useEffect, useState } from 'react'
+import SearchResults from './SearchResults'
+import SearchByState from './SearchByState'
+import SciCenterCard from '../components/SciCenterCard'
 
 const Home = (props) => {
   //////////////////////// STATE ////////////////////////
   const { loggedIn, history, unitedStates } = props
   const [keyword, setKeyword] = useState('')
   const [queriedSciCenters, setQueriedSciCenters] = useState([])
-  
-  // FOR LATER: grab user's location and show science centers near them!
-  // const getUserLocation = async () => {
-  //   const res = await axios.get(
-  //     `${BASE_URL}/users/id/${props.match.params.user_id}`
-  //   )
-  //   setUserLocation(res.data.location)
-  // }
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
 
@@ -30,8 +25,17 @@ const Home = (props) => {
     setKeyword(`${content}`)
   }
 
-  //////////////////////// ON-LOAD ////////////////////////
+  // const searchByState = async (location) => {
+  //   const res = await axios.get(`${BASE_URL}/scicenters/location/${location}`)
+  //   setQueriedSciCenters(res.data)
+  //   history.push(`/results/${location}`)
+  // }
 
+  //////////////////////// ON-LOAD ////////////////////////
+  
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  console.log(props)
+  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return loggedIn ? (
     <div className="home-user">
       <div className="searchbar">
@@ -45,14 +49,18 @@ const Home = (props) => {
       </div>
       Welcome Home!
       <br />
-      <div className="browse-results">
+      <div className="browse-by-state">
         {unitedStates.map((unitedstate) => (
           <div className="unitedStates" id={unitedstate} onClick={() =>
-            history.push(`/browse-result/${unitedstate}`)
+            history.push(`/location/${unitedstate}`)
           }>
             <h3>{unitedstate}</h3>
           </div>
         ))}
+        <SearchResults 
+          {...props}
+          queriedSciCenters={queriedSciCenters} 
+        />
       </div>
     </div>
   ) : (
@@ -68,10 +76,10 @@ const Home = (props) => {
       </div>
       Login to Get the Full Experience!
       <br />
-      <div className="browse-results">
+      <div className="search-by-state">
         {unitedStates.map((unitedstate) => (
           <div className="unitedStates" id={unitedstate} onClick={() =>
-            history.push(`/browse-result/${unitedstate}`)
+            history.push(`/search-by-state/${unitedstate}`)
           }>
             <h3>{unitedstate}</h3>
           </div>

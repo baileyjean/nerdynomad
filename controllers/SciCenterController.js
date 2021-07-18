@@ -77,7 +77,8 @@ const GetSciCentersByQuery = async (req, res) => {
     where: {
       [Op.or]: [
         { name: { [Op.iLike]: compstring } },
-        { description: { [Op.iLike]: compstring } }
+        { description: { [Op.iLike]: compstring } },
+        { state: { [Op.iLike]: compstring } }
       ]
     }
   })
