@@ -6,7 +6,7 @@ import SciCenterCard from '../components/SciCenterCard'
 const SearchByState = (props) => {
   //////////////////////// STATE ////////////////////////
   const { history } = props
-  const [sciCentersByState, setSciCentersByState] = useState('')
+  const [sciCentersByState, setSciCentersByState] = useState([])
   
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
   const searchByState = async () => {
@@ -19,9 +19,6 @@ const SearchByState = (props) => {
     searchByState();
   }, [])
 
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(sciCentersByState)
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
   return(
     <div>
       <div className="sciCenters">
@@ -41,7 +38,7 @@ const SearchByState = (props) => {
           description={sciCenter.description}
         />
       ))}
-    </div>
+      </div>
     </div>
   )
 }
