@@ -85,6 +85,7 @@ const PostSciCenter = (props) => {
     setNewSciCenter({ ...newSciCenter, image: e.target.value })
   }
 
+  //////////////////////// FRONT-END RETURN ////////////////////////
   return (
     <div>
     <h3>ADD A NEW SCIENCE CENTER</h3>

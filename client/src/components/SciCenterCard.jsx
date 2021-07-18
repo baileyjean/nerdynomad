@@ -1,9 +1,7 @@
 import React from 'react'
 
 const SciCenterCard = (props) => {
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  //////////////////////// FRONT-END RETURN ////////////////////////
   return (
     <div className="scicenter-card">
       <img src={props.image} style={{ width: '60%' }} />
@@ -16,4 +14,4 @@ const SciCenterCard = (props) => {
   )
 }
 
-export default SciCenterCard
+export default SciCenterCard;

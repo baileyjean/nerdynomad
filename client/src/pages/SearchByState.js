@@ -19,6 +19,7 @@ const SearchByState = (props) => {
     searchByState();
   }, [])
 
+  //////////////////////// FRONT-END RETURN ////////////////////////
   return(
     <div>
       <div className="sciCenters">

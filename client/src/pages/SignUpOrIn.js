@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { BASE_URL } from '../globals.js'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Input, Button, StrongPasswordInput, Textarea } from 'react-rainbow-components'
 
 const SignUpOrIn = (props) => {
@@ -101,6 +101,7 @@ const SignUpOrIn = (props) => {
     }
   }
 
+  //////////////////////// FRONT-END RETURN ////////////////////////
   return !signingUp ? (
     <div className="login">
       <form>
@@ -188,4 +189,4 @@ const SignUpOrIn = (props) => {
   )
 }
 
-export default SignUpOrIn
+export default SignUpOrIn;

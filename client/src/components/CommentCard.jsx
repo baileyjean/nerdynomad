@@ -25,6 +25,7 @@ const CommentCard = (props) => {
     }
   }
 
+  //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
       <div>
@@ -60,4 +61,4 @@ const CommentCard = (props) => {
     </div>
   )
 }
-export default CommentCard
+export default CommentCard;

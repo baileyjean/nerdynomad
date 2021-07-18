@@ -1,20 +1,10 @@
-import axios from 'axios'
-import { BASE_URL } from '../globals'
-import React, { useEffect, useState } from 'react'
-import SearchResults from './SearchResults'
-import SciCenterCard from '../components/SciCenterCard'
+import React from 'react'
 
 const Home = (props) => {
   //////////////////////// STATE ////////////////////////
   const { loggedIn, history, unitedStates, keyword, handleChange, handleSearch } = props
-
-  //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
-
-  //////////////////////// ON-LOAD ////////////////////////
   
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-  console.log(props)
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  //////////////////////// FRONT-END RETURN ////////////////////////
   return loggedIn ? (
     <div className="home-user">
       <div className="searchbar">
@@ -72,4 +62,4 @@ const Home = (props) => {
     </div>
   )
 }
-export default Home
+export default Home;

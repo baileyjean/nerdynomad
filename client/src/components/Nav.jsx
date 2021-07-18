@@ -6,6 +6,7 @@ const NavBar = (props) => {
   //////////////////////// STATE ////////////////////////
   const { loggedIn, logOut, userID } = props
 
+  //////////////////////// FRONT-END RETURN ////////////////////////
   return loggedIn ? (
     <header>
       <NavLink to={"/"}>Home</NavLink>
@@ -28,4 +29,4 @@ const NavBar = (props) => {
     </header>
   )
 }
-export default NavBar
+export default NavBar;

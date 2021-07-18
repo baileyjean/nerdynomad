@@ -78,6 +78,7 @@ const ProfilePage = (props) => {
     getUser()
   }, [])
   
+  //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
       <div style={{
@@ -158,4 +159,4 @@ const ProfilePage = (props) => {
   )
 }
 
-export default ProfilePage
+export default ProfilePage;

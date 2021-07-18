@@ -19,6 +19,7 @@ const BrowseResults = (props) => {
     populateSciCenters();
   }, [])
 
+  //////////////////////// FRONT-END RETURN ////////////////////////
   return(
     <div className="sciCenters">
       {sciCenters.map((sciCenter) => (

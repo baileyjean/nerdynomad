@@ -154,16 +154,12 @@ const SciCenter = (props) => {
     setNewComment(e.target.value)
   }
 
-  //////////////////////// RATINGS: FUNCTIONS & AXIOS CALLS ////////////////////////
-
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     getSciCenterInfo();
   }, [])
 
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
-
-  //////////////////////// CONSOLE LOGS FOR TESTING - DELETE LATER ////////////////////////
+  //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
       <div>
@@ -304,4 +300,4 @@ const SciCenter = (props) => {
   )
 }
 
-export default SciCenter
+export default SciCenter;
