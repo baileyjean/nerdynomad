@@ -13,7 +13,7 @@ import {
 
 const SciCenter = (props) => {
   //////////////////////// STATE ////////////////////////
-  const { history, userID, unitedStates } = props
+  const { userID, unitedStates } = props
   const id = parseInt(props.match.params.scicenter_id)
   const [sciCenterComplete, setSciCenterComplete] = useState({})
   const [editing, setEditing] = useState(false)

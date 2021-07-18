@@ -17,6 +17,7 @@ const Home = (props) => {
   // }
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
+
   const handleSearch = async () => {
     const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
     setQueriedSciCenters(res.data)
@@ -28,6 +29,8 @@ const Home = (props) => {
     let content = e.target.value
     setKeyword(`${content}`)
   }
+
+  //////////////////////// ON-LOAD ////////////////////////
 
   return loggedIn ? (
     <div className="home-user">

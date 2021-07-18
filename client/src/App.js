@@ -16,7 +16,6 @@ function App() {
   //////////////////////// STATE ////////////////////////
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
-  const [sciCenters, setSciCenters] = useState([])
   const history = useHistory()
   const unitedStates = [
     "Alabama",
@@ -89,18 +88,9 @@ function App() {
   }
   
   //////////////////////// FUNCTIONS & AXIOS CALLS ////////////////////////
-  const populateSciCenters = async () => {
-    const res = await axios.get(`${BASE_URL}/scicenters`)
-    setSciCenters(res.data)
-  }
-
-  const addASciCenter = async (newSciCenter) => {
-    setSciCenters(...sciCenters, newSciCenter)
-  }
 
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
-    populateSciCenters();
     getToken();
   }, [])
 
@@ -122,7 +112,6 @@ function App() {
               history={history}
               userID={userID}
               loggedIn={loggedIn}
-              sciCenters={sciCenters}
               unitedStates={unitedStates}
             />
           )}
@@ -155,7 +144,6 @@ function App() {
               {...props}
               history={history}
               userID={userID}
-              sciCenters={sciCenters}
               unitedStates={unitedStates}
             />
           )}
@@ -167,7 +155,6 @@ function App() {
               {...props}
               history={history}
               userID={userID}
-              sciCenters={sciCenters}
             />
           )}
         />
@@ -179,9 +166,6 @@ function App() {
               history={history}
               userID={userID}
               unitedStates={unitedStates}
-              sciCenters={sciCenters}
-              setSciCenters={setSciCenters}
-              addASciCenter={addASciCenter}
             />
           )}
         />

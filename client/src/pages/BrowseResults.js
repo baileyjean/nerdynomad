@@ -5,11 +5,20 @@ import SciCenterCard from '../components/SciCenterCard'
     
 const BrowseResults = (props) => {
   //////////////////////// STATE ////////////////////////
-  const { sciCenters, history } = props
-  const [sciCenterRatings, setSciCenterRatings] = useState([])
+  const { history } = props
+  const [sciCenters, setSciCenters] = useState([])
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
+  const populateSciCenters = async () => {
+    const res = await axios.get(`${BASE_URL}/scicenters`)
+    setSciCenters(res.data)
+  }
   
+  //////////////////////// ON-LOAD ////////////////////////
+  useEffect(() => {
+    populateSciCenters();
+  }, [])
+
   return(
     <div className="sciCenters">
       {sciCenters.map((sciCenter) => (

@@ -22,7 +22,7 @@ const PostSciCenter = (props) => {
     city: '',
     zip: '',
     website: '',
-    priceRange: '',
+    priceRange: 'free/donation',
     description: '',
     image: ''
   })
@@ -96,6 +96,7 @@ const PostSciCenter = (props) => {
       onChange={handleNameChange}
       maxLength={255}
       placeholder="Science Center Name"
+      required={true}
     />
     <h3>NAVIGATION DETAILS</h3>
     <Input
@@ -113,11 +114,13 @@ const PostSciCenter = (props) => {
       value={newSciCenter.city}
       onChange={handleCityChange}
       placeholder="City"
+      required={true}
     />
     <Select
       label="State?"
       options={stateOptions}
       onChange={handleStateChange}
+      required={true}
     />
     <Input
       label="Zip Code?"
@@ -126,6 +129,7 @@ const PostSciCenter = (props) => {
       value={newSciCenter.zip}
       onChange={handleZipChange}
       placeholder="Zip Code"
+      required={true}
     />
     
     <h3>NERDY DETAILS</h3>
@@ -143,6 +147,7 @@ const PostSciCenter = (props) => {
       label="Price Range?"
       options={priceRangeOptions}
       onChange={handlePriceRangeChange}
+      required={true}
     />
     <Input
       type="url"
