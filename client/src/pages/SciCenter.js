@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import CommentCard from '../components/CommentCard'
-import CommentForm from '../components/CommentForm'
 import RatingCard from '../components/RatingCard'
 import {
   Input,
@@ -18,6 +17,7 @@ const SciCenter = (props) => {
   const [sciCenterComplete, setSciCenterComplete] = useState({})
   const [editing, setEditing] = useState(false)
   const [comments, setComments] = useState([])
+  const [newComment, setNewComment] = useState('')
   const [ratings, setRatings] = useState([])
   const [editedSciCenter, setEditedSciCenter] = useState({
     name: '',
@@ -138,6 +138,20 @@ const SciCenter = (props) => {
     let target = currentComments[index]
     target.post = e.target.value
     setComments(currentComments)
+  }
+
+  const submitNewComment = async (e) => {
+    await axios.post(`${BASE_URL}/comments`, {
+      user_id: userID,
+      scicenter_id: id,
+      post: newComment
+    })
+    getSciCenterInfo()
+    
+  }
+
+  const handleNewComment = (e) => {
+    setNewComment(e.target.value)
   }
 
   //////////////////////// RATINGS: FUNCTIONS & AXIOS CALLS ////////////////////////
@@ -263,11 +277,18 @@ const SciCenter = (props) => {
           />
         </div>
         ))}
-        <CommentForm
-          userID={userID}
-          id={id}
-          comments={comments}
-        />
+        <div>
+          <form>
+            <Textarea
+              label="Comment"
+              rows={4}
+              onChange={handleNewComment}
+              maxLength={255}
+              placeholder="Comment"
+            />
+            <Button label="Submit" variant="border" onClick={submitNewComment} />
+          </form>
+      </div>
       </div>
       <div
         style={{ display: `${parseInt(userID) === parseInt(sciCenterComplete.user_id) ? 'flex' : 'none'}` }}

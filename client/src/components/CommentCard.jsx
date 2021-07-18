@@ -5,10 +5,11 @@ import { Textarea } from 'react-rainbow-components'
 
 const CommentCard = (props) => {
   //////////////////////// STATE ////////////////////////
+  const { userID, id, handleChange, handleDelete } = props
   const [editing, setEditing] = useState(false)
 
   //////////////////////// AXIOS CALLS & FUNCTIONS ////////////////////////
-  const handleSubmit = async (e) => {
+  const updateComment = async (e) => {
     e.preventDefault()
     await axios.put(`${BASE_URL}/comments/${props.id}`, {
       user_id: props.user_id,
@@ -29,7 +30,7 @@ const CommentCard = (props) => {
     return (
       <div>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={updateComment}>
             <Textarea
               type="text"
               value={props.text}
