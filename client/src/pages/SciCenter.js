@@ -147,7 +147,7 @@ const SciCenter = (props) => {
       post: newComment
     })
     getSciCenterInfo()
-    
+    setNewComment('')
   }
 
   const handleNewComment = (e) => {
@@ -284,7 +284,8 @@ const SciCenter = (props) => {
               rows={4}
               onChange={handleNewComment}
               maxLength={255}
-              placeholder="Comment"
+              placeholder="Tell us your thoughts about this science center!"
+              value={newComment}
             />
             <Button label="Submit" variant="border" onClick={submitNewComment} />
           </form>
