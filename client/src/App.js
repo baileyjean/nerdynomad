@@ -30,7 +30,6 @@ function App() {
     "Colorado",
     "Connecticut",
     "Delaware",
-    "DC",
     "Florida",
     "Georgia",
     "Hawaii",

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = (props) => {
   //////////////////////// STATE ////////////////////////
-  const { loggedIn, history, unitedStates, keyword, handleChange, handleSearch, userID } = props
+  const { loggedIn, history, unitedStates, keyword, handleChange, handleSearch } = props
   
   //////////////////////// FRONT-END RETURN ////////////////////////
   return loggedIn ? (
@@ -19,7 +19,7 @@ const Home = (props) => {
         />
         <button onClick={handleSearch}>Nerd Out</button>
       </div>
-      <h2>Where Are We Going Today, Nerdy Nomad?</h2>
+      <h3>Where Are We Going Today, Nerdy Nomad?</h3>
       <br />
       <div className="state-list">
         {unitedStates.map((unitedstate) => (
@@ -42,7 +42,7 @@ const Home = (props) => {
         />
         <button onClick={handleSearch}>Nerd Out!</button>
       </div>
-      <h2>Login to Get the Full Experience!</h2>
+      <h3>Login to Get the Full Experience!</h3>
       <br />
       <div className="state-list">
         {unitedStates.map((unitedstate) => (
