@@ -12,7 +12,7 @@ html, body {
   padding: 0px;
   height: 100vh;
   width: 100vw;
-  font-family: 'Poiret One', cursive;
+  font-family: 'Encode Sans SC', sans-serif;
 }
 
 .App {
@@ -150,6 +150,7 @@ html, body {
   margin: 0;
   cursor: pointer;
   font-family: 'Encode Sans SC', sans-serif;
+  text-shadow: 1px 1px 2px black;
 }
 
 @media screen and (max-width: 500px) {
@@ -208,10 +209,22 @@ html, body {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-style: solid;
-  border-width: 1px;
   padding: 0.5em;
+  border-radius: 8px;
   margin: 0;
+  cursor: pointer;
+  font-family: 'Encode Sans SC', sans-serif;
+  text-shadow: 1px 1px 2px black;
+}
+
+.scicenter-card:hover {
+  box-shadow: 2px 2px 5px white;
+}
+
+.scicenter-card img {
+  border-radius: 20px;
+  width: 15em;
+  height: 12em;
 }
 
 .scicenter-card h4, p {
@@ -232,4 +245,37 @@ html, body {
   .sciCenter-container {font-family: Arial, Helvetica, sans-serif;}
   .sciCenter-container {display: flex;}
   .sciCenter-container {flex-wrap: no-wrap;}
+}
+
+/******************************************************************************/
+/******************************** PROFILE PAGE ********************************/
+/******************************************************************************/
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.profile img {
+  border-radius: 50%;
+}
+
+.profile button {
+  cursor: pointer;
+  background-color: white; 
+  margin: 1em;
+  color: black;
+  border-radius: 25px;
+  font-family: 'Poiret One', cursive;
+}
+
+.profile button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.233);
+  font-weight: bolder;
 }

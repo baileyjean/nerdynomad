@@ -141,7 +141,7 @@ const ProfilePage = (props) => {
   }
 
   return(
-    <div>
+    <div className="profile">
       <h1>{user.username}'s Profile</h1>
       <div>
         <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
@@ -152,8 +152,8 @@ const ProfilePage = (props) => {
       </div>
       <p>{user.bio}</p>
       <div>
-        <button onClick={editProfile} style={{ backgroundColor: 'green', margin: "1em", color: "white" }}>Edit Profile</button>
-        <button onClick={() => handleDelete(user.id)} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete Profile</button>
+        <button onClick={editProfile} style={{ boxShadow: "1px 1px 4px green" }}>Edit Profile</button>
+        <button onClick={() => handleDelete(user.id)} style={{ boxShadow: "1px 1px 4px red"  }}>Delete Profile</button>
       </div>
     </div>
   )

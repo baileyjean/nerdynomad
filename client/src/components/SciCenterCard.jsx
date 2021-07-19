@@ -6,7 +6,10 @@ const SciCenterCard = (props) => {
     <div className="scicenter-card" onClick={() => {
       props.history.push(`/science-center/${props.id}`)
     }}>
-      <img src={props.image} style={{ width: '60%' }} />
+      {props.image ?
+        <img src={props.image} />
+        : <img src="https://i.imgur.com/pmSlYJ6.png" alt="default image displays when there are no photos" />
+      }
       <h4>{props.name}</h4>
       <p>{props.city}, {props.state}</p>
     </div>

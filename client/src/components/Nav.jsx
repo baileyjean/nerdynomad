@@ -29,7 +29,7 @@ const NavBar = (props) => {
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to="/browse-all">Browse Science Centers</NavLink></span>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={`/post-science-center/${userID}`}>Add a Science Center</NavLink></span>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={`/user/${userID}`}>Your Profile </NavLink></span>
-          <span><button id="logout" onClick={logOut} style={{ cursor: 'pointer', backgroundColor: 'white', color: 'darkblue', border: 'none', borderRadius: '8px' }}>Log Out</button></span>
+          <span><button id="logout" onClick={logOut} style={{ cursor: 'pointer', backgroundColor: 'white', color: 'darkblue', border: 'none', borderRadius: '8px', fontFamily: 'Poiret One', fontWeight: 'bold' }}>Log Out</button></span>
         </nav>
       </div>
     </div>
