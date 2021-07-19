@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Input, Button, Textarea } from 'react-rainbow-components'
+import nerdyNomadBadge from '../styles/images/nerdyNomadBadge.png'
+import nerdBadge from '../styles/images/nerdRating.png'
+import nomadBadge from '../styles/images/nomadRating.png'
 
 const ProfilePage = (props) => {
   //////////////////////// STATE ////////////////////////
@@ -26,7 +29,10 @@ const ProfilePage = (props) => {
       password: res.data.password,
       location: parseInt(res.data.location),
       bio: res.data.bio,
-      image: res.data.image
+      image: res.data.image,
+      nerdRating: parseInt(res.data.nerdRating),
+      nomadRating: parseInt(res.data.nomadRating),
+      nerdyNomad: true
     })
   }
 
@@ -77,7 +83,7 @@ const ProfilePage = (props) => {
   useEffect(() => {
     getUser()
   }, [])
-  
+
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
@@ -142,6 +148,27 @@ const ProfilePage = (props) => {
 
   return(
     <div className="profile">
+      <div className="badge-container">
+        <div className="profile-badges">
+          <img style={{ width: '5em', borderRadius: '0' }} src={nerdBadge} alt={user.name} />
+          <div className="text-overlay">
+            <h1>{user.nerdRating}</h1>
+          </div>
+        </div>
+
+        {user.nerdyNomad ? 
+          <div className="profile-badges">
+            <img style={{ width: '5em', borderRadius: '0' }} src={nerdyNomadBadge} alt={user.name} />
+          </div>
+        : null
+        }
+        <div className="profile-badges">
+          <img style={{ width: '5em', borderRadius: '0' }} src={nomadBadge} alt={user.name} />
+          <div className="text-overlay">
+            <h1>{user.nomadRating}</h1>
+          </div>
+        </div>
+      </div>
       <h1>{user.username}'s Profile</h1>
       <div>
         <img style={{ width: '20vw' }} src={user.image} alt={user.name} />

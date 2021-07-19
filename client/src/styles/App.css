@@ -173,10 +173,6 @@ html, body {
 /******************************* BROWSE ALL PAGE ******************************/
 /******************************************************************************/
 .sciCenter-container {
-  background-image: url("./images/nerdyNomadBackground-proto4.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   height: 100%;
   width: 90vw;
   display: flex;
@@ -270,7 +266,7 @@ html, body {
   margin: 1em;
   color: black;
   border-radius: 25px;
-  font-family: 'Poiret One', cursive;
+  font-family: 'Encode Sans SC', sans-serif;
 }
 
 .profile button:hover {
@@ -278,4 +274,26 @@ html, body {
   color: white;
   background-color: rgba(0, 0, 0, 0.233);
   font-weight: bolder;
+}
+
+.badge-container {
+  display: flex;
+}
+
+.profile-badges {
+  position: relative;
+  text-align: center;
+  color: white;
+  font-family: 'Encode Sans SC', sans-serif;
+  text-shadow: 1px 1px 2px black;
+  border: dotted 1px;
+  padding: .5em;
+  margin: .2em;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
