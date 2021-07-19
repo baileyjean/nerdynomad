@@ -43,7 +43,7 @@
 - [X] User profile
 - [X] Science center posts
 - [X] Comments on science center components
-- [] Ratings on science center components
+- [X] Ratings on science center components
 - [X] React Rainbow
 
 ## Backend Requirements
@@ -60,11 +60,9 @@
 - [X] PUT - 'Update' science center
 - [X] PUT - 'Update' user profile
 - [X] PUT - 'Update' comment
-- [X] PUT - 'Update' rating
 - [X] DELETE - 'Delete' science center
 - [X] DELETE - 'Delete' user profile
 - [X] DELETE - 'Delete' comment
-- [X] DELETE - 'Delete' rating
 
 ***
 

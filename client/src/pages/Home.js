@@ -20,16 +20,7 @@ const Home = (props) => {
       <br />
       <div className="browse-by-state">
         {unitedStates.map((unitedstate) => (
-          <div className="unitedStates" id={unitedstate} onClick={() =>
-            history.push(`/location/${unitedstate}`)
-          }>
-            <h3>{unitedstate}</h3>
-          </div>
-        ))}
-      </div>
-      <div className="browse-by-state">
-        {unitedStates.map((unitedstate) => (
-          <div className="unitedStates" id={unitedstate} onClick={() =>
+          <div className="unitedStates" key={unitedstate} onClick={() =>
             history.push(`/location/${unitedstate}`)
           }>
             <h3>{unitedstate}</h3>
@@ -52,7 +43,7 @@ const Home = (props) => {
       <br />
       <div className="search-by-state">
         {unitedStates.map((unitedstate) => (
-          <div className="unitedStates" id={unitedstate} onClick={() =>
+          <div className="unitedStates" key={unitedstate} onClick={() =>
             history.push(`/location/${unitedstate}`)
           }>
             <h3>{unitedstate}</h3>

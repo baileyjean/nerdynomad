@@ -1,6 +1,7 @@
+import '../styles/App.css'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-// import logo from '../styles/images/<logohere>'
+import logo from '../styles/images/logo.png'
 
 const NavBar = (props) => {
   //////////////////////// STATE ////////////////////////
@@ -8,9 +9,9 @@ const NavBar = (props) => {
 
   //////////////////////// FRONT-END RETURN ////////////////////////
   return loggedIn ? (
-    <header>
+    <header className="nav">
+      <img src={logo} alt={"Nerdy Nomad Logo"} />
       <NavLink to={"/"}>Home</NavLink>
-      {/* Add Smol Logo */}
       <nav>
         <NavLink to="/browse-all">Browse Science Centers</NavLink>
         <NavLink to={`/post-science-center/${userID}`}>Add a Science Center</NavLink>
@@ -19,9 +20,9 @@ const NavBar = (props) => {
       </nav>
     </header>
   ) : (
-    <header>
+    <header className="nav">
+      <img src={logo} alt={"Nerdy Nomad Logo"} />
       <NavLink to={"/"}>Home</NavLink>
-      {/* Add Smol Logo */}
       <nav>
         <NavLink to="/browse-all">Browse Science Centers</NavLink>
         <NavLink to="/oneofus">Login/Signup</NavLink>

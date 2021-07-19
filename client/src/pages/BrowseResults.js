@@ -26,6 +26,7 @@ const BrowseResults = (props) => {
         <SciCenterCard
           {...props}
           history={history}
+          key={sciCenter.id}
           id={sciCenter.id}
           name={sciCenter.name}
           image={sciCenter.image}

@@ -34,7 +34,6 @@ const RatingCard = (props) => {
       let ratingTotal = 0
       ratings.forEach(function (rating) {
         ratingTotal += parseInt(rating.stars)
-        console.log(rating.user_id)
         if (parseInt(rating.user_id) === parseInt(userID)) {
           setAlreadyRated(true)
         }
