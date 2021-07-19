@@ -20,7 +20,7 @@ const NavBar = (props) => {
   //////////////////////// FRONT-END RETURN ////////////////////////
   return loggedIn ? (
     <div>
-      <span id="open-nav" style={{ cursor: "pointer" }} onClick={openNav}>&#9776;</span>
+      <span id="open-nav" style={{ cursor: 'pointer', fontSize: '24px', padding: '1em' }} onClick={openNav}>&#9776;</span>
       <div id="side-nav" class="nav">
         <button class="close-nav" onClick={closeNav}>x</button>
         <img src={logo} alt={"Nerdy Nomad Logo"} />
@@ -29,7 +29,7 @@ const NavBar = (props) => {
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to="/browse-all">Browse Science Centers</NavLink></span>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={`/post-science-center/${userID}`}>Add a Science Center</NavLink></span>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={`/user/${userID}`}>Your Profile </NavLink></span>
-          <span><button id="logout" onClick={logOut}> Logout </button></span>
+          <span><button id="logout" onClick={logOut} style={{ cursor: 'pointer', backgroundColor: 'white', color: 'darkgreen', border: 'none', borderRadius: '8px' }}>Log Out</button></span>
         </nav>
       </div>
     </div>
@@ -37,7 +37,7 @@ const NavBar = (props) => {
     <div>
       <span id="open-nav" style={{ cursor: "pointer" }} onClick={openNav}>&#9776;</span>
       <div id="side-nav" class="nav">
-        <button class="close-nav" onClick={closeNav}>x</button>
+        <button class="close-nav" onClick={closeNav}>X</button>
         <img src={logo} alt={"Nerdy Nomad Logo"} style={{ width: '100%' }} />
         <nav>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={"/"}>Home</NavLink></span>

@@ -33,6 +33,10 @@
   right: 25px;
   font-size: 18px;
   margin-left: 50px;
+  background-color:#80ad8afa;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 .open-nav {
