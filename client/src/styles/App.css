@@ -1,12 +1,17 @@
+/******************************************************************************/
+/********************************* APP & INDEX ********************************/
+/******************************************************************************/
 body {
   text-align: center;
   background-image: url("./images/nerdyNomadBackground-proto4.png");
   background-repeat: no-repeat;
   background-size: 100%;
+  color: white;
   margin: 0px;
   padding: 0px;
-  width: 100%;
+  width: 100vw;
   height: auto;
+  font-family: 'Poiret One', cursive;
 }
 
 .App {
@@ -14,7 +19,9 @@ body {
   text-align: center;
 }
 
-/* NAV BAR STYLING */
+/******************************************************************************/
+/********************************** NAV BAR ***********************************/
+/******************************************************************************/
 .nav {
   height: 100vh;
   width: 0;
@@ -53,12 +60,82 @@ body {
   cursor: pointer;
 }
 
-.open-nav {
+#open-nav {
   transition: margin-left .5s;
-  padding: 16px;
+  padding: 1em;
 }
 
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav span {font-size: 18px;}
+}
+
+/******************************************************************************/
+/********************************** HOME PAGE *********************************/
+/******************************************************************************/
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.home header {
+  width: 100vw;
+  height: 10vh;
+  padding: 0.25em;
+  margin-bottom: 0.5em;
+  font-size: 3em;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.searchbar {
+  width: 40%;
+  height: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home input {
+  border-radius: 4px;
+  height: 2em;
+  margin: .5em;
+  padding: .25em;
+  width: 80%;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.home button {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.466);
+  width: 20%;
+  margin-top: .5em;
+  margin-bottom: 2em;
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.state-list {
+  display: grid;
+  grid-template-columns: 10em 10em 10em 10em 10em;
+  grid-template-rows: 1fr 1fr;
+  padding: 0;
+  margin: 0;
+}
+
+.state-list p {
+  padding: 0.5em;
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: bold;
 }

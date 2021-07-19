@@ -118,7 +118,6 @@ function App() {
         setUserID={setUserID}
         logOut={logOut}
       />
-      <h1>Nerdy Nomad</h1>
       <Switch>
         <Route
           exact path="/"

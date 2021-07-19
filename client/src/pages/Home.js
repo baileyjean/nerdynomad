@@ -2,11 +2,14 @@ import React from 'react'
 
 const Home = (props) => {
   //////////////////////// STATE ////////////////////////
-  const { loggedIn, history, unitedStates, keyword, handleChange, handleSearch } = props
+  const { loggedIn, history, unitedStates, keyword, handleChange, handleSearch, userID } = props
   
   //////////////////////// FRONT-END RETURN ////////////////////////
   return loggedIn ? (
-    <div className="home-user">
+    <div className="home">
+      <header>
+        Nerdy Nomad
+      </header>
       <div className="searchbar">
         <input
           type="search"
@@ -14,22 +17,22 @@ const Home = (props) => {
           value={keyword}
           onChange={handleChange}
         />
-        <button onClick={handleSearch}>Nerd Out!</button>
+        <button onClick={handleSearch}>Nerd Out</button>
       </div>
-      Welcome Home!
+      <h2>Where Are We Going Today, Nerdy Nomad?</h2>
       <br />
-      <div className="browse-by-state">
+      <div className="state-list">
         {unitedStates.map((unitedstate) => (
           <div className="unitedStates" key={unitedstate} onClick={() =>
             history.push(`/location/${unitedstate}`)
           }>
-            <h3>{unitedstate}</h3>
+            <p>{unitedstate}</p>
           </div>
         ))}
       </div>
     </div>
   ) : (
-    <div className="home-no-user">
+    <div className="home">
       <div className="searchbar">
         <input
           type="search"
@@ -39,14 +42,14 @@ const Home = (props) => {
         />
         <button onClick={handleSearch}>Nerd Out!</button>
       </div>
-      Login to Get the Full Experience!
+      <h2>Login to Get the Full Experience!</h2>
       <br />
-      <div className="search-by-state">
+      <div className="state-list">
         {unitedStates.map((unitedstate) => (
           <div className="unitedStates" key={unitedstate} onClick={() =>
             history.push(`/location/${unitedstate}`)
           }>
-            <h3>{unitedstate}</h3>
+            <p>{unitedstate}</p>
           </div>
         ))}
       </div>
