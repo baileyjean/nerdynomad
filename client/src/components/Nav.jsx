@@ -1,5 +1,5 @@
 import '../styles/App.css'
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../styles/images/nerdyNomad-smol-logoProto4.png'
 
@@ -8,8 +8,8 @@ const NavBar = (props) => {
   const { loggedIn, logOut, userID } = props
 
   const openNav = () => {
-    document.getElementById("side-nav").style.width = "250px";
-    document.getElementById("open-nav").style.marginLeft = "250px";
+    document.getElementById("side-nav").style.width = "20em";
+    document.getElementById("open-nav").style.marginLeft = "20em";
   }
 
   const closeNav = () => {
