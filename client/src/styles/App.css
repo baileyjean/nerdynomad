@@ -5,17 +5,42 @@
 
 /* NAV BAR STYLING */
 .nav {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-  height: 100vh;  
-  width: 18vw;  
-  background-color:#80ad8ad8; 
-  padding-top: 2em; 
-  position: fixed; 
-  z-index: 1; 
-  top: 0; 
-  left: 0; 
-  transition: .5s ease; 
-  overflow-x: hidden; 
+  height: 100vh;
+  width: 0;
+  background-color:#80ad8afa;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  transition: .5s ease;
+  overflow-x: hidden;
+}
+
+.nav span {
+  display: block;
+  font-size: 1.25em;
+  padding: 1em 1em 1em 1em;
+  transition: 0.3s;
+}
+
+.nav span:hover {
+  color: #a4f5f1;
+}
+
+.nav .close-nav {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 18px;
+  margin-left: 50px;
+}
+
+.open-nav {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav span {font-size: 18px;}
 }
