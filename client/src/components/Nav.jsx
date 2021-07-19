@@ -1,7 +1,7 @@
 import '../styles/App.css'
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import logo from '../styles/images/logo.png'
+import logo from '../styles/images/nerdyNomad-smol-logoProto4.png'
 
 const NavBar = (props) => {
   //////////////////////// STATE ////////////////////////
@@ -23,7 +23,7 @@ const NavBar = (props) => {
       <span id="open-nav" style={{ cursor: 'pointer', fontSize: '24px', padding: '1em' }} onClick={openNav}>&#9776;</span>
       <div id="side-nav" class="nav">
         <button class="close-nav" onClick={closeNav}>x</button>
-        <img src={logo} alt={"Nerdy Nomad Logo"} />
+        <img src={logo} alt={"Nerdy Nomad Logo"} style={{ maxWidth: '100%', height: 'auto' }} />
         <nav>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={"/"}>Home</NavLink></span>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to="/browse-all">Browse Science Centers</NavLink></span>
