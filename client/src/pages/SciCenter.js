@@ -159,6 +159,8 @@ const SciCenter = (props) => {
     getSciCenterInfo();
   }, [])
 
+  //////////////////////// CONSOLE LOG ////////////////////////
+  console.log(userID)
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
@@ -258,20 +260,38 @@ const SciCenter = (props) => {
           ratings={ratings}
         />
       </div>
-      {sciCenterComplete.image ?
-        <img src={sciCenterComplete.image} />
-        : <img src="https://i.imgur.com/pmSlYJ6.png" alt="default image displays when there are no photos" />
-      }
       <div className="sciCenter-details">
-        <div>
-          <p>{sciCenterComplete.street}, {sciCenterComplete.city}, {sciCenterComplete.state}, {sciCenterComplete.zip}</p>
-          <p>{sciCenterComplete.website}</p>
+        <div className="left-container">
           <p>Price Range: {sciCenterComplete.priceRange}</p>
-          <p>{sciCenterComplete.description}</p>
+          <p>{sciCenterComplete.website}</p>
+          <p>{sciCenterComplete.street}, {sciCenterComplete.city}, {sciCenterComplete.state}, {sciCenterComplete.zip}</p>
+          {sciCenterComplete.description ?
+            <div className="about-div">
+              <h3>ABOUT</h3>
+              <p> {sciCenterComplete.description}</p>
+            </div>
+            : null
+          }
+          
+          <div style={{ display: `${parseInt(userID) === parseInt(sciCenterComplete.user_id) ? 'inherit' : 'none'}` }}>
+            <p>
+              Did this Science Center close? Please update our database...
+              <button id="editBtn" onClick={editSciCenter}>Edit Posting</button> <button  id="deleteBtn" onClick={deleteSciCenter}>Delete Posting</button>
+            </p>
+          </div>
+        </div>
+        <div className="right-container">
+          {sciCenterComplete.image ?
+            <img src={sciCenterComplete.image} />
+            : <img src="https://i.imgur.com/pmSlYJ6.png" alt="default image displays when there are no photos" />
+          }
         </div>
       </div>
+
       <div className="comment-container">
-        <div className="comments">
+        {sciCenterComplete.comments ? 
+          <div className="comments">
+          <h4>Tax the Collective Intelligence:</h4>
           {comments.map((comment, index) => (
           <div className="comment">
             <CommentCard
@@ -287,23 +307,24 @@ const SciCenter = (props) => {
             />
           </div>
           ))}
-        </div>
-        <form>
-          <Textarea
-            label="Comment"
-            rows={4}
-            onChange={handleNewComment}
-            maxLength={255}
-            placeholder="Tell us your thoughts about this science center!"
-            value={newComment}
-          />
-          <Button label="Submit" variant="border" onClick={submitNewComment} />
-        </form>
-      </div>
-      <div
-        style={{ display: `${parseInt(userID) === parseInt(sciCenterComplete.user_id) ? 'flex' : 'none'}` }}
-      >
-        <p><button id="editBtn" onClick={editSciCenter}>Edit Posting</button> Did this Science Center close? Please update our database... <button  id="deleteBtn" onClick={deleteSciCenter}>Delete This Science Center</button></p>
+          </div>
+          : <div className="comments">
+              <p>Be the First to Comment!</p>
+            </div>
+        }
+        {userID ? 
+          <form>
+            <Textarea
+              label="Comment"
+              rows={4}
+              onChange={handleNewComment}
+              maxLength={255}
+              placeholder="Tell us your thoughts about this science center!"
+              value={newComment}
+            />
+            <Button label="Submit" variant="border" onClick={submitNewComment} />
+          </form>
+        : <p className="right-container">Do YOU have an opinion? Of course you do... but we don't care. Unless you LOGIN  ^_^</p>}
       </div>
     </div>
   )

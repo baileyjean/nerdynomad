@@ -314,7 +314,7 @@ button:hover {
 }
 
 /******************************************************************************/
-/****************** SCICENTER PAGE / COMMENTS / RATINGS ***********************/
+/******************************* SCICENTER PAGE *******************************/
 /******************************************************************************/
 .sciCenter-page {
   height: 100%;
@@ -347,22 +347,94 @@ button:hover {
   width: 35em;
   height: 23em;
   margin-bottom: .25em;
+  box-shadow: 2px 2px 5px white;
 }
 
+.sciCenter-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  width: 42em;
+  justify-content: flex-end;
+  text-align: right;
+  padding: .5em;
+}
+
+.about-div {
+  border-style: inset;
+  border-width: 1px;
+  border-radius: 42px;
+  padding: .75em;
+  margin: .5em;
+}
+
+.about-div h3 {
+  margin: .1em;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: left;
+}
+
+/******************************************************************************/
+/********************************** COMMENTS **********************************/
+/******************************************************************************/
 .comment-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .comment-container form {
-  border-style: dotted;
-  border-width: 1px;
+  width: 20em;
+  margin: .5em;
 }
 
 .comments {
-  border-style: dotted;
+  margin: .5em;
+  min-height: 10vh;
+  max-height: 20vh;
+  overflow: scroll;
+  border-style: inset;
   border-width: 1px;
+  padding: .5em;
 }
+
+.comments h4 {
+  margin: .12em;
+}
+
+.comment {
+  border-style: inset;
+  border-radius: 20px;
+  padding: .25em;
+}
+
+.comment-container Button {
+  cursor: pointer;
+  background-color: white; 
+  margin: 1em;
+  color: black;
+  border-radius: 25px;
+  font-family: 'Encode Sans SC', sans-serif;
+}
+
+.comment-container Button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.233);
+  font-weight: bolder;
+}
+
+/******************************************************************************/
+/********************************** RATINGS ***********************************/
+/******************************************************************************/
 
 /******************************************************************************/
 /******************************** PROFILE PAGE ********************************/

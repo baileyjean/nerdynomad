@@ -13,7 +13,6 @@ import SciCenter from './pages/SciCenter'
 import PostSciCenter from './pages/PostSciCenter'
 import SearchByState from './pages/SearchByState'
 import SearchResults from './pages/SearchResults'
-import e from 'cors'
 
 function App() {
   //////////////////////// STATE ////////////////////////
@@ -98,10 +97,11 @@ function App() {
 
   //////////////////////// AUTHENTICATION ////////////////////////
   const logOut = () => {
-      setLogIn(false)
-      localStorage.clear()
-      history.push('/')
-    }
+    setUserID('')
+    setLogIn(false)
+    localStorage.clear()
+    history.push('/')
+  }
   
   const getToken = async() => {
     let token = localStorage.getItem('token')
