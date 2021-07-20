@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import { Input, Button, Textarea } from 'react-rainbow-components'
+import { Input, Button, Textarea, Select } from 'react-rainbow-components'
 import nerdyNomadBadge from '../styles/images/nerdyNomadBadge.png'
 import nerdBadge from '../styles/images/nerdRating.png'
 import nomadBadge from '../styles/images/nomadRating.png'
@@ -11,12 +11,36 @@ const ProfilePage = (props) => {
   const { userID } = props
   const [user, setUser] = useState({})
   const [editing, setEditing] = useState(false)
+  const [nerdyNomadBool, setNerdyNomadBool] = useState(false)
   const [editedUser, setEditedUser] = useState({
     name: '',
     location: '',
     bio: '',
-    image: ''
+    image: '',
+    nerdRating: '',
+    nomadRating: '',
+    nerdyNomad: ''
   })
+  const nerdOptions = [
+    {value: '0', label: '0'},
+    {value: '1', label: '1'},
+    {value: '2', label: '2'},
+    {value: '3', label: '3'},
+    {value: '4', label: '4'},
+    {value: '5', label: '5+'}
+  ]
+  const nomadOptions = [
+    {value: '1', label: '1-5'},
+    {value: '2', label: '6-10'},
+    {value: '3', label: '11-15'},
+    {value: '4', label: '16-20'},
+    {value: '5', label: '21-25'},
+    {value: '6', label: '26-30'},
+    {value: '7', label: '31-35'},
+    {value: '8', label: '36-40'},
+    {value: '9', label: '41-45'},
+    {value: '10', label: '46+'}
+  ]
 
   //////////////////////// AXIOS CALLS ////////////////////////
   const getUser = async () => {
@@ -32,7 +56,7 @@ const ProfilePage = (props) => {
       image: res.data.image,
       nerdRating: parseInt(res.data.nerdRating),
       nomadRating: parseInt(res.data.nomadRating),
-      nerdyNomad: true
+      nerdyNomad: res.data.nerdyNomad
     })
   }
 
@@ -79,6 +103,14 @@ const ProfilePage = (props) => {
     setEditedUser({ ...editedUser, location: parseInt(e.target.value) })
   }
 
+  const handleNerdChange = (e) => {
+    setEditedUser({ ...editedUser, nerdRating: parseInt(e.target.value) })
+  }
+
+  const handleNomadChange = (e) => {
+    setEditedUser({ ...editedUser, nomadRating: parseInt(e.target.value) })
+  }
+
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     getUser()
@@ -104,7 +136,6 @@ const ProfilePage = (props) => {
           placeholder="Image Link"
           style={{ marginBottom: '40px', width: '25vw' }}
         />
-        <p>Name:</p>
         <Input
           label="Name"
           rows={1}
@@ -115,7 +146,6 @@ const ProfilePage = (props) => {
           placeholder="Name"
           style={{ marginBottom: '40px', width: '25vw' }}
         />
-        <p>Bio:</p>
         <Textarea
           label="Bio"
           rows={4}
@@ -131,7 +161,6 @@ const ProfilePage = (props) => {
             overflowY: 'auto'
           }}
         />
-        <p>Location:</p>
         <Input
           label="Zip Code"
           maxLength={5}
@@ -140,6 +169,18 @@ const ProfilePage = (props) => {
           onChange={handleLocationChange}
           placeholder="Zip Code"
           style={{ marginBottom: '40px', width: '25vw' }}
+        />
+        <Select
+          label="How nerdy are you? Tell us how many science centers/museums you've been to!"
+          options={nerdOptions}
+          onChange={handleNerdChange}
+          required={true}
+        />
+        <Select
+          label="Are you REALLY a nomad? Tell us how many states you've been to!"
+          options={nomadOptions}
+          onChange={handleNomadChange}
+          required={true}
         />
         <Button label="Submit" variant="border" onClick={submitEditUser} />
       </div>

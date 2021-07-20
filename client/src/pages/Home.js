@@ -33,6 +33,9 @@ const Home = (props) => {
     </div>
   ) : (
     <div className="home">
+      <header>
+        Nerdy Nomad
+      </header>
       <div className="searchbar">
         <input
           type="search"
