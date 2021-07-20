@@ -381,6 +381,7 @@ button:hover {
   flex-direction: column;
   justify-content: flex-end;
   text-align: left;
+  padding: .5em;
 }
 
 /******************************************************************************/

@@ -32,7 +32,7 @@ const CommentCard = (props) => {
         <form onSubmit={updateComment}>
           <Textarea
             type="text"
-            value={props.text}
+            value={props.post}
             onChange={(e) => props.handleChange(e, props.index)}
             rows={3}
             className="no-margin"
@@ -44,9 +44,10 @@ const CommentCard = (props) => {
   }
   return (
     <div className="commentBox">
+      <h4>Tax the Collective Intelligence:</h4>
       <Textarea
         type="text"
-        value={props.text}
+        value={props.post}
         rows={3}
         readOnly={true}
       />

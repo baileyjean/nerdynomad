@@ -7,8 +7,8 @@ const SciCenterCard = (props) => {
       props.history.push(`/science-center/${props.id}`)
     }}>
       {props.image ?
-        <img src={props.image} />
-        : <img src="https://i.imgur.com/pmSlYJ6.png" alt="default image displays when there are no photos" />
+        <img src={props.image} alt="" />
+        : <img src="https://i.imgur.com/pmSlYJ6.png" alt="" />
       }
       <h4>{props.name}</h4>
       <p>{props.city}, {props.state}</p>

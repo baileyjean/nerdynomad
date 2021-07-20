@@ -140,7 +140,7 @@ const SciCenter = (props) => {
     setComments(currentComments)
   }
 
-  const submitNewComment = async (e) => {
+  const submitNewComment = async () => {
     await axios.post(`${BASE_URL}/comments`, {
       user_id: userID,
       scicenter_id: id,
@@ -159,8 +159,6 @@ const SciCenter = (props) => {
     getSciCenterInfo();
   }, [])
 
-  //////////////////////// CONSOLE LOG ////////////////////////
-  console.log(userID)
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
@@ -288,30 +286,32 @@ const SciCenter = (props) => {
         </div>
       </div>
 
-      <div className="comment-container">
-        {sciCenterComplete.comments ? 
-          <div className="comments">
-          <h4>Tax the Collective Intelligence:</h4>
-          {comments.map((comment, index) => (
-          <div className="comment">
-            <CommentCard
-              key={`${comment.user_id} ${index}`}
-              index={index}
-              text={comment.post}
-              user_id={comment.user_id}
-              scicenter_id={comment.scicenter_id}
-              userID={userID}
-              id={comment.id}
-              handleDelete={handleDelete}
-              handleChange={handleChange}
-            />
-          </div>
-          ))}
-          </div>
-          : <div className="comments">
-              <p>Be the First to Comment!</p>
+      <div className="comment-container"> 
+        <div className="comments">
+          {(sciCenterComplete.Comments.length == 0) ?
+              <div>
+                <p>Be the First to Comment!</p>
+              </div>
+          : 
+            <div>
+              {comments.map((comment, index) => (
+                <div className="comment">
+                  <CommentCard
+                    key={`${comment.user_id} ${index}`}
+                    index={index}
+                    post={comment.post}
+                    user_id={comment.user_id}
+                    scicenter_id={comment.scicenter_id}
+                    userID={userID}
+                    id={comment.id}
+                    handleDelete={handleDelete}
+                    handleChange={handleChange}
+                  />
+                </div>
+              ))}
             </div>
-        }
+          } 
+        </div>
         {userID ? 
           <form>
             <Textarea
