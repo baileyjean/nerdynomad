@@ -21,8 +21,8 @@ const NavBar = (props) => {
   return loggedIn ? (
     <div>
       <span id="open-nav" style={{ cursor: 'pointer', fontSize: '24px', padding: '1em' }} onClick={openNav}>&#9776;</span>
-      <div id="side-nav" class="nav">
-        <button class="close-nav" onClick={closeNav}>x</button>
+      <div id="side-nav" className="nav">
+        <button className="close-nav" onClick={closeNav}>x</button>
         <img src={logo} alt={"Nerdy Nomad Logo"} style={{ maxWidth: '100%', height: 'auto' }} />
         <nav>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={"/"}>Home</NavLink></span>
@@ -36,8 +36,8 @@ const NavBar = (props) => {
   ) : (
     <div>
       <span id="open-nav" style={{ cursor: "pointer" }} onClick={openNav}>&#9776;</span>
-      <div id="side-nav" class="nav">
-        <button class="close-nav" onClick={closeNav}>X</button>
+      <div id="side-nav" className="nav">
+        <button className="close-nav" onClick={closeNav}>X</button>
         <img src={logo} alt={"Nerdy Nomad Logo"} style={{ width: '100%' }} />
         <nav>
           <span><NavLink style={{ textDecoration: 'none', color: 'white' }} to={"/"}>Home</NavLink></span>

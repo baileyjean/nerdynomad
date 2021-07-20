@@ -86,6 +86,46 @@ html, body {
 }
 
 /******************************************************************************/
+/****************************** LOGIN/SIGNUP PAGE *****************************/
+/******************************************************************************/
+.login, .signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+  width: 100%;
+}
+
+.login img, .signup img {
+  width: 30em;
+  height: auto;
+  box-shadow: 1px 2px 10px 2px darkgreen;
+  margin-bottom: 2em;
+}
+
+.input {
+  padding: 0.25em;
+}
+
+.login Button, .signup Button {
+  cursor: pointer;
+  background-color: white; 
+  margin: 1em;
+  color: black;
+  border-radius: 25px;
+  font-family: 'Encode Sans SC', sans-serif;
+}
+
+.login Button:hover, .signup Button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.233);
+  font-weight: bolder;
+}
+
+
+/******************************************************************************/
 /********************************** HOME PAGE *********************************/
 /******************************************************************************/
 .home {
@@ -140,7 +180,7 @@ html, body {
 
 .state-list {
   display: grid;
-  grid-template-columns: 10em 10em 10em 10em 10em;
+  grid-template-columns: 12em 12em 12em 12em 12em;
   padding: 0;
   margin: 0;
 }
@@ -148,9 +188,15 @@ html, body {
 .state-list p {
   padding: 0.5em;
   margin: 0;
+  font-size: 1.25em;
   cursor: pointer;
   font-family: 'Encode Sans SC', sans-serif;
   text-shadow: 1px 1px 2px black;
+}
+
+.state-list p:hover {
+  box-shadow: 2px 2px 5px white;
+  border-radius: 20px;
 }
 
 @media screen and (max-width: 500px) {
@@ -170,7 +216,7 @@ html, body {
 }
 
 /******************************************************************************/
-/******************************* BROWSE ALL PAGE ******************************/
+/************************ BROWSE RESULTS/SCICENTER CARD ***********************/
 /******************************************************************************/
 .sciCenter-container {
   height: 100%;
@@ -276,6 +322,14 @@ html, body {
   font-weight: bolder;
 }
 
+#editBtn:hover {
+  box-shadow: 0px 5px 10px green;
+}
+
+#deleteBtn:hover {
+  box-shadow: 0px 5px 10px red;
+}
+
 .badge-container {
   display: flex;
 }
@@ -286,9 +340,10 @@ html, body {
   color: white;
   font-family: 'Encode Sans SC', sans-serif;
   text-shadow: 1px 1px 2px black;
-  border: dotted 1px;
   padding: .5em;
-  margin: .2em;
+  margin: .1em;
+  border-radius: 50%;
+  box-shadow: 0 -2px 5px 1px white;
 }
 
 .text-overlay {

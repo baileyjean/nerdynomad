@@ -71,7 +71,28 @@ function App() {
     "Washington",
     "West Virginia",
     "Wisconsin",
-    "Wyoming"
+    "Wyoming",
+    "DC"
+  ]
+  const nerdOptions = [
+    {value: '0', label: '0'},
+    {value: '1', label: '1'},
+    {value: '2', label: '2'},
+    {value: '3', label: '3'},
+    {value: '4', label: '4'},
+    {value: '5', label: '5+'}
+  ]
+  const nomadOptions = [
+    {value: '1', label: '1-5'},
+    {value: '2', label: '6-10'},
+    {value: '3', label: '11-15'},
+    {value: '4', label: '16-20'},
+    {value: '5', label: '21-25'},
+    {value: '6', label: '26-30'},
+    {value: '7', label: '31-35'},
+    {value: '8', label: '36-40'},
+    {value: '9', label: '41-45'},
+    {value: '10', label: '46+'}
   ]
 
   //////////////////////// AUTHENTICATION ////////////////////////
@@ -106,7 +127,7 @@ function App() {
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     getToken();
-  }, [])
+  }, [loggedIn])
 
   //////////////////////// FRONT-END RETURN ////////////////////////
   return (
@@ -142,6 +163,8 @@ function App() {
               history={history}
               setLogIn={setLogIn}
               setUserID={setUserID}
+              nerdOptions={nerdOptions}
+              nomadOptions={nomadOptions}
             />
           )}
         />
@@ -151,7 +174,9 @@ function App() {
             <Profile 
               {...props} 
               loggedIn={loggedIn} 
-              userID={userID} 
+              userID={userID}
+              nerdOptions={nerdOptions}
+              nomadOptions={nomadOptions}
             />
           )}
         />

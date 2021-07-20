@@ -8,39 +8,21 @@ import nomadBadge from '../styles/images/nomadRating.png'
 
 const ProfilePage = (props) => {
   //////////////////////// STATE ////////////////////////
-  const { userID } = props
+  const { 
+    userID, 
+    nerdOptions, 
+    nomadOptions
+  } = props
   const [user, setUser] = useState({})
   const [editing, setEditing] = useState(false)
-  const [nerdyNomadBool, setNerdyNomadBool] = useState(false)
   const [editedUser, setEditedUser] = useState({
     name: '',
     location: '',
     bio: '',
     image: '',
     nerdRating: '',
-    nomadRating: '',
-    nerdyNomad: ''
+    nomadRating: ''
   })
-  const nerdOptions = [
-    {value: '0', label: '0'},
-    {value: '1', label: '1'},
-    {value: '2', label: '2'},
-    {value: '3', label: '3'},
-    {value: '4', label: '4'},
-    {value: '5', label: '5+'}
-  ]
-  const nomadOptions = [
-    {value: '1', label: '1-5'},
-    {value: '2', label: '6-10'},
-    {value: '3', label: '11-15'},
-    {value: '4', label: '16-20'},
-    {value: '5', label: '21-25'},
-    {value: '6', label: '26-30'},
-    {value: '7', label: '31-35'},
-    {value: '8', label: '36-40'},
-    {value: '9', label: '41-45'},
-    {value: '10', label: '46+'}
-  ]
 
   //////////////////////// AXIOS CALLS ////////////////////////
   const getUser = async () => {
@@ -55,8 +37,7 @@ const ProfilePage = (props) => {
       bio: res.data.bio,
       image: res.data.image,
       nerdRating: parseInt(res.data.nerdRating),
-      nomadRating: parseInt(res.data.nomadRating),
-      nerdyNomad: res.data.nerdyNomad
+      nomadRating: parseInt(res.data.nomadRating)
     })
   }
 
@@ -115,7 +96,7 @@ const ProfilePage = (props) => {
   useEffect(() => {
     getUser()
   }, [])
-
+  
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
@@ -197,7 +178,7 @@ const ProfilePage = (props) => {
           </div>
         </div>
 
-        {user.nerdyNomad ? 
+        {(user.nerdRating > 3 && user.nomadRating > 5) ? 
           <div className="profile-badges">
             <img style={{ width: '5em', borderRadius: '0' }} src={nerdyNomadBadge} alt={user.name} />
           </div>
@@ -212,7 +193,7 @@ const ProfilePage = (props) => {
       </div>
       <h1>{user.username}'s Profile</h1>
       <div>
-        <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
+        <img style={{ width: '30vw', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
       </div>
       <div>
         <p>Name: {user.name}</p>
@@ -220,8 +201,8 @@ const ProfilePage = (props) => {
       </div>
       <p>{user.bio}</p>
       <div>
-        <button onClick={editProfile} style={{ boxShadow: "1px 1px 4px green" }}>Edit Profile</button>
-        <button onClick={() => handleDelete(user.id)} style={{ boxShadow: "1px 1px 4px red"  }}>Delete Profile</button>
+        <button onClick={editProfile} id="editBtn">Edit Profile</button>
+        <button onClick={() => handleDelete(user.id)} id="deleteBtn">Delete Profile</button>
       </div>
     </div>
   )
