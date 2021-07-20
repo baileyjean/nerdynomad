@@ -101,7 +101,8 @@ const ProfilePage = (props) => {
   if (editing) {
     return (
       <div className="profile">
-        <h2>{user.username}'s Profile</h2>
+        <header>Nerdy Nomad</header>
+        <h2>{user.username}</h2>
         <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
         <Input
           type="url"
@@ -168,6 +169,9 @@ const ProfilePage = (props) => {
 
   return(
     <div className="profile">
+      <header>Nerdy Nomad</header>
+      <h1>{user.username}</h1>
+      <img style={{ width: '30vw', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
       <div className="badge-container">
         <div className="profile-badges">
           <img style={{ width: '5em', borderRadius: '0' }} src={nerdBadge} alt={user.name} />
@@ -189,15 +193,11 @@ const ProfilePage = (props) => {
           </div>
         </div>
       </div>
-      <h1>{user.username}'s Profile</h1>
-      <div>
-        <img style={{ width: '30vw', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
-      </div>
       <div>
         <p>Name: {user.name}</p>
         <p>Location: {user.location}</p>
+        <p>{user.name}'s Bio: {user.bio}</p>
       </div>
-      <p>{user.bio}</p>
       <div>
         <button onClick={editProfile} id="editBtn">Edit Profile</button>
         <button onClick={() => handleDelete(user.id)} id="deleteBtn">Delete Profile</button>

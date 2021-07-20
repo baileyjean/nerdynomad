@@ -21,7 +21,10 @@ const SearchByState = (props) => {
 
   //////////////////////// FRONT-END RETURN ////////////////////////
   return(
-    <div>
+    <div className="sciCenter-container">
+      <header>
+        Nerdy Nomad
+      </header>
       <div className="sciCenters">
       {sciCentersByState.map((sciCenter) => (
         <SciCenterCard

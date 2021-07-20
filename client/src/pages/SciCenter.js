@@ -162,7 +162,10 @@ const SciCenter = (props) => {
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
-      <div>
+      <div className="sciCenter-page">
+        <header>
+          Nerdy Nomad
+        </header>
         <h3>EDIT SCIENCE CENTER</h3>
         <Input
           label="Science Center Name?"
@@ -244,57 +247,63 @@ const SciCenter = (props) => {
   }
   return (
     <div className="sciCenter-page">
-      <img src={sciCenterComplete.image} />
-      <h2>{sciCenterComplete.name}</h2>
-      <div className="rating">
+      <header>
+        Nerdy Nomad
+      </header>
+      <h1>{sciCenterComplete.name}</h1>
+      <div className="rating-container">
         <RatingCard 
           id={id}
           userID={userID} 
           ratings={ratings}
         />
       </div>
-      <div className="details">
+      {sciCenterComplete.image ?
+        <img src={sciCenterComplete.image} />
+        : <img src="https://i.imgur.com/pmSlYJ6.png" alt="default image displays when there are no photos" />
+      }
+      <div className="sciCenter-details">
         <div>
+          <p>{sciCenterComplete.street}, {sciCenterComplete.city}, {sciCenterComplete.state}, {sciCenterComplete.zip}</p>
+          <p>{sciCenterComplete.website}</p>
           <p>Price Range: {sciCenterComplete.priceRange}</p>
           <p>{sciCenterComplete.description}</p>
-          <p>{sciCenterComplete.website}</p>
-          <p>{sciCenterComplete.street}, {sciCenterComplete.city}, {sciCenterComplete.state}, {sciCenterComplete.zip}</p>
         </div>
       </div>
-      <div className="comments">
-        {comments.map((comment, index) => (
-        <div className="comment">
-          <CommentCard
-            key={`${comment.user_id} ${index}`}
-            index={index}
-            text={comment.post}
-            user_id={comment.user_id}
-            scicenter_id={comment.scicenter_id}
-            userID={userID}
-            id={comment.id}
-            handleDelete={handleDelete}
-            handleChange={handleChange}
-          />
-        </div>
-        ))}
-        <div>
-          <form>
-            <Textarea
-              label="Comment"
-              rows={4}
-              onChange={handleNewComment}
-              maxLength={255}
-              placeholder="Tell us your thoughts about this science center!"
-              value={newComment}
+      <div className="comment-container">
+        <div className="comments">
+          {comments.map((comment, index) => (
+          <div className="comment">
+            <CommentCard
+              key={`${comment.user_id} ${index}`}
+              index={index}
+              text={comment.post}
+              user_id={comment.user_id}
+              scicenter_id={comment.scicenter_id}
+              userID={userID}
+              id={comment.id}
+              handleDelete={handleDelete}
+              handleChange={handleChange}
             />
-            <Button label="Submit" variant="border" onClick={submitNewComment} />
-          </form>
-      </div>
+          </div>
+          ))}
+        </div>
+        <form>
+          <Textarea
+            label="Comment"
+            rows={4}
+            onChange={handleNewComment}
+            maxLength={255}
+            placeholder="Tell us your thoughts about this science center!"
+            value={newComment}
+          />
+          <Button label="Submit" variant="border" onClick={submitNewComment} />
+        </form>
       </div>
       <div
         style={{ display: `${parseInt(userID) === parseInt(sciCenterComplete.user_id) ? 'flex' : 'none'}` }}
       >
-        <p><button onClick={editSciCenter} style={{ backgroundColor: 'green', margin: "1em", color: "white" }}>Edit Posting</button> Did this Science Center close? Please update our database... <button onClick={deleteSciCenter} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete This Science Center</button></p>
+        <p><button id="editBtn" onClick={editSciCenter}>Edit Posting</button> Did this Science Center close? Please update our database... <button  id="deleteBtn" onClick={deleteSciCenter}>Delete This Science Center</button></p>
       </div>
     </div>
   )

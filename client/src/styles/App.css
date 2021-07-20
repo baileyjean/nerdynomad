@@ -33,6 +33,30 @@ html, body {
   html, body {font-family: Arial, Helvetica, sans-serif}
 }
 
+button {
+  cursor: pointer;
+  background-color: white; 
+  margin: 1em;
+  color: black;
+  border-radius: 25px;
+  font-family: 'Encode Sans SC', sans-serif;
+}
+
+button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.233);
+  font-weight: bolder;
+}
+
+#editBtn:hover {
+  box-shadow: 0px 5px 10px green;
+}
+
+#deleteBtn:hover {
+  box-shadow: 0px 5px 10px red;
+}
+
 /******************************************************************************/
 /********************************** NAV BAR ***********************************/
 /******************************************************************************/
@@ -216,7 +240,7 @@ html, body {
 }
 
 /******************************************************************************/
-/************************ BROWSE RESULTS/SCICENTER CARD ***********************/
+/************** BROWSE RESULTS / SEARCHBYSTATE / SCICENTER CARD ***************/
 /******************************************************************************/
 .sciCenter-container {
   height: 100%;
@@ -290,6 +314,57 @@ html, body {
 }
 
 /******************************************************************************/
+/****************** SCICENTER PAGE / COMMENTS / RATINGS ***********************/
+/******************************************************************************/
+.sciCenter-page {
+  height: 100%;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0 0 2em 0;
+}
+
+.sciCenter-page header {
+  width: 100%;
+  height: 10vh;
+  padding: 0.25em;
+  margin: 0;
+  font-size: 3em;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.sciCenter-page h1 {
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+
+.sciCenter-page img {
+  border-radius: 20px;
+  width: 35em;
+  height: 23em;
+  margin-bottom: .25em;
+}
+
+.comment-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.comment-container form {
+  border-style: dotted;
+  border-width: 1px;
+}
+
+.comments {
+  border-style: dotted;
+  border-width: 1px;
+}
+
+/******************************************************************************/
 /******************************** PROFILE PAGE ********************************/
 /******************************************************************************/
 .profile {
@@ -302,36 +377,28 @@ html, body {
   width: 100%;
 }
 
+.profile header {
+  width: 100%;
+  height: 10vh;
+  padding: 0.25em;
+  margin: 0;
+  font-size: 3em;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.profile h1 {
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+
 .profile img {
   border-radius: 50%;
 }
 
-.profile button {
-  cursor: pointer;
-  background-color: white; 
-  margin: 1em;
-  color: black;
-  border-radius: 25px;
-  font-family: 'Encode Sans SC', sans-serif;
-}
-
-.profile button:hover {
-  cursor: pointer;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.233);
-  font-weight: bolder;
-}
-
-#editBtn:hover {
-  box-shadow: 0px 5px 10px green;
-}
-
-#deleteBtn:hover {
-  box-shadow: 0px 5px 10px red;
-}
-
 .badge-container {
   display: flex;
+  margin: 0.75em 0 0.75em 0;
 }
 
 .profile-badges {

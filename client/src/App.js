@@ -139,7 +139,7 @@ function App() {
         userID={userID}
         setUserID={setUserID}
         logOut={logOut}
-      />
+        />
       <Switch>
         <Route
           exact path="/"

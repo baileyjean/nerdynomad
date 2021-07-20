@@ -28,24 +28,22 @@ const CommentCard = (props) => {
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
-      <div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <form onSubmit={updateComment}>
-            <Textarea
-              type="text"
-              value={props.text}
-              onChange={(e) => props.handleChange(e, props.index)}
-              rows={3}
-              className="no-margin"
-            />
-            <button>Submit</button>
-          </form>
-        </div>
+      <div className="edit-commentBox">
+        <form onSubmit={updateComment}>
+          <Textarea
+            type="text"
+            value={props.text}
+            onChange={(e) => props.handleChange(e, props.index)}
+            rows={3}
+            className="no-margin"
+          />
+          <button>Submit</button>
+        </form>
       </div>
     )
   }
   return (
-    <div>
+    <div className="commentBox">
       <Textarea
         type="text"
         value={props.text}
@@ -55,8 +53,8 @@ const CommentCard = (props) => {
       <div
         style={{ display: `${props.user_id === props.userID ? 'flex' : 'none'}` }}
       >
-        <button onClick={editComment}>Edit</button>
-        <button onClick={() => props.handleDelete(props.id)}>delete</button>
+        <button id="editBtn" onClick={editComment}>Edit</button>
+        <button id="deleteBtn" onClick={() => props.handleDelete(props.id)}>delete</button>
       </div>
     </div>
   )
