@@ -87,7 +87,7 @@ const PostSciCenter = (props) => {
 
   //////////////////////// FRONT-END RETURN ////////////////////////
   return (
-    <div>
+    <div className="post-sci-center">
     <h3>ADD A NEW SCIENCE CENTER</h3>
     <Input
       label="Science Center Name?"
@@ -170,7 +170,7 @@ const PostSciCenter = (props) => {
       placeholder="Give us the highlights of this science center!"
     />
     <Button label="Submit" variant="border" onClick={submitNewSciCenter} />
-
+    <Button label="Cancel" variant="border" onClick={() => window.location.assign(`/`)} />
     <RenderIf isTrue={posted}>
       <div>
         <Notification

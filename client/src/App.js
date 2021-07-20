@@ -13,6 +13,7 @@ import SciCenter from './pages/SciCenter'
 import PostSciCenter from './pages/PostSciCenter'
 import SearchByState from './pages/SearchByState'
 import SearchResults from './pages/SearchResults'
+import e from 'cors'
 
 function App() {
   //////////////////////// STATE ////////////////////////
@@ -112,7 +113,8 @@ function App() {
   }
   
   //////////////////////// FUNCTIONS & AXIOS CALLS ////////////////////////
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault()
     const res = await axios.get(`${BASE_URL}/scicenters/searchby/${keyword}`)
     setQueriedSciCenters(res.data)
     history.push(`/results/${keyword}`)

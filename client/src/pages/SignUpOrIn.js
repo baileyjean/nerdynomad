@@ -202,6 +202,7 @@ const SignUpOrIn = (props) => {
           placeholder="Zip Code"
           className="input"
         />
+        <p>If your Nerd Rating and Nomad Rating are sufficiently high, you'll get the NERDY NOMAD badge on your profile!</p>
         <Select
           label="How nerdy are you? Tell us how many science centers/museums you've been to!"
           options={nerdOptions}

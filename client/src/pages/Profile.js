@@ -100,10 +100,7 @@ const ProfilePage = (props) => {
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
-      <div style={{
-        padding: '4em',
-        margin: '4em' 
-      }}>
+      <div className="profile">
         <h2>{user.username}'s Profile</h2>
         <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
         <Input
@@ -164,6 +161,7 @@ const ProfilePage = (props) => {
           required={true}
         />
         <Button label="Submit" variant="border" onClick={submitEditUser} />
+        <Button label="Cancel" variant="border" onClick={() => setEditing(false)} />
       </div>
     )
   }

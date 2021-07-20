@@ -352,3 +352,32 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+/******************************************************************************/
+/*************************** POST A SCICENTER PAGE ****************************/
+/******************************************************************************/
+.post-sci-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.post-sci-center button {
+  cursor: pointer;
+  background-color: white; 
+  margin: 1em;
+  color: black;
+  border-radius: 25px;
+  font-family: 'Encode Sans SC', sans-serif;
+}
+
+.post-sci-center button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.233);
+  font-weight: bolder;
+}
