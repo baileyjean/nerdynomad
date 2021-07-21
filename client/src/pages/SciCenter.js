@@ -159,10 +159,6 @@ const SciCenter = (props) => {
     getSciCenterInfo();
   }, [])
 
-  // console.log(typeof sciCenterComplete.Comments)
-  // console.log(sciCenterComplete.Comments)
-  // console.log((sciCenterComplete.Comments).length)
-
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
@@ -294,6 +290,7 @@ const SciCenter = (props) => {
         <div className="comments">
           {sciCenterComplete.Comments && sciCenterComplete.Comments.length ?
             <div>
+              <h4>Tax the Collective Intelligence:</h4>
               {comments.map((comment, index) => (
                 <div className="comment">
                   <CommentCard

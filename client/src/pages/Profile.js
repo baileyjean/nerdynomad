@@ -5,6 +5,7 @@ import { Input, Button, Textarea, Select } from 'react-rainbow-components'
 import nerdyNomadBadge from '../styles/images/nerdyNomadBadge.png'
 import nerdBadge from '../styles/images/nerdRating.png'
 import nomadBadge from '../styles/images/nomadRating.png'
+import userDefault from '../styles/images/userDefault.png'
 
 const ProfilePage = (props) => {
   //////////////////////// STATE ////////////////////////
@@ -171,7 +172,12 @@ const ProfilePage = (props) => {
     <div className="profile">
       <header>Nerdy Nomad</header>
       <h1>{user.username}</h1>
-      <img style={{ width: '30vw', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
+      <div>
+        {user.image ?
+          <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
+          : <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={userDefault} alt="default image displays when there are no photos" />
+        }
+      </div>
       <div className="badge-container">
         <div className="profile-badges">
           <img style={{ width: '5em', borderRadius: '0' }} src={nerdBadge} alt={user.name} />

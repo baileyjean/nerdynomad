@@ -35,7 +35,7 @@ const CommentCard = (props) => {
             value={props.post}
             onChange={(e) => props.handleChange(e, props.index)}
             rows={3}
-            className="no-margin"
+            className="commentBox"
           />
           <button>Submit</button>
         </form>
@@ -43,13 +43,13 @@ const CommentCard = (props) => {
     )
   }
   return (
-    <div className="commentBox">
-      <h4>Tax the Collective Intelligence:</h4>
+    <div>
       <Textarea
         type="text"
         value={props.post}
         rows={3}
         readOnly={true}
+        className="commentBox"
       />
       <div
         style={{ display: `${props.user_id === props.userID ? 'flex' : 'none'}` }}

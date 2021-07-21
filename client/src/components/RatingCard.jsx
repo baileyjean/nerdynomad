@@ -109,7 +109,7 @@ const RatingCard = (props) => {
         </div>
         <br />
       </div>
-      {!alreadyRated ?
+      {!alreadyRated && userID ?
         <div className="select-ratings">
           <span id="star1" onClick={() => handleClick(1)}><img src={singleStar} /></span>
           <span id="star2" onClick={() => handleClick(2)}><img src={singleStar} /></span>
