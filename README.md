@@ -21,7 +21,7 @@
 ***
 
 ## Getting Started
-
+Users can enjoy Nerdy Nomad without ever logging in or creating an account, but all interactive portions of the site are blocked using conditional rendering. Once the user signs up or signs in, they get the full enjoyment of adding science centers to the database, personalizing their profiles, commenting on science centers, and rating science centers! The side nav bar on the site makes navigation across pages easy, and most pages are equipped with back buttons to return the user to the home page (for those who don't want to use the back button in the browser).
 
 ***
 
@@ -32,7 +32,9 @@
 ***
 
 ## Screenshots from Nerdy Nomad
-
+![Home Page](./assets/images/homePage.png)
+![Science Center Page](./assets/images/sciCenterPage.png)
+![User Profile Page showing expanded side nav bar](./assets/images/profilePageWithNav.png)
 ***
 
 ## Frontend Requirements
@@ -67,11 +69,12 @@
 ***
 
 ## Post-MVP Additions
-- [] Implement external API (MapBox) to show users the nearest science center to them
+- Implement external API (MapBox) to show users the nearest science center to them
+- See Trello Board for full list!
 
 ***
 
 ## Credits
 - `LucidChart`: [CHD & ERD](https://lucid.app/)
-- `Canva`: [Graphic Design for Logo](https://www.canva.com/)
-- `React Rainbow`: [Graphic Design and More](https://react-rainbow.io/)
+- `Canva`: [Graphic Design for Logos, Default Images, and Rating Images](https://www.canva.com/)
+- `React Rainbow`: [Mostly for Forms - but NOT Ratings - just for Hunter](https://react-rainbow.io/)
