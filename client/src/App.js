@@ -13,6 +13,7 @@ import SciCenter from './pages/SciCenter'
 import PostSciCenter from './pages/PostSciCenter'
 import SearchByState from './pages/SearchByState'
 import SearchResults from './pages/SearchResults'
+import About from './pages/About'
 
 function App() {
   //////////////////////// STATE ////////////////////////
@@ -233,6 +234,12 @@ function App() {
               userID={userID}
               unitedStates={unitedStates}
             />
+          )}
+        />
+        <Route 
+          path="/about-nerdy-nomad"
+          render={(props) => (
+            <About {...props} history={history} />
           )}
         />
       </Switch>

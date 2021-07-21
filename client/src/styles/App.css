@@ -417,7 +417,7 @@ button:hover {
 .comments {
   margin: .5em;
   min-height: 10vh;
-  max-height: 20vh;
+  max-height: 30vh;
   overflow: scroll;
   border-style: inset;
   border-width: 1px;
@@ -608,6 +608,64 @@ button:hover {
 }
 
 .post-sci-center button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.233);
+  font-weight: bolder;
+}
+
+/**************************************************************************************************************************************************/
+/******************************************************************* ABOUT PAGE *******************************************************************/
+/**************************************************************************************************************************************************/
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0 10em 0;
+  width: 90vw;
+  font-family: 'Encode Sans SC', sans-serif;
+  text-shadow: 1px 1px 2px black;
+}
+
+.about-paragraphs {
+  text-align: left;
+  width: 70%;
+  padding: 1em;
+  margin: 0 0 0 13%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.15em;
+  text-shadow: .5px .5px 2px black;
+}
+
+.about-paragraphs h3 {
+  text-align: center;
+  font-family: 'Encode Sans SC', sans-serif;
+  text-shadow: 1px 1px 2px black;
+  margin: 0 0 1em 0;
+}
+
+.about-paragraphs a {
+  text-decoration: none;
+  color: gold;
+} 
+
+.about-paragraphs a:hover {
+  color: rgb(33, 50, 207);
+  font-weight: bold;
+  font-size: large;
+  text-shadow: 1px 1px 5px gold;
+}
+
+.about button {
+  cursor: pointer;
+  background-color: white; 
+  margin: 1em;
+  color: black;
+  border-radius: 25px;
+  font-family: 'Encode Sans SC', sans-serif;
+}
+
+.about button:hover {
   cursor: pointer;
   color: white;
   background-color: rgba(0, 0, 0, 0.233);

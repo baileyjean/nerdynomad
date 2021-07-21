@@ -292,9 +292,9 @@ const SciCenter = (props) => {
             <div>
               <h4>Tax the Collective Intelligence:</h4>
               {comments.map((comment, index) => (
-                <div className="comment">
+                <div className="comment" key={index}>
                   <CommentCard
-                    key={`${comment.user_id} ${index}`}
+                    key={index}
                     index={index}
                     post={comment.post}
                     user_id={comment.user_id}
