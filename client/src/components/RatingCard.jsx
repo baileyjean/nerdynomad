@@ -7,6 +7,8 @@ import twoStars from '../styles/images/twoStars.png'
 import threeStars from '../styles/images/threeStars.png'
 import fourStars from '../styles/images/fourStars.png'
 import fiveStars from '../styles/images/fiveStars.png'
+import singleStar from '../styles/images/singleStar.png'
+import singleGoldStar from '../styles/images/singleGoldStar.png'
 import {
   Notification,
   RenderIf
@@ -32,6 +34,33 @@ const RatingCard = (props) => {
 
   const handleClick = (int) => {
     setNewRating(int)
+    switch (int) {
+      case 1:
+        document.getElementById("star1").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        break;
+      case 2:
+        document.getElementById("star1").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star2").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        break;
+      case 3:
+        document.getElementById("star1").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star2").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star3").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        break;
+      case 4:
+        document.getElementById("star1").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star2").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star3").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star4").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        break;
+      case 5:
+        document.getElementById("star1").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star2").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star3").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star4").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        document.getElementById("star5").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
+        break;
+    }
   }
 
   const displayRating = () => {
@@ -81,12 +110,12 @@ const RatingCard = (props) => {
         <br />
       </div>
       {!alreadyRated ?
-        <div>
-          <span onClick={() => handleClick(1)}>&#128300;</span>
-          <span onClick={() => handleClick(2)}>&#128300;</span>
-          <span onClick={() => handleClick(3)}>&#128300;</span>
-          <span onClick={() => handleClick(4)}>&#128300;</span>
-          <span onClick={() => handleClick(5)}>&#128300;</span>
+        <div className="select-ratings">
+          <span id="star1" onClick={() => handleClick(1)}><img src={singleStar} /></span>
+          <span id="star2" onClick={() => handleClick(2)}><img src={singleStar} /></span>
+          <span id="star3" onClick={() => handleClick(3)}><img src={singleStar} /></span>
+          <span id="star4" onClick={() => handleClick(4)}><img src={singleStar} /></span>
+          <span id="star5" onClick={() => handleClick(5)}><img src={singleStar} /></span>
           <br />
           <button onClick={handleSubmit}>Submit Rating</button>
         </div>

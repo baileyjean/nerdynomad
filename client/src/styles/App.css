@@ -448,6 +448,67 @@ button:hover {
 /******************************************************************************/
 /********************************** RATINGS ***********************************/
 /******************************************************************************/
+#star1 img {
+  width: 3em;
+  height: auto;
+  box-shadow: none;
+}
+
+#star2 img {
+  width: 3em;
+  height: auto;
+  box-shadow: none;
+}
+
+#star3 img {
+  width: 3em;
+  height: auto;
+  box-shadow: none;
+}
+
+#star4 img {
+  width: 3em;
+  height: auto;
+  box-shadow: none;
+}
+
+#star5 img {
+  width: 3em;
+  height: auto;
+  box-shadow: none;
+}
+
+#star1 img:hover {
+  width: 5em;
+  height: auto;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#star2 img:hover {
+  width: 5em;
+  height: auto;
+  box-shadow: none;
+}
+
+#star3 img:hover {
+  width: 5em;
+  height: auto;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+#star4 img:hover {
+  width: 5em;
+  height: auto;
+  box-shadow: none;
+}
+
+#star5 img:hover {
+  width: 5em;
+  height: auto;
+  box-shadow: none;
+}
 
 /******************************************************************************/
 /******************************** PROFILE PAGE ********************************/
