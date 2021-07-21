@@ -1,6 +1,12 @@
 import { React, useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import zeroStars from '../styles/images/zeroStars.png'
+import oneStars from '../styles/images/oneStars.png'
+import twoStars from '../styles/images/twoStars.png'
+import threeStars from '../styles/images/threeStars.png'
+import fourStars from '../styles/images/fourStars.png'
+import fiveStars from '../styles/images/fiveStars.png'
 import {
   Notification,
   RenderIf
@@ -28,6 +34,23 @@ const RatingCard = (props) => {
     setNewRating(int)
   }
 
+  const displayRating = () => {
+    switch (avgRating) {
+      case 1:
+        return <img src={oneStars} alt="One star rating" style={{ width: '10em', height: 'auto', boxShadow: 'none' }} />
+      case 2:
+        return <img src={twoStars} alt="Two star rating" style={{ width: '10em', height: 'auto', boxShadow: 'none' }} />
+      case 3:
+        return <img src={threeStars} alt="Three star rating" style={{ width: '10em', height: 'auto', boxShadow: 'none' }} />
+      case 4:
+        return <img src={fourStars} alt="Four star rating" style={{ width: '10em', height: 'auto', boxShadow: 'none' }} />
+      case 5:
+        return <img src={fiveStars} alt="Five star rating" style={{ width: '10em', height: 'auto', boxShadow: 'none' }} />
+      default:
+        return <img src={zeroStars} alt="Zero ratings" style={{ width: '10em', height: 'auto', boxShadow: 'none' }} />
+    }
+  }
+
   //////////////////////// ON-LOAD ////////////////////////
   useEffect(() => {
     const averageRating = () => {
@@ -39,7 +62,7 @@ const RatingCard = (props) => {
         }
       })
       if (ratings.length) {
-        setAvgRating(ratingTotal / ratings.length)
+        setAvgRating(Math.ceil(ratingTotal / ratings.length))
       } else {
         setAvgRating(parseInt(0))
       }
@@ -51,11 +74,11 @@ const RatingCard = (props) => {
   return (
     <div>
       <div style={{ display: `${avgRating !== 0 ? 'flex' : 'none'}` }}>
-        <h4>RATING:</h4><p> &#128300; {avgRating}/5 ({ratings.length} ratings)</p>
+        <div>
+          {displayRating()}
+          <p>{ratings.length} ratings</p>
+        </div>
         <br />
-      </div>
-      <div style={{ display: `${avgRating === 0 ? 'flex' : 'none'}` }}>
-        <h5>Be the first to rate this science center:</h5>
       </div>
       {!alreadyRated ?
         <div>

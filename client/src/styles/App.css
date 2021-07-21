@@ -364,6 +364,18 @@ button:hover {
   padding: .5em;
 }
 
+.left-container a {
+  text-decoration: none;
+  color: gold;
+}
+
+.left-container a:hover {
+  color: rgb(33, 50, 207);
+  font-weight: bold;
+  font-size: large;
+  text-shadow: 1px 1px 5px gold;
+}
+
 .about-div {
   border-style: inset;
   border-width: 1px;

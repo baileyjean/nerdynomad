@@ -159,6 +159,10 @@ const SciCenter = (props) => {
     getSciCenterInfo();
   }, [])
 
+  // console.log(typeof sciCenterComplete.Comments)
+  // console.log(sciCenterComplete.Comments)
+  // console.log((sciCenterComplete.Comments).length)
+
   //////////////////////// FRONT-END RETURN ////////////////////////
   if (editing) {
     return (
@@ -251,17 +255,17 @@ const SciCenter = (props) => {
         Nerdy Nomad
       </header>
       <h1>{sciCenterComplete.name}</h1>
-      <div className="rating-container">
-        <RatingCard 
-          id={id}
-          userID={userID} 
-          ratings={ratings}
-        />
-      </div>
       <div className="sciCenter-details">
         <div className="left-container">
+          <div className="rating-container">
+            <RatingCard 
+              id={id}
+              userID={userID} 
+              ratings={ratings}
+            />
+          </div>
           <p>Price Range: {sciCenterComplete.priceRange}</p>
-          <p>{sciCenterComplete.website}</p>
+          <a href={sciCenterComplete.website} target="_blank">{sciCenterComplete.name}'s Website</a>
           <p>{sciCenterComplete.street}, {sciCenterComplete.city}, {sciCenterComplete.state}, {sciCenterComplete.zip}</p>
           {sciCenterComplete.description ?
             <div className="about-div">
@@ -288,11 +292,7 @@ const SciCenter = (props) => {
 
       <div className="comment-container"> 
         <div className="comments">
-          {(sciCenterComplete.Comments.length == 0) ?
-              <div>
-                <p>Be the First to Comment!</p>
-              </div>
-          : 
+          {sciCenterComplete.Comments && sciCenterComplete.Comments.length ?
             <div>
               {comments.map((comment, index) => (
                 <div className="comment">
@@ -309,6 +309,10 @@ const SciCenter = (props) => {
                   />
                 </div>
               ))}
+            </div>
+          : 
+            <div>
+              <p>Be the First to Comment!</p>
             </div>
           } 
         </div>
