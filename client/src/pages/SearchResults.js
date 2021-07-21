@@ -11,6 +11,7 @@ const SearchResults = (props) => {
       <header>
         Nerdy Nomad
       </header>
+      <button onClick={() => window.location.assign(`/`)}>Back</button>
       <div className="sciCenters">
       {queriedSciCenters.map((sciCenter) => (
         <SciCenterCard

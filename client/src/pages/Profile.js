@@ -104,7 +104,10 @@ const ProfilePage = (props) => {
       <div className="profile">
         <header>Nerdy Nomad</header>
         <h2>{user.username}</h2>
-        <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
+        {user.image ?
+          <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
+          : <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={userDefault} alt="default image displays when there are no photos" />
+        }
         <Input
           type="url"
           label="Profile Picture"

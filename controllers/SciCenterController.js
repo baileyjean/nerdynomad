@@ -12,7 +12,10 @@ const AddSciCenter = async (req, res) => {
 
 const GetAllSciCenters = async (req, res) => {
   try {
-    const sciCenters = await SciCenter.findAll()
+    const sciCenters = await SciCenter.findAll({
+      order:
+        ['state']
+      })
     res.send(sciCenters)
   } catch (error) {
     throw error
