@@ -106,7 +106,7 @@ const ProfilePage = (props) => {
         <h2>{user.username}</h2>
         {user.image ?
           <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
-          : <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={userDefault} alt="default image displays when there are no photos" />
+          : <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={userDefault} alt="default for the lazy user" />
         }
         <Input
           type="url"
@@ -178,7 +178,7 @@ const ProfilePage = (props) => {
       <div>
         {user.image ?
           <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={user.image} alt={user.name} />
-          : <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={userDefault} alt="default image displays when there are no photos" />
+          : <img style={{ width: '20em', boxShadow: "0.5px 1px 5px black" }} src={userDefault} alt="default for the lazy user... cooler than the usual default tho" />
         }
       </div>
       <div className="badge-container">

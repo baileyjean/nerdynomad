@@ -60,6 +60,8 @@ const RatingCard = (props) => {
         document.getElementById("star4").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
         document.getElementById("star5").innerHTML = `<img src=${singleGoldStar} alt="" style={{ width: '5em', height: 'auto', boxShadow: 'none' }} />`
         break;
+      default:
+        break;
     }
   }
 
@@ -111,11 +113,11 @@ const RatingCard = (props) => {
       </div>
       {!alreadyRated && userID ?
         <div className="select-ratings">
-          <span id="star1" onClick={() => handleClick(1)}><img src={singleStar} /></span>
-          <span id="star2" onClick={() => handleClick(2)}><img src={singleStar} /></span>
-          <span id="star3" onClick={() => handleClick(3)}><img src={singleStar} /></span>
-          <span id="star4" onClick={() => handleClick(4)}><img src={singleStar} /></span>
-          <span id="star5" onClick={() => handleClick(5)}><img src={singleStar} /></span>
+          <span id="star1" onClick={() => handleClick(1)}><img src={singleStar} alt="rate one star" /></span>
+          <span id="star2" onClick={() => handleClick(2)}><img src={singleStar} alt="rate two star" /></span>
+          <span id="star3" onClick={() => handleClick(3)}><img src={singleStar} alt="rate three star" /></span>
+          <span id="star4" onClick={() => handleClick(4)}><img src={singleStar} alt="rate four star" /></span>
+          <span id="star5" onClick={() => handleClick(5)}><img src={singleStar} alt="rate five star" /></span>
           <br />
           <button onClick={handleSubmit}>Submit Rating</button>
         </div>

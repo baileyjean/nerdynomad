@@ -261,7 +261,7 @@ const SciCenter = (props) => {
             />
           </div>
           <p>Price Range: {sciCenterComplete.priceRange}</p>
-          <a href={sciCenterComplete.website} target="_blank">{sciCenterComplete.name}'s Website</a>
+          <a href={sciCenterComplete.website} target="_blank" rel="noreferrer">{sciCenterComplete.name}'s Website</a>
           <p>{sciCenterComplete.street}, {sciCenterComplete.city}, {sciCenterComplete.state}, {sciCenterComplete.zip}</p>
           {sciCenterComplete.description ?
             <div className="about-div">
@@ -280,8 +280,8 @@ const SciCenter = (props) => {
         </div>
         <div className="right-container">
           {sciCenterComplete.image ?
-            <img src={sciCenterComplete.image} />
-            : <img src="https://i.imgur.com/pmSlYJ6.png" alt="default image displays when there are no photos" />
+            <img src={sciCenterComplete.image} alt="" />
+            : <img src="https://i.imgur.com/pmSlYJ6.png" alt="Cute ass Albert Einstein guy" />
           }
         </div>
       </div>
