@@ -88,90 +88,93 @@ const PostSciCenter = (props) => {
   //////////////////////// FRONT-END RETURN ////////////////////////
   return (
     <div className="post-sci-center">
-    <h3>ADD A NEW SCIENCE CENTER</h3>
-    <Input
-      label="Science Center Name?"
-      rows={1}
-      name={'name'}
-      value={newSciCenter.name}
-      onChange={handleNameChange}
-      maxLength={255}
-      placeholder="Science Center Name"
-      required={true}
-    />
-    <h3>NAVIGATION DETAILS</h3>
-    <Input
-      label="Street Address?"
-      maxLength={155}
-      name={'street'}
-      value={newSciCenter.street}
-      onChange={handleStreetChange}
-      placeholder="Street Address"
-    />
-    <Input
-      label="City?"
-      maxLength={155}
-      name={'city'}
-      value={newSciCenter.city}
-      onChange={handleCityChange}
-      placeholder="City"
-      required={true}
-    />
-    <Select
-      label="State?"
-      options={stateOptions}
-      onChange={handleStateChange}
-      required={true}
-    />
-    <Input
-      label="Zip Code?"
-      maxLength={5}
-      name={'zip'}
-      value={newSciCenter.zip}
-      onChange={handleZipChange}
-      placeholder="Zip Code"
-      required={true}
-    />
-    
-    <h3>NERDY DETAILS</h3>
-    <Input
-      type="url"
-      label="Photo?"
-      rows={1}
-      name={'image'}
-      value={newSciCenter.image}
-      onChange={handleImageChange}
-      maxLength={255}
-      placeholder="Link to an Image of this science center"
-    />
-    <Select
-      label="Price Range?"
-      options={priceRangeOptions}
-      onChange={handlePriceRangeChange}
-      required={true}
-    />
-    <Input
-      type="url"
-      label="Website?"
-      rows={1}
-      name={'website'}
-      value={newSciCenter.website}
-      onChange={handleWebsiteChange}
-      maxLength={255}
-      placeholder="Link to this science center's website"
-    />
-    <Textarea
-      label="Description?"
-      rows={4}
-      name={'description'}
-      value={newSciCenter.description}
-      onChange={handleDescriptionChange}
-      maxLength={1000}
-      placeholder="Give us the highlights of this science center!"
-    />
-    <Button label="Submit" variant="border" onClick={submitNewSciCenter} />
-    <Button label="Cancel" variant="border" onClick={() => window.location.assign(`/`)} />
-    <RenderIf isTrue={posted}>
+      <header>
+        Nerdy Nomad
+      </header>
+      <h3>ADD A NEW SCIENCE CENTER</h3>
+      <Input
+        label="Science Center Name?"
+        rows={1}
+        name={'name'}
+        value={newSciCenter.name}
+        onChange={handleNameChange}
+        maxLength={255}
+        placeholder="Science Center Name"
+        required={true}
+      />
+      <h3>NAVIGATION DETAILS</h3>
+      <Input
+        label="Street Address?"
+        maxLength={155}
+        name={'street'}
+        value={newSciCenter.street}
+        onChange={handleStreetChange}
+        placeholder="Street Address"
+      />
+      <Input
+        label="City?"
+        maxLength={155}
+        name={'city'}
+        value={newSciCenter.city}
+        onChange={handleCityChange}
+        placeholder="City"
+        required={true}
+      />
+      <Select
+        label="State?"
+        options={stateOptions}
+        onChange={handleStateChange}
+        required={true}
+      />
+      <Input
+        label="Zip Code?"
+        maxLength={5}
+        name={'zip'}
+        value={newSciCenter.zip}
+        onChange={handleZipChange}
+        placeholder="Zip Code"
+        required={true}
+      />
+      
+      <h3>NERDY DETAILS</h3>
+      <Input
+        type="url"
+        label="Photo?"
+        rows={1}
+        name={'image'}
+        value={newSciCenter.image}
+        onChange={handleImageChange}
+        maxLength={255}
+        placeholder="Image Link"
+      />
+      <Select
+        label="Price Range?"
+        options={priceRangeOptions}
+        onChange={handlePriceRangeChange}
+        required={true}
+      />
+      <Input
+        type="url"
+        label="Website?"
+        rows={1}
+        name={'website'}
+        value={newSciCenter.website}
+        onChange={handleWebsiteChange}
+        maxLength={255}
+        placeholder="Website Link"
+      />
+      <Textarea
+        label="Description?"
+        rows={4}
+        name={'description'}
+        value={newSciCenter.description}
+        onChange={handleDescriptionChange}
+        maxLength={1000}
+        placeholder="Tell us more about it!"
+      />
+      <Button label="Submit" variant="border" onClick={submitNewSciCenter} />
+      <Button label="Cancel" variant="border" onClick={() => window.location.assign(`/`)} />
+      <RenderIf isTrue={posted}>
       <div>
         <Notification
           title="Success!! Thank you for adding another science center to our database!"
@@ -182,9 +185,9 @@ const PostSciCenter = (props) => {
           icon="success"
         />
       </div>
-    </RenderIf>
-  </div>
-  )
-}
+      </RenderIf>
+    </div>
+    )
+  }
 
 export default PostSciCenter;

@@ -25,6 +25,7 @@ const BrowseResults = (props) => {
       <header>
         Nerdy Nomad
       </header>
+      <button onClick={() => window.location.assign(`/`)}>Back</button>
       <div className="sciCenters">
         {sciCenters.map((sciCenter) => (
           <SciCenterCard
@@ -44,6 +45,7 @@ const BrowseResults = (props) => {
           />
         ))}
       </div>
+      <button onClick={() => window.location.assign(`/`)}>Back</button>
     </div>
   )
 }

@@ -201,13 +201,13 @@ const ProfilePage = (props) => {
       </div>
       <div>
         <p>Name: {user.name}</p>
-        <p>Location: {user.location}</p>
         <p>{user.name}'s Bio: {user.bio}</p>
       </div>
       <div>
         <button onClick={editProfile} id="editBtn">Edit Profile</button>
         <button onClick={() => handleDelete(user.id)} id="deleteBtn">Delete Profile</button>
       </div>
+      <button onClick={() => window.location.assign(`/`)}>Back</button>
     </div>
   )
 }
