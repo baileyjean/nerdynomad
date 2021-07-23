@@ -31,7 +31,7 @@ const About = (props) => {
         </p>
         <br />
         <p>
-          Special care was taken to add the smaller, non-profit science centers as the database was being built-out. Support for these little fellas has always been lacking, so Nerdy Nomad is here to show them some love! The ultimate hope for Nerdy Nomad is that YOU will use it and contribute to it as much as I have, helping build the most comprehensive, crowd-sourced collection of science centers and museums in the U.S.!
+        The ultimate hope for Nerdy Nomad is that YOU will use it and contribute to it as much as I have, helping build the most comprehensive, crowd-sourced collection of science centers and museums in the U.S.! Special care was taken to add the smaller, non-profit science centers as the database was being built-out. Support for these little fellas has always been lacking, so Nerdy Nomad is here to show them some love!
         </p>
         <br />
         <p>
@@ -49,10 +49,10 @@ const About = (props) => {
       </div>
       <h2>Behind the Scenes</h2>
       <div className="about-paragraphs">
-        <p>My name is Bailey Leavitt, and I created Nerdy Nomad! I have a Nerd Rating of 5, and a Nomad Rating of 10. As of 2021, I've travelled to 42 states, I've been to science centers in 7, and I worked in a few research labs throughout the country. Most of the travelling I've done has been on the road, and I'm excited to implement some mapping and navigation features into Nerdy Nomad next... that way all of us can take it on our roadtrips and make stops at science centers along the way!</p>
+        <p>My name is Bailey Leavitt, and I created Nerdy Nomad! I have a Nerd Rating of 5, and a Nomad Rating of 9. As of 2021, I've travelled to 42 states, I've been to science centers in 7, and I worked in a few research labs throughout the country. Most of the travelling I've done has been on the road, and I'm excited to implement some mapping and navigation features into Nerdy Nomad next... that way all of us can take it on our roadtrips and make stops at science centers along the way!</p>
         <br />
         <p>
-          Nerdy Nomad was created as my capstone project for <a href="https://generalassemb.ly/education/software-engineering-immersive-remote" target="_blank" rel="noreferrer">General Assembly's Software Engineering Immersive bootcamp</a>. For any tech nerds and fellow devs out there, I used the PERN stack (PostgreSQL / Express / React / NodeJS). For all you non-technical nerds: everything from the database which houses all the data accessible through the site (science center data, user profiles, comments, and ratings) to the exact webpage you're interacting with now (referred to as the backend and frontend, respectively) was written by me, from the ground-up (with support from the amazing General Assembly team and my fellow students, of course).
+          Nerdy Nomad was created as my capstone project for <a href="https://generalassemb.ly/education/software-engineering-immersive-remote" target="_blank" rel="noreferrer">General Assembly's Software Engineering Immersive bootcamp</a>. For any tech nerds and fellow devs out there, I used the PERN stack (PostgreSQL / Express / React / NodeJS). For all you non-technical nerds: everything from the database which houses all the data accessible through the site (science center data, user profiles, comments, and ratings) to the exact webpage you're interacting with now (referred to as the backend and frontend, respectively) was written by me, from the ground-up (with some support from the amazing General Assembly team and my fellow students, of course).
         </p>
         <br />
         <p>
@@ -60,11 +60,11 @@ const About = (props) => {
         </p>
         <br />
         <p>
-          Check out my <a href="https://github.com/baileyjean/nerdynomad" target="_blank" rel="noreferrer">GitHub</a> to see the code base for Nerdy Nomad.
+          Check out my <a href="https://github.com/baileyjean/nerdynomad" target="_blank" rel="noreferrer">GitHub repo</a> to see the code base for Nerdy Nomad.
         </p>
         <br />
         <p>
-          Check out my <a href="https://trello.com/b/WNPlxFUJ/nerdy-nomad" target="_blank" rel="noreferrer">Trello Board</a> to see my project management skills (and to see what it looks like to build a fullstack app in 10 days!)
+          Check out the <a href="https://trello.com/b/WNPlxFUJ/nerdy-nomad" target="_blank" rel="noreferrer">Trello Board</a> for Nerdy Nomad to see my project management skills (and to see what it looks like to build a fullstack app in 10 days!)
         </p>
       </div>
       <div>

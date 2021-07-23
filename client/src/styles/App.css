@@ -148,6 +148,29 @@ button:hover {
   font-weight: bolder;
 }
 
+@media screen and (max-width: 500px) {
+  .login {display: flex;}
+  .login {flex-wrap: wrap;}
+  .login {width: 100%;}
+  .login header {margin-bottom: 50px;}
+  .login header {font-family: 'Poiret One', cursive;}
+  .login input {width: 100%;}
+  .login input {margin: 2px;}
+  .login button {width: 50%;}
+  .login button {background-color: white;}
+  .login img {width: 50%;}
+  .signup {display: flex;}
+  .signup {flex-wrap: wrap;}
+  .signup {width: 100%;}
+  .signup header {margin-bottom: 50px;}
+  .signup header {font-family: 'Poiret One', cursive;}
+  .signup input {width: 100%;}
+  .signup input {margin: 2px;}
+  .signup button {width: 50%;}
+  .signup button {background-color: white;}
+  .signup img {width: 50%;}
+}
+
 /**************************************************************************************************************************************************/
 /******************************************************************** HOME PAGE *******************************************************************/
 /**************************************************************************************************************************************************/
