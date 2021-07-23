@@ -20,19 +20,6 @@ html, body {
   text-align: center;
 }
 
-@media screen and (max-width: 500px) {
-  html, body {background-image: url("./images/nerdyNomadMobileBackground.png");}
-  html, body {background-repeat: no-repeat;}
-  html, body {background-attachment: scroll;}
-  html, body {background-size: cover;}
-  html, body {background-position: center;}
-  html, body {margin: 0px;}
-  html, body {padding: 0px;}
-  html, body {width: 100%;}
-  html, body {height: auto;}
-  html, body {font-family: Arial, Helvetica, sans-serif}
-}
-
 button {
   cursor: pointer;
   background-color: white; 
@@ -55,6 +42,24 @@ button:hover {
 
 #deleteBtn:hover {
   box-shadow: 0px 5px 10px red;
+}
+
+/**************************************************************************************************************************************************/
+/******************************************************************** MOBILE: App & Index *********************************************************/
+/**************************************************************************************************************************************************/
+@media screen and (max-width: 500px) {
+  html, body {
+    background-image: url("./images/nerdyNomadMobileBackground.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif
+  }
 }
 
 /**************************************************************************************************************************************************/
@@ -104,6 +109,9 @@ button:hover {
   height: auto;
 }
 
+/**************************************************************************************************************************************************/
+/******************************************************************** MOBILE: Nav Bar *************************************************************/
+/**************************************************************************************************************************************************/
 @media screen and (max-width: 500px) {
   .nav span {font-size: 18px;}
   .nav {height: 100%;}
@@ -148,27 +156,50 @@ button:hover {
   font-weight: bolder;
 }
 
+/**************************************************************************************************************************************************/
+/******************************************************************** MOBILE: Login/Signup ********************************************************/
+/**************************************************************************************************************************************************/
 @media screen and (max-width: 500px) {
-  .login {display: flex;}
-  .login {flex-wrap: wrap;}
-  .login {width: 100%;}
-  .login header {margin-bottom: 50px;}
-  .login header {font-family: 'Poiret One', cursive;}
-  .login input {width: 100%;}
-  .login input {margin: 2px;}
-  .login button {width: 50%;}
-  .login button {background-color: white;}
-  .login img {width: 50%;}
-  .signup {display: flex;}
-  .signup {flex-wrap: wrap;}
-  .signup {width: 100%;}
-  .signup header {margin-bottom: 50px;}
-  .signup header {font-family: 'Poiret One', cursive;}
-  .signup input {width: 100%;}
-  .signup input {margin: 2px;}
-  .signup button {width: 50%;}
-  .signup button {background-color: white;}
-  .signup img {width: 50%;}
+  .login {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .login header {
+    margin-bottom: 50px;
+    font-family: 'Poiret One', cursive;
+  }
+  .login input {
+    width: 100%;
+    margin: 2px;
+  }
+  .login button {
+    width: 50%;
+    background-color: white;
+  }
+  .login img {
+    width: 50%;
+  }
+  .signup {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .signup header {
+    margin-bottom: 50px;
+    font-family: 'Poiret One', cursive;
+  }
+  .signup input {
+    width: 100%;
+    margin: 2px;
+  }
+  .signup button {
+    width: 50%;
+    background-color: white;
+  }
+  .signup img {
+    width: 50%;
+  }
 }
 
 /**************************************************************************************************************************************************/
@@ -251,19 +282,66 @@ button:hover {
   border-radius: 20px;
 }
 
+/**************************************************************************************************************************************************/
+/******************************************************************** MOBILE: Home Page ***********************************************************/
+/**************************************************************************************************************************************************/
 @media screen and (max-width: 500px) {
-  .home {display: flex;}
-  .home {flex-wrap: wrap;}
-  .home {width: 100%;}
-  .home header {margin-bottom: 50px;}
-  .home header {font-family: 'Poiret One', cursive;}
-  .home input {width: 100%;}
-  .home input {margin: 2px;}
-  .home button {width: 50%;}
-  .home button {background-color: white;}
-  .state-list {margin: 0;}
-  .state-list {padding: 0;}
-  .state-list {display: inline-table;}
+  .home {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .home header {
+    margin-bottom: 2em;
+    font-family: 'Poiret One', cursive;
+  }
+  .home input {
+    width: 100%;
+    margin: 2px;
+  }
+  .home button {
+    width: 50%;
+    background-color: white;
+  }
+  .state-list {
+    margin: 0;
+    padding: 0;
+    display: inline-table;
+  }
+  .state-list p {
+    font-family: 'Encode Sans SC', sans-serif;
+  }
+}
+
+/***********************************************/
+/******* Adapting for Extra Smol Screens *******/
+/***********************************************/
+@media screen and (max-width: 360px) {
+  .home {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .home header {
+    margin-bottom: 1em;
+    font-family: 'Poiret One', cursive;
+  }
+  .home header {
+    font-size: 32px;
+  }
+  .home input {
+    width: 100%;
+    margin: 2px;
+  }
+  .home button {
+    width: 60%;
+    background-color: white;
+  }
+  .state-list {
+    margin: 0;
+    padding: 0;
+    display: inline-table;
+  }
   .state-list p {font-family: 'Encode Sans SC', sans-serif;}
 }
 
@@ -326,19 +404,40 @@ button:hover {
   margin: 0;
 }
 
+/**************************************************************************************************************************************************/
+/********************************************* MOBILE: Browse / Search By State / SciCenter Card **************************************************/
+/**************************************************************************************************************************************************/
 @media screen and (max-width: 500px) {
-  .sciCenter-container {background-image: url("./images/nerdyNomadMobileBackground.png");}
-  .sciCenter-container {background-repeat: no-repeat;}
-  .sciCenter-container {background-attachment: scroll;}
-  .sciCenter-container {background-size: cover;}
-  .sciCenter-container {background-position: center;}
-  .sciCenter-container {margin: 0px;}
-  .sciCenter-container {padding: 0px;}
-  .sciCenter-container {width: 100%;}
-  .sciCenter-container {height: auto;}
-  .sciCenter-container {font-family: Arial, Helvetica, sans-serif;}
-  .sciCenter-container {display: flex;}
-  .sciCenter-container {flex-wrap: no-wrap;}
+  .sciCenter-container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: no-wrap;
+  }
+  .sciCenter-container header {
+    margin-bottom: 2px;
+    padding: 2px 0 0 0;
+    font-family: 'Poiret One', cursive;
+    font-size: 32px;
+  }
+  .sciCenter-container button {
+    margin: 1em;
+    width: 20%
+  }
+  .scicenter-card img {
+    width: 7em; 
+    height: auto;
+  }
+  .scicenter-card p {
+    font-size: 10px;
+  }
+  
+  .scicenter-card h4 {
+    font-size: 11px;
+  }
 }
 
 /**************************************************************************************************************************************************/
@@ -422,6 +521,42 @@ button:hover {
   justify-content: flex-end;
   text-align: left;
   padding: .5em;
+}
+
+/**************************************************************************************************************************************************/
+/***************************************************** MOBILE: SciCenter Page *********************************************************************/
+/**************************************************************************************************************************************************/
+@media screen and (max-width: 500px) {
+  .sciCenter-container {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-wrap: no-wrap;
+  }
+  .sciCenter-container header {
+    margin-bottom: 2px;
+    padding: 2px 0 0 0;
+    font-family: 'Poiret One', cursive;
+    font-size: 32px;
+  }
+  .sciCenter-container button {
+    margin: 1em;
+    width: 20%
+  }
+  .scicenter-card img {
+    width: 7em; 
+    height: auto;
+  }
+  .scicenter-card p {
+    font-size: 10px;
+  }
+  
+  .scicenter-card h4 {
+    font-size: 11px;
+  }
 }
 
 /**************************************************************************************************************************************************/
