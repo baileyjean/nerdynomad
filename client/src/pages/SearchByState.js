@@ -45,6 +45,8 @@ const SearchByState = (props) => {
         />
       ))}
       </div>
+      <div className="screen-height-hack">
+      </div>
     </div>
   )
 }
