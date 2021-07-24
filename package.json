@@ -2,7 +2,7 @@
   "name": "nerdynomad",
   "description": "Resource app with info on science centers & museums in all 50 United States",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js",
