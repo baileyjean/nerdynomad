@@ -8,7 +8,6 @@
 
 ### Behind the Scenes of Fullstack App Development
 [Trello Board for Project](https://trello.com/b/WNPlxFUJ/nerdy-nomad)
-***
 
 ### Nerdy Nomad Deployment via Heroku
 [Nerdy Nomad](https://nerdy-nomad.herokuapp.com/)
