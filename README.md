@@ -10,6 +10,10 @@
 [Trello Board for Project](https://trello.com/b/WNPlxFUJ/nerdy-nomad)
 ***
 
+### Nerdy Nomad Deployment via Heroku
+[Nerdy Nomad](https://nerdy-nomad.herokuapp.com/)
+***
+
 ## Description
 **Nerdy Nomad** is a resource app helping Users connect with a science center in all 50 United States (and DC). Users can create profiles--secured by Authentication--then comment and rate science centers they have visited. Users get a Nerd Rating based on the number of science centers they've visited, and a Nomad Rating based on the number of states they've visited. If their Nerd and Nomad ratings are sufficiently high, Users can earn the *Nerdy Nomad* badge and display it on their profile!
 
